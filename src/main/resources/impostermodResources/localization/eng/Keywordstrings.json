@@ -1,0 +1,34 @@
+[
+  {
+    "PROPER_NAME": "TODO",
+    "NAMES": [
+      "todo",
+      "todos"
+    ],
+    "DESCRIPTION": "TODO: Make your own epic keywords"
+  },
+  {
+    "PROPER_NAME": "Sus",
+    "NAMES": [
+      "sus",
+      "sus"
+    ],
+    "DESCRIPTION": "Stuns target if Sus greater than or equal to target's total attack intent (consumes stacks of Sus equal to intent)."
+  },
+  {
+    "PROPER_NAME": "Vote(s)",
+    "NAMES": [
+      "vote",
+      "votes"
+    ],
+    "DESCRIPTION": "Increases attack damage and block.  Votes trigger when there are at least 10 Votes on the field: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
+  },
+  {
+    "PROPER_NAME": "Vent",
+    "NAMES": [
+      "vent",
+      "vents"
+    ],
+    "DESCRIPTION": "TODO: Vent not yet implemented"
+  }
+]

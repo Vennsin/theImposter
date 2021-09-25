@@ -1,0 +1,28 @@
+{
+
+  "impostermod:Sus": {
+    "NAME": "Sus",
+    "DESCRIPTIONS": [
+      "Stuns target if Sus greater than or equal to target's total attack intent (consumes stacks of Sus equal to intent)."
+    ]
+  },
+  "theImposter:Votes": {
+    "NAME": "Vote(s)",
+    "DESCRIPTIONS": [
+      "TODO: Vote(s) not yet implemented."
+    ]
+  },
+  "theImposter:Vent": {
+    "NAME": "Vent",
+    "DESCRIPTIONS": [
+      "TODO: Vent not yet implemented."
+    ]
+  },
+  "theImposter:": {
+    "NAME": "",
+    "DESCRIPTIONS": [
+      "",
+      ""
+    ]
+  }
+}
