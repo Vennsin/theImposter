@@ -27,6 +27,7 @@ import theImposter.cards.KillAndVent;
 import theImposter.cards.Laser;
 import theImposter.cards.Jab;
 import theImposter.cards.BuyBeverage;
+import theImposter.cards.DoubleKill;
 
 import theImposter.relics.SecondImposter;
 
@@ -89,9 +90,10 @@ public class TheImposter extends CustomPlayer {
 //        retVal.add(Babushka.ID);
         retVal.add(KillOnCams.ID);
         retVal.add(KillAndVent.ID);
-//        retVal.add(Laser.ID);
+        retVal.add(Laser.ID);
         retVal.add(Jab.ID);
         retVal.add(BuyBeverage.ID);
+        retVal.add(DoubleKill.ID);
         return retVal;
     }
 
@@ -142,8 +144,8 @@ public class TheImposter extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        System.out.println("YOU NEED TO SET getStartCardForEvent() in your " + getClass().getSimpleName() + " file!");
-        return null;
+//        System.out.println("YOU NEED TO SET getStartCardForEvent() in your " + getClass().getSimpleName() + " file!");
+        return new Backstab();
     }
 
     @Override
@@ -188,9 +190,9 @@ public class TheImposter extends CustomPlayer {
         //TODO: Change these.
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_IMPOSTER;
-        @SpireEnum(name = "IMPOSTER_RED")
+        @SpireEnum(name = "IMPOSTER_COLOR")
         public static AbstractCard.CardColor IMPOSTER_COLOR;
-        @SpireEnum(name = "IMPOSTER_RED")
+        @SpireEnum(name = "IMPOSTER_COLOR")
         @SuppressWarnings("unused")
         public static CardLibrary.LibraryType LIBRARY_COLOR;
     }

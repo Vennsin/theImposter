@@ -13,7 +13,7 @@
       "sus",
       "sus"
     ],
-    "DESCRIPTION": "Stuns target if Sus greater than or equal to target's total attack intent (consumes stacks of Sus equal to intent)."
+    "DESCRIPTION": "At start of turn, stun target if Sus greater than or equal to target's total attack intent (consumes all stacks of Sus)."
   },
   {
     "PROPER_NAME": "Vote(s)",

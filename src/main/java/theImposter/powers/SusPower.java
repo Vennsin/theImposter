@@ -50,11 +50,12 @@ public class SusPower extends AbstractPower {
         if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead() &&
                 ((AbstractMonster)this.owner).getIntentDmg() > 0 && this.amount >= ((AbstractMonster)this.owner).getIntentDmg()) {
             this.flash();
-            this.amount -=  ((AbstractMonster)this.owner).getIntentDmg();
-
-            if (this.amount <= 0) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-            }
+//            this.amount -=  ((AbstractMonster)this.owner).getIntentDmg();
+//
+//            if (this.amount <= 0) {
+//                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+//            }
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
 
             this.addToBot(new StunMonsterAction((AbstractMonster)this.owner, this.owner, 1));
         }
@@ -62,6 +63,6 @@ public class SusPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = "Stuns target if Sus greater than or equal to target's total attack intent (consumes stacks of Sus equal to intent).";
+        description = "At start of turn, stun target if Sus greater than or equal to target's total attack intent (consumes all stacks of Sus).";
     }
 }

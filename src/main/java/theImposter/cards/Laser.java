@@ -16,6 +16,7 @@ import com.megacrit.cardcrawl.vfx.combat.SweepingBeamEffect;
 import java.util.Iterator;
 
 import static theImposter.ImposterMod.makeID;
+import static theImposter.util.Wiz.atb;
 
 public class Laser extends AbstractEasyCard {
     public final static String ID = makeID("Laser");
@@ -40,7 +41,8 @@ public class Laser extends AbstractEasyCard {
 
         this.addToBot(new SFXAction("ATTACK_DEFECT_BEAM"));
         this.addToBot(new VFXAction(p, new SweepingBeamEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, AbstractDungeon.player.flipHorizontal), 0.4F));
-        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+//        this.addToBot(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        atb(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
 //        dmg(m, AbstractGameAction.AttackEffect.FIRE);
 
         this.addToBot(new GainEnergyAction(energyGain));

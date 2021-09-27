@@ -13,13 +13,13 @@ import theImposter.util.TexLoader;
 import static theImposter.ImposterMod.makeID;
 
 public class VentPower extends AbstractPower {
-    public VentPower(PowerType powerType, AbstractCreature owner, int amount) {
+    public VentPower(AbstractCreature owner, AbstractCreature source, int amount) {
         this.name = "Vent";
         this.ID = makeID(name.replaceAll("([ ])", ""));
 
         this.owner = owner;
         this.amount = amount;
-        this.type = powerType;
+        this.type = AbstractPower.PowerType.DEBUFF;
 
         Texture normalTexture = TexLoader.getTexture(ImposterMod.modID + "Resources/images/powers/" + name.replaceAll("([ ])", "") + "32.png");
         Texture hiDefImage = TexLoader.getTexture(ImposterMod.modID + "Resources/images/powers/" + name.replaceAll("([ ])", "") + "84.png");

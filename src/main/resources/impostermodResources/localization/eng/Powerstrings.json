@@ -3,13 +3,13 @@
   "impostermod:Sus": {
     "NAME": "Sus",
     "DESCRIPTIONS": [
-      "Stuns target if Sus greater than or equal to target's total attack intent (consumes stacks of Sus equal to intent)."
+      "At start of turn, stun target if Sus greater than or equal to target's total attack intent (consumes all stacks of Sus)."
     ]
   },
   "theImposter:Votes": {
     "NAME": "Vote(s)",
     "DESCRIPTIONS": [
-      "TODO: Vote(s) not yet implemented."
+      "Increases attack damage and block.  Votes trigger when there are at least 10 Votes on the field: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
     ]
   },
   "theImposter:Vent": {

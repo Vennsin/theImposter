@@ -92,5 +92,41 @@
   "${ModID}:BuyBeverage": {
     "NAME": "Buy Beverage",
     "DESCRIPTION": "Choose 1 of 3 random potions to obtain. NL Exhaust."
+  },
+  "${ModID}:OutTheAirlock": {
+    "NAME": "Out the Airlock",
+    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vent."
+  },
+  "${ModID}:DroppedIntoLavaCard": {
+    "NAME": "Dropped into Lava",
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote and !${ModID}:m2! ${ModID}:Sus."
+  },
+  "${ModID}:FallFromHQ": {
+    "NAME": "Fall from HQ",
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote."
+  },
+  "${ModID}:WalkThePlank": {
+    "NAME": "Walk the Plank",
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Votes."
+  },
+  "${ModID}:StackingBodies": {
+    "NAME": "Stacking Bodies",
+    "DESCRIPTION": "Deal !D! damage for each enemy with ${ModID}:Sus."
+  },
+  "${ModID}:KillAFKCrewmate": {
+    "NAME": "Kill afk Crewmate",
+    "DESCRIPTION": "Innate. Deal !D! damage.  Gain !M! ${ModID}:Vote."
+  },
+  "${ModID}:StackKill": {
+    "NAME": "Stack Kill",
+    "DESCRIPTION": "Deal !D! damage for each enemy in combat.  Apply 15 ${ModID}:Sus minus 1 per enemy.  Gain !${ModID}:m2! ${ModID}:Votes."
+  },
+  "${ModID}:KillInSeclusion": {
+    "NAME": "Kill in Seclusion",
+    "DESCRIPTION": "Deal !D! damage.  Remove all of your ${ModID}:Votes."
+  },
+  "${ModID}:KillInPlainSight": {
+    "NAME": "Kill in Plain Sight",
+    "DESCRIPTION": "Deal !D! damage.  Gain a random amount ${ModID}:Votes from 1 to 3."
   }
 }
