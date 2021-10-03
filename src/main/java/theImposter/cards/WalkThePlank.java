@@ -11,7 +11,7 @@ import static theImposter.ImposterMod.makeID;
 
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theImposter.powers.AbstractEasyPower;
-import theImposter.powers.VotePower;
+import theImposter.powers.VoteEnemyPower;
 
 public class WalkThePlank extends AbstractEasyCard {
     public final static String ID = makeID("WalkThePlank");
@@ -19,17 +19,18 @@ public class WalkThePlank extends AbstractEasyCard {
 
     public WalkThePlank() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 8;
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        this.addToBot(new ApplyPowerAction(m, p, new VotePower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
         upgradeDamage(3);
+        upgradeMagicNumber(1);
     }
 }

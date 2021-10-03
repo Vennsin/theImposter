@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.powers.VotePlayerPower;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -16,17 +17,18 @@ public class KillInSeclusion extends AbstractEasyCard {
 
     public KillInSeclusion() {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 16;
+        baseDamage = 18;
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        if (p.hasPower("impostermod:Vote(s)")) {
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, p.getPower("impostermod:Vote(s)")));
+        if (p.hasPower(VotePlayerPower.POWER_ID)) {
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(p, p, p.getPower(VotePlayerPower.POWER_ID)));
         }
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(7);
     }
 }

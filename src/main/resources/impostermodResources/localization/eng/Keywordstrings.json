@@ -13,7 +13,7 @@
       "sus",
       "sus"
     ],
-    "DESCRIPTION": "At start of turn, stun target if Sus greater than or equal to target's total attack intent (consumes all stacks of Sus)."
+    "DESCRIPTION": "At start of turn, stun target if: Sus greater than or equal to target's total attack intent OR enemy will not attack and Sus >= 20 (either way, consume all stacks of Sus)."
   },
   {
     "PROPER_NAME": "Vote(s)",
@@ -21,7 +21,7 @@
       "vote",
       "votes"
     ],
-    "DESCRIPTION": "Increases attack damage and block.  Votes trigger when there are at least 10 Votes on the field: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
+    "DESCRIPTION": "Increases attack damage (and block for the Imposter).  Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
   },
   {
     "PROPER_NAME": "Vent",
@@ -29,6 +29,6 @@
       "vent",
       "vents"
     ],
-    "DESCRIPTION": "TODO: Vent not yet implemented"
+    "DESCRIPTION": "For each unique buff and debuff among us, deal 2 damage to ALL enemies and gain 2 Block.  Remove all of your debuffs."
   }
 ]

@@ -5,7 +5,6 @@ import basemod.abstracts.CustomPlayer;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,15 +18,18 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
-import theImposter.cards.Backstab;
+//import theImposter.cards.Backstab;
+import theImposter.cards.Strike;
+import theImposter.cards.Defend;
 import theImposter.cards.CleanKill;
-import theImposter.cards.Babushka;
 import theImposter.cards.KillOnCams;
 import theImposter.cards.KillAndVent;
-import theImposter.cards.Laser;
+import theImposter.cards.LaserBeam;
 import theImposter.cards.Jab;
 import theImposter.cards.BuyBeverage;
 import theImposter.cards.DoubleKill;
+import theImposter.cards.KillInTheDark;
+import theImposter.cards.CardSwipe;
 
 import theImposter.relics.SecondImposter;
 
@@ -72,28 +74,32 @@ public class TheImposter extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                999, 999, 0, 99, 10, this, getStartingRelics(),
+                65, 65, 0, 99, 5, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-//        for (int i = 0; i < 4; i++) {
-//            retVal.add(Strike.ID);
-//        }
-//        for (int i = 0; i < 4; i++) {
-//            retVal.add(Defend.ID);
-//        }
-        retVal.add(Backstab.ID);
+        for (int i = 0; i < 4; i++) {
+            retVal.add(Strike.ID);
+        }
+        for (int i = 0; i < 4; i++) {
+            retVal.add(Defend.ID);
+        }
         retVal.add(CleanKill.ID);
-//        retVal.add(Babushka.ID);
-        retVal.add(KillOnCams.ID);
-        retVal.add(KillAndVent.ID);
-        retVal.add(Laser.ID);
-        retVal.add(Jab.ID);
-        retVal.add(BuyBeverage.ID);
-        retVal.add(DoubleKill.ID);
+
+//        retVal.add(Backstab.ID);
+//        retVal.add(CleanKill.ID);
+////        retVal.add(Babushka.ID);
+//        retVal.add(KillOnCams.ID);
+//        retVal.add(KillAndVent.ID);
+//        retVal.add(LaserBeam.ID);
+////        retVal.add(Jab.ID);
+//        retVal.add(BuyBeverage.ID);
+//        retVal.add(DoubleKill.ID);
+//        retVal.add(KillInTheDark.ID);
+//        retVal.add(CardSwipe.ID);
         return retVal;
     }
 
@@ -114,7 +120,7 @@ public class TheImposter extends CustomPlayer {
 
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return ImposterMod.makeID("KILL");
+        return ImposterMod.makeID("EMERGENCYMEETING");
     }
 
     @Override
@@ -145,7 +151,7 @@ public class TheImposter extends CustomPlayer {
     @Override
     public AbstractCard getStartCardForEvent() {
 //        System.out.println("YOU NEED TO SET getStartCardForEvent() in your " + getClass().getSimpleName() + " file!");
-        return new Backstab();
+        return new CleanKill();
     }
 
     @Override

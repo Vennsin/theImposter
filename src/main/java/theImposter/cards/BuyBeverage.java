@@ -1,15 +1,12 @@
 package theImposter.cards;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ObtainPotionAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import theImposter.actions.EasyModalChoiceAction;
-import theImposter.cards.AbstractEasyCard;
 
 import java.util.ArrayList;
 
@@ -24,9 +21,12 @@ public class BuyBeverage extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
         this.tags.add(CardTags.HEALING);
+        this.magicNumber = this.baseMagicNumber = 20;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        AbstractDungeon.player.loseGold(this.magicNumber);
+
         AbstractPotion pot1 = AbstractDungeon.returnRandomPotion(true);
         AbstractPotion pot2 = AbstractDungeon.returnRandomPotion(true);
         AbstractPotion pot3 = AbstractDungeon.returnRandomPotion(true);

@@ -11,7 +11,7 @@ import static theImposter.ImposterMod.makeID;
 
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theImposter.powers.AbstractEasyPower;
-import theImposter.powers.VotePower;
+import theImposter.powers.VotePlayerPower;
 
 public class KillAFKCrewmate extends AbstractEasyCard {
     public final static String ID = makeID("KillAFKCrewmate");
@@ -23,14 +23,15 @@ public class KillAFKCrewmate extends AbstractEasyCard {
         baseDamage = 6;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
-        this.addToBot(new ApplyPowerAction(m, p, new VotePower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(4);
     }
 }

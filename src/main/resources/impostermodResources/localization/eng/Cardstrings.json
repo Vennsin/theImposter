@@ -59,19 +59,20 @@
   },
   "${ModID}:KillOnCams": {
     "NAME": "Kill on Cams",
-    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote."
+    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Votes.  Draw a card."
   },
   "${ModID}:KillAndVent": {
     "NAME": "Kill and Vent",
-    "DESCRIPTION": "Deal !D! damage.  Gain !B! Block.  Apply !M! ${ModID}:Vent."
+    "DESCRIPTION": "Deal !D! damage.  Gain !B! Block.  ${ModID}:Vent."
   },
   "${ModID}:DoubleKill": {
     "NAME": "Double Kill",
-    "DESCRIPTION": "Deal !D! damage, then deal !D! damage to a random enemy."
+    "DESCRIPTION": "Deal !D! damage, then deal !D! damage to a random enemy. Gain !M! ${ModID}:Votes."
   },
   "${ModID}:NeckSnap": {
     "NAME": "Neck Snap",
-    "DESCRIPTION": "Deal !D! damage.  Apply 1 Weak per ${ModID}:Sus on the target."
+    "DESCRIPTION": "Deal !D! damage.  Apply 1 Weak per ${ModID}:Sus on the target. Gain !M! ${ModID}:Votes."
   },
   "${ModID}:Jab": {
     "NAME": "Jab",
@@ -83,50 +84,272 @@
   },
   "${ModID}:Skewer": {
     "NAME": "Skewer",
-    "DESCRIPTION": "Deal !D! damage (double damage if target is Weak)."
+    "DESCRIPTION": "Deal !D! for each stack of Weak on the target."
   },
-  "${ModID}:Laser": {
-    "NAME": "Laser",
-    "DESCRIPTION": "Deal !D! damage to all enemies.  Gain 1 energy for each target hit that has ${ModID}:Sus."
-  },
-  "${ModID}:BuyBeverage": {
-    "NAME": "Buy Beverage",
-    "DESCRIPTION": "Choose 1 of 3 random potions to obtain. NL Exhaust."
+  "${ModID}:LaserBeam": {
+    "NAME": "Laser Beam",
+    "DESCRIPTION": "Deal !D! damage to all enemies.  Gain [R] for each target hit that has ${ModID}:Sus."
   },
   "${ModID}:OutTheAirlock": {
     "NAME": "Out the Airlock",
-    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vent."
+    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote."
   },
   "${ModID}:DroppedIntoLavaCard": {
     "NAME": "Dropped into Lava",
-    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote and !${ModID}:m2! ${ModID}:Sus."
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote and !${ModID}:m2! ${ModID}:Sus.  Gain 4 ${ModID}:Votes"
   },
   "${ModID}:FallFromHQ": {
     "NAME": "Fall from HQ",
-    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote."
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Votes."
   },
   "${ModID}:WalkThePlank": {
     "NAME": "Walk the Plank",
     "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Votes."
   },
-  "${ModID}:StackingBodies": {
-    "NAME": "Stacking Bodies",
-    "DESCRIPTION": "Deal !D! damage for each enemy with ${ModID}:Sus."
+  "${ModID}:StackTheBodies": {
+    "NAME": "Stack the Bodies",
+    "DESCRIPTION": "Deal !D! damage.  Deal !D! damage again for each enemy with ${ModID}:Sus."
   },
   "${ModID}:KillAFKCrewmate": {
     "NAME": "Kill afk Crewmate",
-    "DESCRIPTION": "Innate. Deal !D! damage.  Gain !M! ${ModID}:Vote."
+    "DESCRIPTION": "Innate. NL Deal !D! damage.  Gain !M! ${ModID}:Vote. NL Exhaust."
   },
   "${ModID}:StackKill": {
     "NAME": "Stack Kill",
-    "DESCRIPTION": "Deal !D! damage for each enemy in combat.  Apply 15 ${ModID}:Sus minus 1 per enemy.  Gain !${ModID}:m2! ${ModID}:Votes."
+    "DESCRIPTION": "Deal !D! damage Y times and apply !M!-Y ${ModID}:Sus, where Y is the humber of enemies.  Gain !${ModID}:m2! ${ModID}:Votes."
   },
   "${ModID}:KillInSeclusion": {
     "NAME": "Kill in Seclusion",
-    "DESCRIPTION": "Deal !D! damage.  Remove all of your ${ModID}:Votes."
+    "DESCRIPTION": "Deal !D! damage.  Remove all of your ${ModID}:Votes. NL Exhaust"
   },
   "${ModID}:KillInPlainSight": {
     "NAME": "Kill in Plain Sight",
-    "DESCRIPTION": "Deal !D! damage.  Gain a random amount ${ModID}:Votes from 1 to 3."
+    "DESCRIPTION": "Deal !D! damage.  Gain a random amount ${ModID}:Votes from 1 to 3.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.  Gain a random amount ${ModID}:Votes from 2 to 3."
+  },
+  "${ModID}:DriveByKill": {
+    "NAME": "Drive By Kill",
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Sus to ALL enemies."
+  },
+  "${ModID}:HuntedDown": {
+    "NAME": "HuntedDown",
+    "DESCRIPTION": "Deal !D! damage.  Deal !D! damage again for each stack of ${ModID}:Sus on the target."
+  },
+  "${ModID}:KillAndRun": {
+    "NAME": "HuntedDown",
+    "DESCRIPTION": "Deal !D! damage.  Gain !B! Block.  Gain !M! ${ModID}:Votes."
+  },
+  "${ModID}:StealthKill": {
+    "NAME": "Stealth Kill",
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Votes to a random enemy."
+  },
+  "${ModID}:KillOnTheVent": {
+    "NAME": "Kill on the Vent",
+    "DESCRIPTION": "Deal !D! damage.  If Fatal, ${ModID}:Vent."
+  },
+  "${ModID}:SelfReport": {
+    "NAME": "Self Report",
+    "DESCRIPTION": "Deal !D! damage.  Trigger all ${ModID}:Votes. NL Exhaust."
+  },
+  "${ModID}:KillAtO2": {
+    "NAME": "Kill at O2",
+    "DESCRIPTION": "Play 1 Power from your draw pile.  Deal !D! damage for each Power played this combat.  Gain !M! ${ModID}:Votes. NL Exhaust.",
+    "EXTENDED_DESCRIPTION": [
+      " NL (TODO: print number of powers.)",
+      ""
+    ]
+  },
+  "${ModID}:KillAtReactor": {
+    "NAME": "Kill at Reactor",
+    "DESCRIPTION": "Deal !D! damage.  Draw X cards.  Gain [R] for each Power and Status card in your hand."
+  },
+  "${ModID}:KillDuringChaos": {
+    "NAME": "Kill During Chaos",
+    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote.  If the target has any ${ModID}:Votes, gain [R].  If the target has any ${ModID}:Sus, draw !M! card."
+  },
+  "${ModID}:KillInTheDark": {
+    "NAME": "Kill in the Dark",
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Sus, !M! ${ModID}:Vote, !M! Vulnerable, and !M! Weak to ALL enemies.  ${ModID}:Vent."
+  },
+  "${ModID}:CardSwipe": {
+    "NAME": "Card Swipe",
+    "DESCRIPTION": "Ethereal.  Discard up to !M! card.  Gain 20 Gold for each card discarded.",
+    "UPGRADE_DESCRIPTION": "Ethereal.  Discard up to !M! cards.  Gain 20 Gold for each card discarded."
+  },
+  "${ModID}:ChartCourse": {
+    "NAME": "Chart Course",
+    "DESCRIPTION": "Remove all Block from the enemy.  Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Remove all Block from the enemy.  Gain !B! Block.  Apply !M! ${ModID}:Sus."
+  },
+  "${ModID}:CheckSecurity": {
+    "NAME": "Check Security",
+    "DESCRIPTION": "Gain !B! Block.  Draw !M! card.  If it is a Skill, ${ModID}:Vent"
+  },
+  "${ModID}:CheckVitals": {
+    "NAME": "Check Vitals",
+    "DESCRIPTION": "If you have Vulnerable, apply !M! Vulnerable to ALL enemies.  If you have Weak, apply !M! Weak to ALL enemies."
+  },
+  "${ModID}:ClearAsteroids": {
+    "NAME": "Clear Asteroids",
+    "DESCRIPTION": "Gain !B! Block.  Draw an Attack card.  Gain !${ModID}:m2! ${ModID}:Vote."
+  },
+  "${ModID}:EmptyChute": {
+    "NAME": "Empty Chute",
+    "DESCRIPTION": "Discard up to !M! cards.  Gain !B! Block for each card discarded.  Gain !${ModID}:m2! ${ModID}:Vote."
+  },
+  "${ModID}:EmptyGarbage": {
+    "NAME": "Empty Garbage",
+    "DESCRIPTION": "Draw !M! card and discard !M! card.  Gain !${ModID}:m2! ${ModID}:Vote.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards and discard !M! cards.  Gain !${ModID}:m2! ${ModID}:Vote."
+  },
+  "${ModID}:EnterIDCode": {
+    "NAME": "Enter ID Code",
+    "DESCRIPTION": "Gain a random amount of Block from 0 to 9 each enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain a random amount of Block from 0 to 9 each enemy. NL Exhaust."
+  },
+  "${ModID}:InspectSamples": {
+    "NAME": "InspectSamples",
+    "DESCRIPTION": "Gain !B! Block.  Gain !M! Vigor."
+  },
+  "${ModID}:MakeBurger": {
+    "NAME": "MakeBurger",
+    "DESCRIPTION": "Gain !M! Regen.  Exhaust"
+  },
+  "${ModID}:RebootWiFi": {
+    "NAME": "Reboot Wi-Fi",
+    "DESCRIPTION": "Gain !B! Block.  Next turn, draw !M! additional card."
+  },
+  "${ModID}:RewindTapes": {
+    "NAME": "Rewind Tapes",
+    "DESCRIPTION": "Put !M! cards from your discard pile into your hand.",
+    "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand.  Gain Block equal to the number of cards in your discard pile."
+  },
+  "${ModID}:StabilizeSteering": {
+    "NAME": "Stabilize Steering",
+    "DESCRIPTION": "Gain !M! Dexterity.  At the end of your turn, lose !M! Dexterity."
+  },
+  "${ModID}:UnlockManifolds": {
+    "NAME": "Unlock Manifolds",
+    "DESCRIPTION": "Gain a random amount of Block from 6 to 9 each enemy.",
+    "UPGRADE_DESCRIPTION": "Gain a random amount of Block from 9 to 12q each enemy."
+  },
+  "${ModID}:AlignEngineOutput": {
+    "NAME": "Align Engine Output",
+    "DESCRIPTION": "If you discarded a card this turn, gain [R][R]."
+  },
+  "${ModID}:CheckSensorLogs": {
+    "NAME": "Check Sensor Logs",
+    "DESCRIPTION": "Apply !M! ${ModID}:Votes and !${ModID}:m2! Sus.  Remove 1 of your ${ModID}:Votes.",
+    "UPGRADE_DESCRIPTION": "Apply !M! ${ModID}:Votes and !${ModID}:m2! Sus.  Remove 2 of your ${ModID}:Votes."
+  },
+  "${ModID}:CheckAdmin": {
+    "NAME": "Check Admin",
+    "DESCRIPTION": "Apply !M! ${ModID}:Sus to ALL enemies.  If this triggers ${ModID}:Sus, apply !M! ${ModID}:Sus to ALL enemies again.  Repeat if applicable."
+  },
+  "${ModID}:CleanO2Filter": {
+    "NAME": "Clean O2 Filter",
+    "DESCRIPTION": "Ethereal. NL Gain !B! Block 6 times.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block 6 times."
+  },
+  "${ModID}:CleanVents": {
+    "NAME": "Clean Vents",
+    "DESCRIPTION": "Whenever you play a Skill this turn, apply 1 Vulnerable to a random enemy.  ${ModID}:Vent.",
+    "UPGRADE_DESCRIPTION": "Whenever you play a Skill this turn, apply 1 Vulnerable to a random enemy, then ${ModID}:Vent.  ${ModID}:Vent."
+  },
+  "${ModID}:Decontaminate": {
+    "NAME": "Decontaminate",
+    "DESCRIPTION": "Remove 1 of your ${ModID}:Votes.  ${ModID}:Vent."
+  },
+  "${ModID}:DivertPower": {
+    "NAME": "Divert Power",
+    "DESCRIPTION": "Reduce the cost of a random card in your hand by 1 until the end of the turn.  If that card was an Attack, gain 1 Strength.  If that card was a Skill, gain 1 Dexterity.  If that card was a Power, gain 1 Strength and 1 Dexterity."
+  },
+  "${ModID}:DownloadData": {
+    "NAME": "Download Data",
+    "DESCRIPTION": "Gain !B! Block.  Draw !M! card.  Add 1 *Upload *Data to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block.  Draw !M! card.  Add 1 *Upload *Data+ to your hand."
+  },
+  "${ModID}:FillCanisters": {
+    "NAME": "Fill Canisters",
+    "DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister+ to your hand."
+  },
+  "${ModID}:FixWiring": {
+    "NAME": "Fix Wiring",
+    "DESCRIPTION": "Gain !M! Block twice.  Next turn, gain !M! Block."
+  },
+  "${ModID}:FuelEngines": {
+    "NAME": "Fuel Engines",
+    "DESCRIPTION": "Add 1 *Fuel *Canister to your hand.  Put a *Fuel *Canister into your hand at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Add 1 *Fuel *Canister+ to your hand.  Put a *Fuel *Canister+ into your hand at the start of your next turn."
+  },
+  "${ModID}:HolsterWeapons": {
+    "NAME": "Holster Weapons",
+    "DESCRIPTION": "Enemy loses !M! Strength and gains !${ModID}:m2! Weak.  Exhaust."
+  },
+  "${ModID}:MedbayScan": {
+    "NAME": "Medbay Scan",
+    "DESCRIPTION": "Heal !M! HP.  Gain !${ModID}:m2! ${ModID}:Vote.  Exhaust.",
+    "UPGRADE_DESCRIPTION": "Heal !M! HP.  Gain !${ModID}:m2! ${ModID}:Vote.  Vent.  Exhaust."
+  },
+  "${ModID}:PrimeShields": {
+    "NAME": "Prime Shields",
+    "DESCRIPTION": "Gain !M! Dexterity.  All skills cost 0 until end of turn.  Gain 1 !${ModID}:m2! ${ModID}:Vote.  Exhaust."
+  },
+  "${ModID}:ProcessData": {
+    "NAME": "Process Data",
+    "DESCRIPTION": "Apply !M! ${ModID}:Sus to ALL enemies.  Draw !${ModID}:m2! card.",
+    "UPGRADE_DESCRIPTION": "Apply !M! ${ModID}:Sus to ALL enemies.  Draw !${ModID}:m2! cards."
+  },
+  "${ModID}:ResetBreakers": {
+    "NAME": "Reset Breakers",
+    "DESCRIPTION": "If the enemy intends to attack, apply !M! Weak.  Otherwise, apply !M! Vulnerable."
+  },
+  "${ModID}:RunDiagnostics": {
+    "NAME": "Run Diagnostics",
+    "DESCRIPTION": "Gain !M! Vigor.  Block is not removed at the start of your next turn.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Vigor.  Block is not removed at the start of your next turn.  ${ModID}:Vent."
+  },
+  "${ModID}:StartReactor": {
+    "NAME": "Start Reactor",
+    "DESCRIPTION": "If the enemy intends to attack, gain !M! temporary Dexterity.  Otherwise, gain !M! temporary Strength."
+  },
+  "${ModID}:AssembleArtifact": {
+    "NAME": "Assemble Artifact",
+    "DESCRIPTION": "Gain !B! Block.  Gain !M! Artifact.  Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain !B! Block.  Gain !M! Artifact.  Exhaust."
+  },
+  "${ModID}:BuyBeverage": {
+    "NAME": "Buy Beverage",
+    "DESCRIPTION": "Lose 20 Gold (or all of your Gold if you have less than 20) and obtain 1 of 3 random potions.  Exhaust.",
+    "UPGRADE_DESCRIPTION": "Obtain 1 of 3 random potions.  Exhaust."
+  },
+  "${ModID}:CalibrateDistributor": {
+    "NAME": "Calibrate Distributor",
+    "DESCRIPTION": "Shuffle a *Calibrate *Again into your draw pile.  Exhaust.",
+    "UPGRADE_DESCRIPTION": "Shuffle a *Calibrate *Again+ into your draw pile.  Exhaust."
+  },
+  "${ModID}:EmergencyMeeting": {
+    "NAME": "Emergency Meeting",
+    "DESCRIPTION": "Trigger all ${ModID}:Votes.  Exhaust.",
+    "UPGRADE_DESCRIPTION": "Double all enemies' ${ModID}:Sus and ${ModID}:Votes.  Trigger all ${ModID}:Votes.  Exhaust."
+  },
+  "${ModID}:UnlockSafe": {
+    "NAME": "Unlock Safe",
+    "DESCRIPTION": "Play 1 of 3 random cards from your draw pile.  Exhaust."
+  },
+  "${ModID}:CalibrateAgain": {
+    "NAME": "Calibrate Again",
+    "DESCRIPTION": "Shuffle a *Distributor *Calibrated into your draw pile.  Exhaust.",
+    "UPGRADE_DESCRIPTION": "Shuffle a *Distributor *Calibrated+ into your draw pile.  Exhaust."
+  },
+  "${ModID}:FuelCanister": {
+    "NAME": "Fuel Canister",
+    "DESCRIPTION": "Retain.  Gain [R].  Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain.  Gain [R][R].  Exhaust."
+  },
+  "${ModID}:UploadData": {
+    "NAME": "Upload Data",
+    "DESCRIPTION": "Retain.  Gain !B! Block.  Discard 1 card.  Draw 2 cards.  Exhaust."
   }
 }

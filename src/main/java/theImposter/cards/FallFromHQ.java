@@ -11,7 +11,7 @@ import static theImposter.ImposterMod.makeID;
 
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theImposter.powers.AbstractEasyPower;
-import theImposter.powers.VotePower;
+import theImposter.powers.VoteEnemyPower;
 
 public class FallFromHQ extends AbstractEasyCard {
     public final static String ID = makeID("FallFromHQ");
@@ -26,10 +26,11 @@ public class FallFromHQ extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        this.addToBot(new ApplyPowerAction(m, p, new VotePower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(2);
+        upgradeMagicNumber(1);
     }
 }

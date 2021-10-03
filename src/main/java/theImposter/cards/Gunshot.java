@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.powers.VotePlayerPower;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -15,7 +16,8 @@ public class Gunshot extends AbstractEasyCard {
 
     public Gunshot() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 9;
+        baseDamage = 7;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -23,6 +25,7 @@ public class Gunshot extends AbstractEasyCard {
         if (m.hasPower("Vulnerable")) {
             dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         }
+        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {

@@ -1,9 +1,9 @@
 {
   "${ModID}:SecondImposter": {
     "NAME": "Second Imposter",
-    "FLAVOR": "TODO: Not yet implemented.",
+    "FLAVOR": "Two can be as bad as one.",
     "DESCRIPTIONS": [
-      "TODO: Not yet implemented."
+      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Lose 50% max HP.  Works once."
     ]
   }
 }

@@ -8,17 +8,26 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.unique.RemoveDebuffsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import theImposter.ImposterMod;
 import theImposter.TheImposter;
+import theImposter.powers.VoteEnemyPower;
+import theImposter.powers.VotePlayerPower;
 import theImposter.util.CardArtRoller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Vector;
 
 import static theImposter.ImposterMod.*;
 import static theImposter.util.Wiz.atb;
@@ -228,4 +237,48 @@ public abstract class AbstractEasyCard extends CustomCard {
     protected void blck() {
         atb(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, block));
     }
+
+    protected int GetTotalVotes() {
+        int totalVotes = 0;
+        if (AbstractDungeon.player.hasPower(VotePlayerPower.POWER_ID))
+        {
+            totalVotes += AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID).amount;
+        }
+
+        Iterator monsterIterator = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        while(monsterIterator.hasNext()) {
+            AbstractMonster mo = (AbstractMonster)monsterIterator.next();
+            if (mo.hasPower(VoteEnemyPower.POWER_ID)) {
+                totalVotes += mo.getPower(VoteEnemyPower.POWER_ID).amount;
+            }
+        }
+
+        return totalVotes;
+    }
+
+//    false positive if it would apply Vote to an Enemy that would die
+    protected boolean WouldTriggerVotes(int magicNumber) {
+        return (GetTotalVotes() + magicNumber >= 10);
+//        return (GetTotalVotes() + (magicNumber * AbstractDungeon.getCurrRoom().monsters.monsters.size()) >= 10);
+    }
+
+//    protected void TriggerVotes() {
+//        CardCrawlGame.sound.playA(ImposterMod.makeID("EMERGENCYMEETING"), 0.0F);
+//
+//        if (AbstractDungeon.player.hasPower("impostermod:VotesPlayer")) {
+//            this.addToBot(new DamageAction(AbstractDungeon.player, new DamageInfo((AbstractCreature)null, AbstractDungeon.player.getPower("impostermod:VotesPlayer").amount * 10, DamageInfo.DamageType.THORNS),
+//                    AbstractGameAction.AttackEffect.FIRE));
+//            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower("impostermod:VotesPlayer")));
+//        }
+//
+//        Iterator monsterIterator = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+//        while(monsterIterator.hasNext()) {
+//            AbstractMonster mo = (AbstractMonster)monsterIterator.next();
+//            if (mo.hasPower("impostermod:VotesEnemy")) {
+//                this.addToBot(new DamageAction(mo, new DamageInfo((AbstractCreature)null, mo.getPower("impostermod:VotesEnemy").amount * 10, DamageInfo.DamageType.THORNS),
+//                        AbstractGameAction.AttackEffect.FIRE));
+//                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(mo, AbstractDungeon.player, mo.getPower("impostermod:VotesEnemy")));
+//            }
+//        }
+//    }
 }

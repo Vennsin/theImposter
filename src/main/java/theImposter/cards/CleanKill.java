@@ -2,13 +2,11 @@ package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import theImposter.powers.SusPower;
 
 public class CleanKill extends AbstractEasyCard {
@@ -16,8 +14,8 @@ public class CleanKill extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public CleanKill() {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 4;
+        super(ID, 0, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
+        baseDamage = 3;
         this.baseMagicNumber = 2;
         this.magicNumber = this.baseMagicNumber;
     }
@@ -28,6 +26,7 @@ public class CleanKill extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(1);
+        upgradeMagicNumber(1);
     }
 }

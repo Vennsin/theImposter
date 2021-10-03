@@ -2,16 +2,13 @@ package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import theImposter.powers.AbstractEasyPower;
-import theImposter.powers.VotePower;
+import theImposter.powers.VotePlayerPower;
+import theImposter.powers.VoteEnemyPower;
 import theImposter.powers.SusPower;
 
 public class DroppedIntoLava extends AbstractEasyCard {
@@ -30,11 +27,14 @@ public class DroppedIntoLava extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
-        this.addToBot(new ApplyPowerAction(m, p, new VotePower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(m, p, new SusPower(m, p, this.secondMagic), this.secondMagic));
+        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, 4), 4));
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(5);
+        upgradeMagicNumber(1);
+        upgradeSecondMagic(1);
     }
 }

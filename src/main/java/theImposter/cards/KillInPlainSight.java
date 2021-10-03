@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
-import theImposter.powers.VotePower;
+import theImposter.powers.VoteEnemyPower;
 import java.util.Random;
 
 public class KillInPlainSight extends AbstractEasyCard {
@@ -19,7 +19,7 @@ public class KillInPlainSight extends AbstractEasyCard {
 
     public KillInPlainSight() {
         super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 12;
+        baseDamage = 6;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }
@@ -27,11 +27,17 @@ public class KillInPlainSight extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Random rand = new Random();
 
-        int n = rand.nextInt(3);
+        int n;
+        if (upgraded) {
+            n = rand.nextInt(2) + 1;
+        }
+        else {
+            n = rand.nextInt(3);
+        }
         this.magicNumber += n;
 
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        this.addToBot(new ApplyPowerAction(m, p, new VotePower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {

@@ -22,10 +22,14 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class SusPower extends AbstractPower {
     private AbstractCreature source;
+    public static final String POWER_NAME = "Sus";
+    public static final String POWER_ID = makeID(POWER_NAME.replaceAll("([ ])", ""));
 
     public SusPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        this.name = "Sus";
-        this.ID = makeID(name.replaceAll("([ ])", ""));
+//        this.name = "Sus";
+//        this.ID = makeID(name.replaceAll("([ ])", ""));
+        this.name = POWER_NAME;
+        this.ID = POWER_ID;
 
         this.owner = owner;
         this.source = source;
@@ -47,22 +51,23 @@ public class SusPower extends AbstractPower {
     }
 
     public void atStartOfTurn() {
-        if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead() &&
-                ((AbstractMonster)this.owner).getIntentDmg() > 0 && this.amount >= ((AbstractMonster)this.owner).getIntentDmg()) {
-            this.flash();
+        if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+            if ((((AbstractMonster) this.owner).getIntentDmg() > 0 && this.amount >= ((AbstractMonster) this.owner).getIntentDmg()) ||
+                    (((AbstractMonster) this.owner).getIntentDmg() == 0 && this.amount >= 20)) {
+                this.flash();
 //            this.amount -=  ((AbstractMonster)this.owner).getIntentDmg();
 //
 //            if (this.amount <= 0) {
 //                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
 //            }
-            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-
-            this.addToBot(new StunMonsterAction((AbstractMonster)this.owner, this.owner, 1));
+                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+                this.addToBot(new StunMonsterAction((AbstractMonster) this.owner, this.owner, 1));
+            }
         }
     }
 
     @Override
     public void updateDescription() {
-        description = "At start of turn, stun target if Sus greater than or equal to target's total attack intent (consumes all stacks of Sus).";
+        description = "At start of turn, stun target if: Sus greater than or equal to target's total attack intent OR enemy will not attack and Sus >= 20 (either way, consume all stacks of Sus).";
     }
 }
