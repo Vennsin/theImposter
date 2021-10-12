@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Frost;
+import theImposter.TheImposter;
 import theImposter.actions.KillAtO2Action;
 import theImposter.powers.VotePlayerPower;
 
@@ -30,6 +31,7 @@ public class KillAtO2 extends AbstractEasyCard {
         this.baseSecondMagic = 0;
         this.secondMagic = this.baseSecondMagic;
         this.exhaust = true;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

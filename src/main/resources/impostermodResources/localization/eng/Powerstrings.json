@@ -1,28 +1,79 @@
 {
-
-  "impostermod:Sus": {
-    "NAME": "Sus",
-    "DESCRIPTIONS": [
-      "At start of turn, stun target if Sus greater than or equal to target's total attack intent (consumes all stacks of Sus)."
-    ]
-  },
-  "impostermod:VotesPlayer": {
+//  "${ModID}:": {
+//    "NAME": "",
+//    "DESCRIPTIONS": [
+//      ""
+//    ]
+//  }
+  "${ModID}:Sus": {
+  "NAME": "Sus",
+  "DESCRIPTIONS": [
+    "At start of turn, stun target if: Sus greater than or equal to target's total attack intent OR enemy will not attack and Sus >= 20 (either way, consume all stacks of Sus)."
+  ]
+},
+  "${ModID}:VotesPlayer": {
     "NAME": "Vote(s)",
     "DESCRIPTIONS": [
       "Increases attack damage (and block for the Imposter).  Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
     ]
   },
-  "impostermod:VotesEnemy": {
+  "${ModID}:VotesEnemy": {
     "NAME": "Vote(s)",
     "DESCRIPTIONS": [
       "Increases attack damage (and block for the Imposter).  Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
     ]
   },
-  "theImposter:": {
-    "NAME": "",
+  "${ModID}:CleanVents": {
+    "NAME": "Clean Vents",
     "DESCRIPTIONS": [
-      "",
-      ""
+      "When you play a skill this turn, apply 1 Vulnerable to a random enemy."
+    ]
+  },
+  "${ModID}:DistributorCalibrated": {
+    "NAME": "Distributor Calibrated",
+    "DESCRIPTIONS": [
+      "At the end of your turn, remove 1 of your Votes, apply 10 Sus and 3 Votes to ALL enemies, then Vent."
+    ]
+  },
+  "${ModID}:HardAccusations": {
+    "NAME": "Hard Accusations",
+    "DESCRIPTIONS": [
+      "Every time you play 4 cards in a single turn, gain",
+      " Vote(s) and apply ",
+      " Vote(s) to ALL enemies."
+    ]
+  },
+  "${ModID}:JamCommunications": {
+    "NAME": "Jam Communications",
+    "DESCRIPTIONS": [
+      "Votes now trigger at 7 stacks among us."
+    ]
+  },
+  "${ModID}:Marination": {
+    "NAME": "Marination",
+    "DESCRIPTIONS": [
+      "At the end of your turn, apply ",
+      " Sus to ALL enemies."
+    ]
+  },
+  "${ModID}:OxygenDepleted": {
+    "NAME": "Oxygen Depleted",
+    "DESCRIPTIONS": [
+      "When attacked, attacker loses #b",
+      " HP."
+    ]
+  },
+  "${ModID}:SabotageLights": {
+    "NAME": "Sabotage Lights",
+    "DESCRIPTIONS": [
+      "All Sus applications are increased by ",
+      "%."
+    ]
+  },
+  "${ModID}:ShieldsPrimed": {
+    "NAME": "Shields Primed",
+    "DESCRIPTIONS": [
+      "Skills cost 0 for his turn."
     ]
   }
 }

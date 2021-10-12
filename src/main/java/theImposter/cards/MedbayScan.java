@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.TheImposter;
 import theImposter.actions.VentAction;
 import theImposter.powers.VotePlayerPower;
 
@@ -18,6 +19,7 @@ public class MedbayScan extends AbstractEasyCard {
         this.magicNumber = this.baseMagicNumber = 4;
         this.secondMagic = this.baseSecondMagic = 1;
         this.exhaust = true;
+        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -31,5 +33,6 @@ public class MedbayScan extends AbstractEasyCard {
 
     public void upp() {
         uDesc();
+        tags.add(TheImposter.Enums.VENT);
     }
 }

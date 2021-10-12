@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static theImposter.ImposterMod.makeID;
 
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theImposter.TheImposter;
 import theImposter.powers.VoteEnemyPower;
 
 public class StealthKill extends AbstractEasyCard {
@@ -23,6 +24,7 @@ public class StealthKill extends AbstractEasyCard {
         baseDamage = 9;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

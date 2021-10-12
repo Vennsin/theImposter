@@ -16,7 +16,7 @@ public class UploadData extends AbstractEasyCard {
         this.baseBlock = 2;
         this.magicNumber = this.baseMagicNumber = 1;
         this.secondMagic = baseSecondMagic = 2;
-        this.retain = true;
+        this.selfRetain = true;
         this.exhaust = true;
     }
 

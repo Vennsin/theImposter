@@ -28,8 +28,6 @@ public class EnterIDCode extends AbstractEasyCard {
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
         while(var3.hasNext()) {
-            AbstractMonster mo = (AbstractMonster)var3.next();
-            blck();
             this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, randomBlock));
         }
     }

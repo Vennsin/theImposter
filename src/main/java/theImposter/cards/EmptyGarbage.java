@@ -23,6 +23,7 @@ public class EmptyGarbage extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DrawCardAction(this.magicNumber));
         this.addToBot(new DiscardAction(p, p, this.magicNumber, false));
+        blck();
         this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.secondMagic), this.secondMagic));
     }
 

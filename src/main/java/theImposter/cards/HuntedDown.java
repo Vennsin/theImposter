@@ -8,7 +8,7 @@ import theImposter.powers.SusPower;
 import static theImposter.ImposterMod.makeID;
 
 public class HuntedDown extends AbstractEasyCard {
-    public final static String ID = makeID("Backstab");
+    public final static String ID = makeID("HuntedDown");
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public HuntedDown() {

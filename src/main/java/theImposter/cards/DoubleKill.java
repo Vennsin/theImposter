@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
+import theImposter.TheImposter;
 import theImposter.powers.VotePlayerPower;
 
 public class DoubleKill extends AbstractEasyCard {
@@ -20,6 +21,7 @@ public class DoubleKill extends AbstractEasyCard {
         baseDamage = 10;
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

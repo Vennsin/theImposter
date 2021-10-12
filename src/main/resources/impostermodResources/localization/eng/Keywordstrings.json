@@ -29,6 +29,6 @@
       "vent",
       "vents"
     ],
-    "DESCRIPTION": "For each unique buff and debuff among us, deal 2 damage to ALL enemies and gain 2 Block.  Remove all of your debuffs."
+    "DESCRIPTION": "For each unique buff and debuff among us, deal 1 damage to ALL enemies and gain 1 Block.  Remove all of your debuffs."
   }
 ]

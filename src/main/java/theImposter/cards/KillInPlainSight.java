@@ -2,15 +2,14 @@ package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
-import theImposter.powers.VoteEnemyPower;
+import theImposter.TheImposter;
+import theImposter.powers.VotePlayerPower;
+
 import java.util.Random;
 
 public class KillInPlainSight extends AbstractEasyCard {
@@ -22,6 +21,7 @@ public class KillInPlainSight extends AbstractEasyCard {
         baseDamage = 6;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -37,10 +37,11 @@ public class KillInPlainSight extends AbstractEasyCard {
         this.magicNumber += n;
 
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
         upgradeDamage(3);
+        uDesc();
     }
 }

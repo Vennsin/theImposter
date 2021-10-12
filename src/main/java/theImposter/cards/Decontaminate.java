@@ -1,9 +1,10 @@
 package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.TheImposter;
+import theImposter.actions.VentAction;
 import theImposter.powers.VotePlayerPower;
 
 import static theImposter.ImposterMod.makeID;
@@ -15,9 +16,11 @@ public class Decontaminate extends AbstractEasyCard {
     public Decontaminate() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 1;
+        tags.add(TheImposter.Enums.VENT);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new VentAction());
         this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, -this.magicNumber), -this.magicNumber));
 //        if (p.hasPower(VotePlayerPower.POWER_ID)) {
 //            int playerVotesRemoved = this.magicNumber;

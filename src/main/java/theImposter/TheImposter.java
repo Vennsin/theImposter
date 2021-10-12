@@ -18,18 +18,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
-//import theImposter.cards.Backstab;
-import theImposter.cards.Strike;
-import theImposter.cards.Defend;
-import theImposter.cards.CleanKill;
-import theImposter.cards.KillOnCams;
-import theImposter.cards.KillAndVent;
-import theImposter.cards.LaserBeam;
-import theImposter.cards.Jab;
-import theImposter.cards.BuyBeverage;
-import theImposter.cards.DoubleKill;
-import theImposter.cards.KillInTheDark;
-import theImposter.cards.CardSwipe;
+import theImposter.cards.*;
 
 import theImposter.relics.SecondImposter;
 
@@ -88,7 +77,9 @@ public class TheImposter extends CustomPlayer {
             retVal.add(Defend.ID);
         }
         retVal.add(CleanKill.ID);
+        retVal.add(ClearAsteroids.ID);
 
+//        retVal.add(SabotageLights.ID);
 //        retVal.add(Backstab.ID);
 //        retVal.add(CleanKill.ID);
 ////        retVal.add(Babushka.ID);
@@ -100,6 +91,11 @@ public class TheImposter extends CustomPlayer {
 //        retVal.add(DoubleKill.ID);
 //        retVal.add(KillInTheDark.ID);
 //        retVal.add(CardSwipe.ID);
+//        retVal.add(UnlockSafe.ID);
+//        retVal.add(UnlockManifolds.ID);
+//        retVal.add(UnlockManifolds.ID);
+//        retVal.add(UnlockManifolds.ID);
+//        retVal.add(UnlockManifolds.ID);
         return retVal;
     }
 
@@ -194,6 +190,9 @@ public class TheImposter extends CustomPlayer {
 
     public static class Enums {
         //TODO: Change these.
+        @SpireEnum
+        public static AbstractCard.CardTags VENT;
+        public static AbstractCard.CardTags KILL;
         @SpireEnum
         public static AbstractPlayer.PlayerClass THE_IMPOSTER;
         @SpireEnum(name = "IMPOSTER_COLOR")

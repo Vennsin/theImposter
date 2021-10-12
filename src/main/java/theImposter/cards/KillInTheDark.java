@@ -12,6 +12,9 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import java.util.Iterator;
 
 import static theImposter.ImposterMod.makeID;
+
+import theImposter.TheImposter;
+import theImposter.actions.VentAction;
 import theImposter.powers.SusPower;
 import theImposter.powers.VoteEnemyPower;
 
@@ -24,10 +27,10 @@ public class KillInTheDark extends AbstractEasyCard {
         baseDamage = 5;
         this.isMultiDamage = true;
         this.magicNumber = this.baseMagicNumber = 1;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        atb(new DamageAllEnemiesAction(p, this.multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
 
         Iterator monsterIterator = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();

@@ -13,9 +13,10 @@ public class MakeBurger extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public MakeBurger() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
+        this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

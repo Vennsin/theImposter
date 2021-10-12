@@ -15,7 +15,7 @@ public class FuelCanister extends AbstractEasyCard {
     public FuelCanister() {
         super(ID, 0, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 1;
-        this.retain = true;
+        this.selfRetain = true;
         this.exhaust = true;
     }
 

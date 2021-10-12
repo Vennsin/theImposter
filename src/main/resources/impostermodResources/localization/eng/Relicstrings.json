@@ -2,8 +2,82 @@
   "${ModID}:SecondImposter": {
     "NAME": "Second Imposter",
     "FLAVOR": "Two can be as bad as one.",
+
     "DESCRIPTIONS": [
-      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Lose 50% max HP.  Works once."
+      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Lose 50% max HP.  Works once.",
+      "This relic has been used up."
+    ]
+  },
+  "${ModID}:BrainSlug": {
+    "NAME": "Brain Slug",
+    "FLAVOR": "It's starving.",
+    "DESCRIPTIONS": [
+      "Whenever an enemy dies, transfer its Votes to a random enemy."
+    ]
+  },
+  "${ModID}:ClaustrophilicHamster": {
+    "NAME": "Claustrophilic Hamster",
+    "FLAVOR": "It loves to be held.",
+    "DESCRIPTIONS": [
+      "The first time you Vent each turn, gain 1 Energy."
+    ]
+  },
+  "${ModID}:DevilHorns": {
+    "NAME": "Devil Horns",
+    "FLAVOR": "Whenever an enemy dies, transfer its Sus to a random enemy.",
+    "DESCRIPTIONS": [
+      "The envy of the gremlins."
+    ]
+  },
+  "${ModID}:DUMStickyNote": {
+    "NAME": "DUM Sticky Note",
+    "FLAVOR": "DUM",
+    "DESCRIPTIONS": [
+      "Randomize the cost of the cards in your starting hand from 0-2."
+    ]
+  },
+  "${ModID}:LongTongue": {
+    "NAME": "Long Tongue",
+    "FLAVOR": "Unusually sharp.",
+    "DESCRIPTIONS": [
+      "Attacks that have Kill in the name deal 4 additional damage."
+    ]
+  },
+  "${ModID}:PlagueDoctorMask": {
+    "NAME": "Plague Doctor Mask",
+    "FLAVOR": "Bring out your dead!",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain 1 Vote.  At the start of your 2nd turn, Vent."
+    ]
+  },
+  "${ModID}:SheriffHat": {
+    "NAME": "Sheriff Hat",
+    "FLAVOR": "The long arm of the law extends out to space.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, all enemies with Sus gain 1 additional Sus."
+    ]
+  },
+  "${ModID}:ThirdImposter": {
+    "NAME": "Third Imposter",
+    "FLAVOR": "Two can be as bad as one.",
+    "DESCRIPTIONS": [
+      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Works #b2 times.",
+      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Works #b2 time.",
+      "This relic has been used up."
+    ]
+  },
+  "${ModID}:TopHat": {
+    "NAME": "Top Hat",
+    "FLAVOR": "Just doing my civic duty, sir.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply 2 Vote to a random enemy.  That enemy loses 2 Strength."
+    ]
+  },
+  "${ModID}:ToyUFO": {
+    "NAME": "Toy UFO",
+    "FLAVOR": "No one is innocent.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, apply 3 Sus to ALL enemies."
     ]
   }
 }

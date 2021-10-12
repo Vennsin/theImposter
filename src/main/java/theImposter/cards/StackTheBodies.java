@@ -18,7 +18,7 @@ public class StackTheBodies extends AbstractEasyCard {
 
     public StackTheBodies() {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 7;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

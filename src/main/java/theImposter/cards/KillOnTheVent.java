@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static theImposter.ImposterMod.makeID;
 
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import theImposter.TheImposter;
 import theImposter.actions.KillOnTheVentAction;
 import theImposter.actions.VentAction;
 
@@ -18,14 +19,14 @@ public class KillOnTheVent extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public KillOnTheVent() {
-        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        baseDamage = 9;
         this.baseMagicNumber = 3;
         this.magicNumber = this.baseMagicNumber;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
         this.addToBot(new KillOnTheVentAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn)));
     }
 

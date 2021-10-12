@@ -18,7 +18,6 @@ public class Backstab extends AbstractEasyCard {
         baseDamage = 8;
         this.baseMagicNumber = 4;
         this.magicNumber = this.baseMagicNumber;
-//        try using secondDamage here
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -28,6 +27,19 @@ public class Backstab extends AbstractEasyCard {
         else {
             this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         }
+    }
+
+    public void calculateCardDamage(AbstractMonster mo) {
+        int realBaseDamage = this.baseDamage;
+        int susStacks = 0;
+        if (mo.hasPower(SusPower.POWER_ID))
+        {
+            susStacks = mo.getPower(SusPower.POWER_ID).amount;
+        }
+        this.baseDamage += this.magicNumber * susStacks;
+        super.calculateCardDamage(mo);
+        this.baseDamage = realBaseDamage;
+        this.isDamageModified = this.damage != this.baseDamage;
     }
 
     public void upp() {

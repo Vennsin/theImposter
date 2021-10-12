@@ -15,7 +15,8 @@ public class UnlockManifolds extends AbstractEasyCard {
 
     public UnlockManifolds() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        this.magicNumber = 6;
+        this.magicNumber = this.baseMagicNumber = 6;
+        this.secondMagic = this.baseSecondMagic = magicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -24,7 +25,9 @@ public class UnlockManifolds extends AbstractEasyCard {
         int randomBlock;
         randomBlock = rand.nextInt(4);
 
-        this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, randomBlock + this.magicNumber));
+        this.secondMagic = randomBlock + this.magicNumber;
+
+        this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, this.secondMagic));
     }
 
     public void upp() {

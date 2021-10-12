@@ -21,7 +21,9 @@ public class ChartCourse extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new RemoveAllBlockAction(m, p));
         blck();
-        this.addToBot(new ApplyPowerAction(m, p, new SusPower(m, p, this.magicNumber), this.magicNumber));
+        if (this.magicNumber > 0) {
+            this.addToBot(new ApplyPowerAction(m, p, new SusPower(m, p, this.magicNumber), this.magicNumber));
+        }
     }
 
     public void upp() {

@@ -11,7 +11,7 @@ public class UnlockSafe extends AbstractEasyCard {
     // intellij stuff skill, self, uncommon, , , , , ,
 
     public UnlockSafe() {
-        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
     }
 
@@ -20,6 +20,6 @@ public class UnlockSafe extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBaseCost(1);
+        upgradeBaseCost(0);
     }
 }

@@ -28,6 +28,8 @@ public class VoteEnemyPower extends AbstractPower {
     public static final String POWER_NAME = "Vote(s)";
     //    POWER_ID is hardcoded to differentiate between PlayerVotes and EnemyVotes
     public static final String POWER_ID = "impostermod:VotesEnemy";
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public VoteEnemyPower(AbstractCreature owner, AbstractCreature source, int amount) {
         this.name = POWER_NAME;
@@ -101,9 +103,14 @@ public class VoteEnemyPower extends AbstractPower {
 //        }
 //    }
 
+//    @Override
+//    public void updateDescription() {
+//        description = "Increases attack damage and block by #b"+ this.amount +".  Votes trigger when there are at least 10 Votes on the field: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed.";
+//    }
+
     @Override
     public void updateDescription() {
-        description = "Increases attack damage and block by #b"+ this.amount +".  Votes trigger when there are at least 10 Votes on the field: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed.";
+        description = DESCRIPTIONS[0];
     }
 
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
@@ -133,4 +140,12 @@ public class VoteEnemyPower extends AbstractPower {
 //    public float modifyBlock(float blockAmount) {
 //        return (blockAmount += (float)this.amount) < 0.0F ? 0.0F : blockAmount;
 //    }
+
+    public void stackPower(int stackAmount) {
+        this.fontScale = 8.0F;
+        this.amount += stackAmount;
+        if (this.amount <= 0) {
+            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, VoteEnemyPower.POWER_ID));
+        }
+    }
 }

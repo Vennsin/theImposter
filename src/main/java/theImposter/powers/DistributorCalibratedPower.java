@@ -34,6 +34,8 @@ public class DistributorCalibratedPower extends AbstractPower {
     private AbstractCreature source;
     public static final String POWER_NAME = "Distributor Calibrated";
     public static final String POWER_ID = makeID(POWER_NAME.replaceAll("([ ])", ""));
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public DistributorCalibratedPower(AbstractCreature owner, int amount) {
         this.name = POWER_NAME;
@@ -59,7 +61,7 @@ public class DistributorCalibratedPower extends AbstractPower {
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, VotePlayerPower.POWER_ID));
+        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VotePlayerPower(this.owner, this.owner, -this.amount), -this.amount));
 
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
@@ -72,8 +74,13 @@ public class DistributorCalibratedPower extends AbstractPower {
         this.addToBot(new VentAction());
     }
 
+//    @Override
+//    public void updateDescription() {
+//        description = "At the end of your turn, remove 1 of your Votes, apply 10 Sus and 3 Votes to ALL enemies, then Vent.";
+//    }
+
     @Override
     public void updateDescription() {
-        description = "At the end of your turn, remove 1 of your Votes, apply 10 Sus and 3 Votes to ALL enemies, then Vent.";
+        description = DESCRIPTIONS[0];
     }
 }

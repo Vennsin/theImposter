@@ -6,6 +6,9 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theImposter.ImposterMod;
 import theImposter.util.TexLoader;
@@ -16,6 +19,8 @@ public class ShieldsPrimedPower extends AbstractPower {
     private AbstractCreature source;
     public static final String POWER_NAME = "Shields Primed";
     public static final String POWER_ID = makeID(POWER_NAME.replaceAll("([ ])", ""));
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public ShieldsPrimedPower(AbstractCreature owner) {
         this.name = POWER_NAME;
@@ -38,6 +43,15 @@ public class ShieldsPrimedPower extends AbstractPower {
         this.updateDescription();
     }
 
+    public void onInitialApplication() {
+        for (AbstractCard c : AbstractDungeon.player.hand.group) {
+            if (c.type == AbstractCard.CardType.SKILL)
+            {
+                c.setCostForTurn(-9);
+            }
+        }
+    }
+
     public void onCardDraw(AbstractCard card) {
         if (card.type == AbstractCard.CardType.SKILL) {
             card.setCostForTurn(-9);
@@ -47,6 +61,7 @@ public class ShieldsPrimedPower extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.type == AbstractCard.CardType.SKILL) {
             this.flash();
+            card.setCostForTurn(-9);
         }
     }
 
@@ -54,8 +69,13 @@ public class ShieldsPrimedPower extends AbstractPower {
         this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ShieldsPrimedPower.POWER_ID));
     }
 
+//    @Override
+//    public void updateDescription() {
+//        description = "Skills cost 0 for his turn.";
+//    }
+
     @Override
     public void updateDescription() {
-        description = "Skills cost 0 for his turn.";
+        description = DESCRIPTIONS[0];
     }
 }

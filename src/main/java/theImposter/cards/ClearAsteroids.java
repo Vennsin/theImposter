@@ -15,7 +15,7 @@ public class ClearAsteroids extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public ClearAsteroids() {
-        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 2, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
         this.baseBlock = 10;
         this.magicNumber = this.baseMagicNumber = 1;
         this.secondMagic = this.baseSecondMagic = 1;

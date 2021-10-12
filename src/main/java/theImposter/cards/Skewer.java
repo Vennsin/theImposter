@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.WeakPower;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -20,9 +21,9 @@ public class Skewer extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (m.hasPower("Weak")) {
+        if (m.hasPower(WeakPower.POWER_ID)) {
 //            dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-            for (int i = 0; i < m.getPower("Weak").amount; i++) {
+            for (int i = 0; i < m.getPower(WeakPower.POWER_ID).amount; i++) {
                 this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
             }
         }

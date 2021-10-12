@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
+import theImposter.TheImposter;
 import theImposter.actions.VentAction;
 
 public class KillAndVent extends AbstractEasyCard {
@@ -16,6 +17,8 @@ public class KillAndVent extends AbstractEasyCard {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 7;
         baseBlock = 7;
+        tags.add(TheImposter.Enums.KILL);
+        tags.add(TheImposter.Enums.VENT);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

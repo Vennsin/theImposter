@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BlurPower;
 import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import theImposter.TheImposter;
 import theImposter.actions.VentAction;
 
 import static theImposter.ImposterMod.makeID;
@@ -29,5 +30,6 @@ public class RunDiagnostics extends AbstractEasyCard {
 
     public void upp() {
         uDesc();
+        tags.add(TheImposter.Enums.VENT);
     }
 }

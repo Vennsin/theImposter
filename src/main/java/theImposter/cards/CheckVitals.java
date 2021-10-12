@@ -24,7 +24,7 @@ public class CheckVitals extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
-        if (p.hasPower("Vulnerable"))
+        if (p.hasPower(VulnerablePower.POWER_ID))
         {
             while(var3.hasNext()) {
                 AbstractMonster mo = (AbstractMonster)var3.next();
@@ -32,7 +32,7 @@ public class CheckVitals extends AbstractEasyCard {
             }
         }
 
-        if (p.hasPower("Weak"))
+        if (p.hasPower(WeakPower.POWER_ID))
         {
             while(var3.hasNext()) {
                 AbstractMonster mo = (AbstractMonster)var3.next();

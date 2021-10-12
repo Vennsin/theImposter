@@ -35,7 +35,7 @@ public class UnlockSafeAction extends AbstractGameAction {
                 }
 
                 int numCards = 3;
-                if (numCards < temp.size())
+                if (numCards > temp.size())
                 {
                     numCards = temp.size();
                 }

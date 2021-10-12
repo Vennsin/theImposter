@@ -2,6 +2,7 @@ package theImposter.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.TheImposter;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -13,6 +14,8 @@ public class CleanO2Filter extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseBlock = 1;
         this.isEthereal = true;
+        this.exhaust = true;
+        tags.add(TheImposter.Enums.VENT);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

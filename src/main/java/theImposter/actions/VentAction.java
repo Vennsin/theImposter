@@ -57,8 +57,8 @@ public class VentAction extends AbstractGameAction {
             numUniques = uniquePowers.size();
         }
 
-        this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, numUniques * 2));
-        this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(numUniques * 2, true), DamageType.THORNS, AttackEffect.POISON));
+        this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, numUniques));
+        this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(numUniques, true), DamageType.THORNS, AttackEffect.POISON));
         this.addToBot(new RemoveDebuffsAction(AbstractDungeon.player));
 
         isDone = true;

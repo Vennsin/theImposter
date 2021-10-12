@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
+import theImposter.TheImposter;
 import theImposter.powers.SusPower;
 import theImposter.powers.VoteEnemyPower;
 import theImposter.powers.VotePlayerPower;
@@ -22,6 +23,7 @@ public class KillDuringChaos extends AbstractEasyCard {
         baseDamage = 10;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import theImposter.TheImposter;
 import theImposter.actions.EasyXCostAction;
 import theImposter.actions.KillAtReactorAction;
 import theImposter.cards.AbstractEasyCard;
@@ -18,6 +19,7 @@ public class KillAtReactor extends AbstractEasyCard {
     public KillAtReactor() {
         super(ID, -1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = 7;
+        tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
