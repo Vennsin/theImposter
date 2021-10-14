@@ -2,24 +2,30 @@ package theImposter.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerToRandomEnemyAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theImposter.ImposterMod;
+import theImposter.actions.VentAction;
 import theImposter.util.TexLoader;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import static theImposter.ImposterMod.makeID;
 
-public class SabotageLightsPower extends AbstractPower implements BetterOnApplyPowerPower {
-    public static final String POWER_NAME = "Sabotage Lights";
+public class CleanVentsPlusPower extends AbstractPower {
+    private AbstractCreature source;
+    public static final String POWER_NAME = "Clean Vents+";
     public static final String POWER_ID = makeID(POWER_NAME.replaceAll("([ ])", ""));
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public SabotageLightsPower(AbstractCreature owner, int amount) {
+    public CleanVentsPlusPower(AbstractCreature owner, int amount) {
         this.name = POWER_NAME;
         this.ID = POWER_ID;
 
@@ -41,35 +47,25 @@ public class SabotageLightsPower extends AbstractPower implements BetterOnApplyP
         this.updateDescription();
     }
 
-    public void stackPower(int stackAmount) {
-        this.fontScale = 8.0F;
-        this.amount += stackAmount;
-    }
-
-    @Override
-    public boolean betterOnApplyPower(AbstractPower power, AbstractCreature owner, AbstractCreature source) {
-        return true;
-    }
-
-    @Override
-    public int betterOnApplyPowerStacks(AbstractPower power, AbstractCreature target, AbstractCreature source, int stackAmount)
-    {
-//        each stack of SabotageLights will increase Sus applied by 50%
-        if (power.ID.equals(SusPower.POWER_ID)) {
-            power.amount += (int) (stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
-//        power.amount++;
-            stackAmount += (int) (stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        if (card.type == AbstractCard.CardType.SKILL) {
+            this.flash();
+            this.addToBot(new ApplyPowerToRandomEnemyAction(AbstractDungeon.player, new VulnerablePower((AbstractCreature)null, amount, false), amount, false));
+            this.addToBot(new VentAction());
         }
-//        stackAmount = stackAmount + (int)(stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
-//        stackAmount += (AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
-//        if (power.ID.equals(SusPower.POWER_ID))
-//        {
-//            stackAmount += (AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
-//        }
-        return stackAmount;
     }
 
+    public void atEndOfTurn(boolean isPlayer) {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, CleanVentsPlusPower.POWER_ID));
+    }
+
+//    @Override
+//    public void updateDescription() {
+//        description = "When you play a skill this turn, apply 1 Vulnerable to a random enemy.";
+//    }
+
+    @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0] + (this.amount * 50) + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0];
     }
 }

@@ -29,17 +29,26 @@
       "When you play a skill this turn, apply 1 Vulnerable to a random enemy."
     ]
   },
+  "${ModID}:CleanVentsPlus": {
+    "NAME": "Clean Vents+",
+    "DESCRIPTIONS": [
+      "When you play a skill this turn, apply 1 Vulnerable to a random enemy, then #yVent."
+    ]
+  },
   "${ModID}:DistributorCalibrated": {
     "NAME": "Distributor Calibrated",
     "DESCRIPTIONS": [
-      "At the end of your turn, remove 1 of your Votes, apply 10 Sus and 3 Votes to ALL enemies, then Vent."
+      "At the end of your turn, remove #b",
+      " of your Votes, apply #b",
+      " Sus and #b",
+      " Votes to ALL enemies, then #yVent."
     ]
   },
   "${ModID}:HardAccusations": {
     "NAME": "Hard Accusations",
     "DESCRIPTIONS": [
-      "Every time you play 4 cards in a single turn, gain",
-      " Vote(s) and apply ",
+      "Every time you play 4 cards in a single turn, gain #b",
+      " Vote(s) and apply #b",
       " Vote(s) to ALL enemies."
     ]
   },
@@ -66,7 +75,7 @@
   "${ModID}:SabotageLights": {
     "NAME": "Sabotage Lights",
     "DESCRIPTIONS": [
-      "All Sus applications are increased by ",
+      "All Sus applications are increased by #b",
       "%."
     ]
   },

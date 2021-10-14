@@ -3,8 +3,6 @@ package theImposter.cards;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theImposter.TheImposter;
-import theImposter.actions.VentAction;
 import theImposter.powers.DistributorCalibratedPower;
 
 
@@ -16,8 +14,7 @@ public class DistributorCalibrated extends AbstractEasyCard {
 
     public DistributorCalibrated() {
         super(ID, 3, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
-        this.isEthereal = true;
-        tags.add(TheImposter.Enums.VENT);
+        this.magicNumber = this.baseMagicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

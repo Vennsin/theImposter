@@ -22,6 +22,8 @@ public class StackTheBodies extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
+
         Iterator monsterIterator = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
         while(monsterIterator.hasNext()) {
             AbstractMonster mo = (AbstractMonster)monsterIterator.next();

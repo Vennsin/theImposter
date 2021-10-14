@@ -21,11 +21,12 @@ public class BuyBeverage extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
         this.tags.add(CardTags.HEALING);
-        this.magicNumber = this.baseMagicNumber = 20;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.player.loseGold(this.magicNumber);
+        if (!upgraded) {
+            AbstractDungeon.player.loseGold(this.magicNumber);
+        }
 
         AbstractPotion pot1 = AbstractDungeon.returnRandomPotion(true);
         AbstractPotion pot2 = AbstractDungeon.returnRandomPotion(true);
@@ -41,7 +42,6 @@ public class BuyBeverage extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
-        upgradeSecondMagic(1);
+        uDesc();
     }
 }

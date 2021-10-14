@@ -1,8 +1,10 @@
 package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theImposter.powers.SusPower;
 import theImposter.powers.VoteEnemyPower;
@@ -24,11 +26,20 @@ public class CheckSensorLogs extends AbstractEasyCard {
         this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(m, p, new SusPower(m, p, this.secondMagic), this.secondMagic));
 
-        int playerVotesRemoved = 1;
+        if (p.hasPower(VotePlayerPower.POWER_ID)) {
+            int playerVotesRemoved = 1;
             if (upgraded) {
                 playerVotesRemoved++;
             }
-        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, -playerVotesRemoved), -playerVotesRemoved));
+
+            if (p.getPower(VotePlayerPower.POWER_ID).amount <= playerVotesRemoved) {
+                this.addToBot(new RemoveSpecificPowerAction(p, p, AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID)));
+            }
+            else {
+//                this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, -playerVotesRemoved), -playerVotesRemoved));
+                this.addToBot(new ReducePowerAction(p, p, VotePlayerPower.POWER_ID, playerVotesRemoved));
+            }
+        }
 
 //        if (p.hasPower(VotePlayerPower.POWER_ID)) {
 //            int playerVotesRemoved = 1;
@@ -48,6 +59,7 @@ public class CheckSensorLogs extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+        upgradeMagicNumber(1);
+        upgradeSecondMagic(2);
     }
 }

@@ -3,10 +3,14 @@ package theImposter.actions;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+
 import java.util.Iterator;
 
 public class DivertPowerAction extends AbstractGameAction {
@@ -45,21 +49,60 @@ public class DivertPowerAction extends AbstractGameAction {
         AbstractCard c = this.p.hand.getRandomCard(AbstractDungeon.cardRandomRng);
         if (better) {
             if (c.costForTurn > 0) {
-                c.cost = 0;
-                c.costForTurn = 0;
-                c.isCostModified = true;
+                c.costForTurn--;
+//                c.isCostModified = true;
                 c.superFlash(Color.GOLD.cpy());
+
+                if (c.type == AbstractCard.CardType.ATTACK)
+                {
+                    this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
+                }
+                else if (c.type == AbstractCard.CardType.SKILL)
+                {
+                    this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
+                }
+                else if (c.type == AbstractCard.CardType.POWER)
+                {
+                    this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
+                    this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
+                }
             } else {
                 this.findAndModifyCard(better);
             }
         } else if (c.cost > 0) {
-            c.cost = 0;
-            c.costForTurn = 0;
-            c.isCostModified = true;
+            c.costForTurn--;
+//            c.isCostModified = true;
             c.superFlash(Color.GOLD.cpy());
+
+            if (c.type == AbstractCard.CardType.ATTACK)
+            {
+                this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
+            }
+            else if (c.type == AbstractCard.CardType.SKILL)
+            {
+                this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
+            }
+            else if (c.type == AbstractCard.CardType.POWER)
+            {
+                this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
+                this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
+            }
         } else {
             this.findAndModifyCard(better);
         }
 
+//        if (c.type == AbstractCard.CardType.ATTACK)
+//        {
+//            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
+//        }
+//        else if (c.type == AbstractCard.CardType.SKILL)
+//        {
+//            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
+//        }
+//        else if (c.type == AbstractCard.CardType.POWER)
+//        {
+//            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1), 1));
+//            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, 1), 1));
+//        }
     }
 }

@@ -66,7 +66,7 @@ public class ShieldsPrimedPower extends AbstractPower {
     }
 
     public void atEndOfTurn(boolean isPlayer) {
-        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, ShieldsPrimedPower.POWER_ID));
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this.POWER_ID));
     }
 
 //    @Override

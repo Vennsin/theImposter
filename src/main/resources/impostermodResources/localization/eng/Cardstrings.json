@@ -72,7 +72,7 @@
   },
   "${ModID}:NeckSnap": {
     "NAME": "Neck Snap",
-    "DESCRIPTION": "Deal !D! damage.  Apply 1 Weak per ${ModID}:Sus on the target. Gain !M! ${ModID}:Votes."
+    "DESCRIPTION": "Deal !D! damage.  Apply 1 Weak per ${ModID}:Sus on the target."
   },
   "${ModID}:Jab": {
     "NAME": "Jab",
@@ -80,11 +80,11 @@
   },
   "${ModID}:Gunshot": {
     "NAME": "Gunshot",
-    "DESCRIPTION": "Deal !D! damage (double damage if target is Vulnerable).  Gain !M! ${ModID}:Vote"
+    "DESCRIPTION": "Deal !D! damage (double damage if target is Vulnerable)."
   },
   "${ModID}:Skewer": {
     "NAME": "Skewer",
-    "DESCRIPTION": "Deal !D! for each stack of Weak on the target."
+    "DESCRIPTION": "Deal !D! damage for each stack of Weak on the target."
   },
   "${ModID}:LaserBeam": {
     "NAME": "Laser Beam",
@@ -113,7 +113,7 @@
   },
   "${ModID}:KillAFKCrewmate": {
     "NAME": "Kill afk Crewmate",
-    "DESCRIPTION": "Innate. NL Deal !D! damage.  Gain !M! ${ModID}:Vote. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Deal !D! damage.  Gain !M! Vigor."
   },
   "${ModID}:StackKill": {
     "NAME": "Stack Kill",
@@ -138,7 +138,7 @@
   },
   "${ModID}:KillAndRun": {
     "NAME": "Kill And Run",
-    "DESCRIPTION": "Deal !D! damage.  Gain !B! Block.  Gain !M! ${ModID}:Votes."
+    "DESCRIPTION": "Deal !D! damage.  Gain !B! Block.  Next turn, gain !B! Block."
   },
   "${ModID}:StealthKill": {
     "NAME": "Stealth Kill",
@@ -186,7 +186,7 @@
   },
   "${ModID}:CheckSecurity": {
     "NAME": "Check Security",
-    "DESCRIPTION": "Gain !B! Block.  Draw !M! card.  If it is a Skill, ${ModID}:Vent"
+    "DESCRIPTION": "Gain !B! Block.  Draw !M! card.  If it is a Skill, ${ModID}:Vent."
   },
   "${ModID}:CheckVitals": {
     "NAME": "Check Vitals",
@@ -194,7 +194,8 @@
   },
   "${ModID}:ClearAsteroids": {
     "NAME": "Clear Asteroids",
-    "DESCRIPTION": "Gain !B! Block.  Draw an Attack card.  Gain !${ModID}:m2! ${ModID}:Vote."
+    "DESCRIPTION": "Gain !B! Block.  Draw an Attack card.  Gain !${ModID}:m2! ${ModID}:Vote.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block.  Draw 2 Attack cards.  Gain !${ModID}:m2! ${ModID}:Vote."
   },
   "${ModID}:EmptyChute": {
     "NAME": "Empty Chute",
@@ -233,8 +234,7 @@
   },
   "${ModID}:UnlockManifolds": {
     "NAME": "Unlock Manifolds",
-    "DESCRIPTION": "Gain a random amount of Block from !${ModID}:m2! to !${ModID}:m2! + 3.",
-    "UPGRADE_DESCRIPTION": "Gain a random amount of Block from 9 to 12."
+    "DESCRIPTION": "Gain a random amount of Block from !B! to !M!."
   },
   "${ModID}:AlignEngineOutput": {
     "NAME": "Align Engine Output",
@@ -317,7 +317,7 @@
   "${ModID}:StartReactor": {
     "NAME": "Start Reactor",
     "DESCRIPTION": "Draw !M! card and discard !M! card.  A random card in your hand costs 0 this turn.  Gain !B! Block.  ${ModID}:Vent. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain !B! Block.  Gain !M! Artifact."
+    "UPGRADE_DESCRIPTION": "Draw !M! card and discard !M! card.  A random card in your hand costs 0 this turn.  Gain !B! Block.  ${ModID}:Vent."
   },
   "${ModID}:AssembleArtifact": {
     "NAME": "Assemble Artifact",

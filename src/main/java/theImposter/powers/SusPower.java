@@ -50,21 +50,21 @@ public class SusPower extends AbstractPower {
         this.updateDescription();
     }
 
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            if ((((AbstractMonster) this.owner).getIntentDmg() > 0 && this.amount >= ((AbstractMonster) this.owner).getIntentDmg()) ||
-                    (((AbstractMonster) this.owner).getIntentDmg() == 0 && this.amount >= 20)) {
-                this.flash();
-//            this.amount -=  ((AbstractMonster)this.owner).getIntentDmg();
-//
-//            if (this.amount <= 0) {
+//    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+//        if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+//            if ((((AbstractMonster) this.owner).getIntentDmg() > 0 && this.amount >= ((AbstractMonster) this.owner).getIntentDmg()) ||
+//                    (((AbstractMonster) this.owner).getIntentDmg() == 0 && this.amount >= 20)) {
+//                this.flash();
+////            this.amount -=  ((AbstractMonster)this.owner).getIntentDmg();
+////
+////            if (this.amount <= 0) {
+////                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+////            }
 //                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+//                this.addToBot(new StunMonsterAction((AbstractMonster) this.owner, this.owner, 1));
 //            }
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-                this.addToBot(new StunMonsterAction((AbstractMonster) this.owner, this.owner, 1));
-            }
-        }
-    }
+//        }
+//    }
 
     public void atStartOfTurn() {
         if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {

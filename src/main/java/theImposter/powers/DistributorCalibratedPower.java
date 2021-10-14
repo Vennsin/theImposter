@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theImposter.ImposterMod;
+import theImposter.actions.TriggerVotesAction;
 import theImposter.actions.VentAction;
 import theImposter.util.TexLoader;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
@@ -59,9 +60,36 @@ public class DistributorCalibratedPower extends AbstractPower {
         this.updateDescription();
     }
 
+    public int GetTotalVotes() {
+        int totalVotes = 0;
+        if (AbstractDungeon.player.hasPower(VotePlayerPower.POWER_ID))
+        {
+            totalVotes += AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID).amount;
+        }
+
+        Iterator monsterIterator = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
+        while(monsterIterator.hasNext()) {
+            AbstractMonster mo = (AbstractMonster)monsterIterator.next();
+            if (mo.hasPower(VoteEnemyPower.POWER_ID)) {
+                totalVotes += mo.getPower(VoteEnemyPower.POWER_ID).amount;
+            }
+        }
+
+        return totalVotes;
+    }
+
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VotePlayerPower(this.owner, this.owner, -this.amount), -this.amount));
+        if (this.owner.hasPower(VotePlayerPower.POWER_ID)) {
+            if (this.owner.getPower(VotePlayerPower.POWER_ID).amount < this.amount)
+            {
+                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID)));
+            }
+            else {
+//                this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VotePlayerPower(this.owner, this.owner, -this.amount), -this.amount));
+                this.addToBot(new ReducePowerAction(this.owner, this.owner, VotePlayerPower.POWER_ID, this.amount));
+            }
+        }
 
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 
@@ -69,6 +97,12 @@ public class DistributorCalibratedPower extends AbstractPower {
             AbstractMonster mo = (AbstractMonster)var3.next();
             this.addToBot(new ApplyPowerAction(mo, this.owner, new SusPower(mo, this.owner, this.amount * 10), this.amount * 10));
             this.addToBot(new ApplyPowerAction(mo, this.owner, new VoteEnemyPower(mo, this.owner, this.amount * 3), this.amount * 3));
+        }
+
+        if (GetTotalVotes() >= 10)
+        {
+            this.flashWithoutSound();
+            this.addToBot(new TriggerVotesAction());
         }
 
         this.addToBot(new VentAction());
@@ -81,6 +115,6 @@ public class DistributorCalibratedPower extends AbstractPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0];
+        description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1] + this.amount * 10 + DESCRIPTIONS[2] + this.amount * 3 + DESCRIPTIONS[3];
     }
 }

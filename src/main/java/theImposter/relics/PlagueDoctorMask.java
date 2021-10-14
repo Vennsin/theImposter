@@ -28,7 +28,7 @@ public class PlagueDoctorMask extends AbstractEasyRelic {
             ++this.counter;
         }
 
-        if (this.counter == 2) {
+        if (this.counter == TURN_ACTIVATION) {
             this.flash();
             this.addToBot(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             this.addToBot(new VentAction());

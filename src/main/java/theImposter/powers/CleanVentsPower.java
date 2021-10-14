@@ -29,16 +29,14 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 
 public class CleanVentsPower extends AbstractPower {
     private AbstractCreature source;
-    private boolean upgraded;
     public static final String POWER_NAME = "Clean Vents";
     public static final String POWER_ID = makeID(POWER_NAME.replaceAll("([ ])", ""));
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public CleanVentsPower(AbstractCreature owner, int amount, boolean upgraded) {
+    public CleanVentsPower(AbstractCreature owner, int amount) {
         this.name = POWER_NAME;
         this.ID = POWER_ID;
-        this.upgraded = upgraded;
 
         this.owner = owner;
         this.amount = amount;
@@ -62,10 +60,6 @@ public class CleanVentsPower extends AbstractPower {
         if (card.type == AbstractCard.CardType.SKILL) {
             this.flash();
             this.addToBot(new ApplyPowerToRandomEnemyAction(AbstractDungeon.player, new VulnerablePower((AbstractCreature)null, amount, false), amount, false));
-            if (upgraded)
-            {
-                this.addToBot(new VentAction());
-            }
         }
     }
 

@@ -24,7 +24,6 @@ public class KillAFKCrewmate extends AbstractEasyCard {
         this.isInnate = true;
         baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 3;
-        this.exhaust = true;
         tags.add(TheImposter.Enums.KILL);
     }
 

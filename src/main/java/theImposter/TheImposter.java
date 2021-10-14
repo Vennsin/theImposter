@@ -20,6 +20,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import theImposter.cards.*;
 
+import theImposter.relics.DUMStickyNote;
 import theImposter.relics.SecondImposter;
 
 import java.util.ArrayList;
@@ -81,7 +82,8 @@ public class TheImposter extends CustomPlayer {
 
 //        retVal.add(SabotageLights.ID);
 //        retVal.add(Backstab.ID);
-//        retVal.add(CleanKill.ID);
+//        retVal.add(CleanVents.ID);
+//        retVal.add(Decontaminate.ID);
 ////        retVal.add(Babushka.ID);
 //        retVal.add(KillOnCams.ID);
 //        retVal.add(KillAndVent.ID);
@@ -91,11 +93,7 @@ public class TheImposter extends CustomPlayer {
 //        retVal.add(DoubleKill.ID);
 //        retVal.add(KillInTheDark.ID);
 //        retVal.add(CardSwipe.ID);
-//        retVal.add(UnlockSafe.ID);
-//        retVal.add(UnlockManifolds.ID);
-//        retVal.add(UnlockManifolds.ID);
-//        retVal.add(UnlockManifolds.ID);
-//        retVal.add(UnlockManifolds.ID);
+
         return retVal;
     }
 
