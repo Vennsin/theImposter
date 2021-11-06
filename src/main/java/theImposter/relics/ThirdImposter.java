@@ -1,12 +1,14 @@
 package theImposter.relics;
 
 import com.evacipated.cardcrawl.mod.stslib.relics.OnPlayerDeathRelic;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.unique.RemoveAllPowersAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import theImposter.TheImposter;
+import theImposter.powers.AnotherImposterPower;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -71,6 +73,7 @@ public class ThirdImposter extends AbstractEasyRelic implements OnPlayerDeathRel
             }
 
             this.addToBot(new RemoveAllPowersAction(AbstractDungeon.player, false));
+            this.addToBot(new ApplyPowerAction(p, p, new AnotherImposterPower(p)));
 
             --this.counter;
             if (this.counter == 0) {

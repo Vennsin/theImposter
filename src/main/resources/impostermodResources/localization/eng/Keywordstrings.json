@@ -21,7 +21,7 @@
       "vote",
       "votes"
     ],
-    "DESCRIPTION": "Increases attack damage (and block for the Imposter).  Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
+    "DESCRIPTION": "Increases attack damage and block for one turn.  Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
   },
   {
     "PROPER_NAME": "Vent",
@@ -29,6 +29,6 @@
       "vent",
       "vents"
     ],
-    "DESCRIPTION": "For each unique buff and debuff among us, deal 1 damage to ALL enemies and gain 1 Block.  Remove all of your debuffs."
+    "DESCRIPTION": "Transform your stacks of Frail, Vulnerable, and Weak into 1-turn buffs.  For each unique buff and debuff among us, deal 1 damage to ALL enemies.  Remove your Lose Vote debuffs."
   }
 ]

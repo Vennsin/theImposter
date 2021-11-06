@@ -14,35 +14,6 @@ public class DUMStickyNote extends AbstractEasyRelic {
         super(ID, RelicTier.COMMON, LandingSound.FLAT, TheImposter.Enums.IMPOSTER_COLOR);
     }
 
-//    public void atTurnStart() {
-//        if (!this.grayscale) {
-//            ++this.counter;
-//        }
-//        if (this.counter == TURN_ACTIVATION) {
-//            this.counter = -1;
-//            this.grayscale = true;
-//        }
-////        if (this.counter == TURN_ACTIVATION) {
-////            this.flash();
-////
-////            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-////                if (c.cost >= 0) {
-////                    int newCost = AbstractDungeon.cardRandomRng.random(2);
-////                    if (c.cost != newCost) {
-////                        c.cost = newCost;
-////                        c.costForTurn = c.cost;
-////                        c.isCostModified = true;
-////                    }
-////
-////                    c.freeToPlayOnce = false;
-////                }
-////            }
-////
-////            this.counter = -1;
-////            this.grayscale = true;
-////        }
-//    }
-
     public void atTurnStartPostDraw() {
         if (!this.grayscale) {
             ++this.counter;
@@ -76,19 +47,4 @@ public class DUMStickyNote extends AbstractEasyRelic {
         this.counter = -1;
         this.grayscale = false;
     }
-
-//    public void atBattleStart() {
-//        for (AbstractCard c : AbstractDungeon.player.hand.group) {
-//            if (c.cost >= 0) {
-//                int newCost = AbstractDungeon.cardRandomRng.random(2);
-//                if (c.cost != newCost) {
-//                    c.cost = newCost;
-//                    c.costForTurn = c.cost;
-//                    c.isCostModified = true;
-//                }
-//
-//                c.freeToPlayOnce = false;
-//            }
-//        }
-//    }
 }

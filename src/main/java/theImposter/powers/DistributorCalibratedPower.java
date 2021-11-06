@@ -2,32 +2,21 @@ package theImposter.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerToRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import theImposter.ImposterMod;
 import theImposter.actions.TriggerVotesAction;
 import theImposter.actions.VentAction;
 import theImposter.util.TexLoader;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
-import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 
 import static theImposter.ImposterMod.makeID;
-import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import java.util.Iterator;
 
@@ -97,6 +86,8 @@ public class DistributorCalibratedPower extends AbstractPower {
             AbstractMonster mo = (AbstractMonster)var3.next();
             this.addToBot(new ApplyPowerAction(mo, this.owner, new SusPower(mo, this.owner, this.amount * 10), this.amount * 10));
             this.addToBot(new ApplyPowerAction(mo, this.owner, new VoteEnemyPower(mo, this.owner, this.amount * 3), this.amount * 3));
+            this.addToBot(new ApplyPowerAction(mo, this.owner, new VoteBuffPower(mo, this.owner, this.amount * 3), this.amount * 3));
+            this.addToBot(new ApplyPowerAction(mo, this.owner, new LoseVoteBuffPower(mo, this.owner, this.amount * 3), this.amount * 3));
         }
 
         if (GetTotalVotes() >= 10)

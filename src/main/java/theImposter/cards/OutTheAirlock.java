@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
+import theImposter.powers.LoseVoteBuffPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VotePlayerPower;
 
 public class OutTheAirlock extends AbstractEasyCard {
@@ -15,17 +17,19 @@ public class OutTheAirlock extends AbstractEasyCard {
 
     public OutTheAirlock() {
         super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 33;
+        baseDamage = 28;
         this.baseMagicNumber = 1;
         this.magicNumber = this.baseMagicNumber;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.POISON);
-        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(11);
+        upgradeDamage(10);
     }
 }

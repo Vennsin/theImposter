@@ -1,11 +1,13 @@
 package theImposter.relics;
 
 import com.evacipated.cardcrawl.mod.stslib.relics.OnPlayerDeathRelic;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.unique.RemoveAllPowersAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theImposter.TheImposter;
+import theImposter.powers.AnotherImposterPower;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -42,6 +44,8 @@ public class SecondImposter extends AbstractEasyRelic implements OnPlayerDeathRe
             }
 
             this.addToBot(new RemoveAllPowersAction(AbstractDungeon.player, false));
+//            this.addToBot(new SkipEnemiesTurnAction());
+            this.addToBot(new ApplyPowerAction(p, p, new AnotherImposterPower(p)));
 
             this.setCounter(-2);
             return false;

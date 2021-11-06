@@ -2,15 +2,13 @@ package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import theImposter.powers.AbstractEasyPower;
+import theImposter.powers.LoseVoteBuffPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VoteEnemyPower;
 
 public class FallFromHQ extends AbstractEasyCard {
@@ -27,6 +25,8 @@ public class FallFromHQ extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VoteBuffPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new LoseVoteBuffPower(m, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {

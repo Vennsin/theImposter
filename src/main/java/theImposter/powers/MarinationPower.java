@@ -67,10 +67,4 @@ public class MarinationPower extends AbstractPower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
-
-//    TODO: update this
-//    @Override
-//    public void updateDescription() {
-//        description = "At the end of your turn, apply 2[3] Sus to ALL enemies.";
-//    }
 }

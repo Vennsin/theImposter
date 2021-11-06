@@ -7,9 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
 
-import theImposter.powers.VotePlayerPower;
-import theImposter.powers.VoteEnemyPower;
-import theImposter.powers.SusPower;
+import theImposter.powers.*;
 
 public class DroppedIntoLava extends AbstractEasyCard {
     public final static String ID = makeID("DroppedIntoLavaCard");
@@ -28,8 +26,9 @@ public class DroppedIntoLava extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
         this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VoteBuffPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new LoseVoteBuffPower(m, p, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(m, p, new SusPower(m, p, this.secondMagic), this.secondMagic));
-        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, 4), 4));
     }
 
     public void upp() {

@@ -14,10 +14,14 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import theImposter.cards.AbstractEasyCard;
 import theImposter.cards.cardvars.SecondDamage;
 import theImposter.cards.cardvars.SecondMagicNumber;
+import theImposter.potions.DistilledNightshade;
+import theImposter.potions.EssenceOfInnocence;
+import theImposter.potions.JugOfFuel;
 import theImposter.relics.AbstractEasyRelic;
 
 import java.nio.charset.StandardCharsets;
@@ -32,7 +36,7 @@ public class ImposterMod implements
         EditCharactersSubscriber,
         AddAudioSubscriber {
 
-    public static final String modID = "impostermod"; //TODO: Change this.
+    public static final String modID = "impostermod";
 
     public static String makeID(String idText) {
         return modID + ":" + idText;
@@ -85,6 +89,10 @@ public class ImposterMod implements
         return modID + "Resources/images/cards/" + resourcePath;
     }
 
+    public static String makePotionPath(String resourcePath) {
+        return modID + "Resources/images/potions/" + resourcePath;
+    }
+
     public static void initialize() {
         ImposterMod thismod = new ImposterMod();
     }
@@ -93,6 +101,8 @@ public class ImposterMod implements
     public void receiveEditCharacters() {
         BaseMod.addCharacter(new TheImposter(TheImposter.characterStrings.NAMES[1], TheImposter.Enums.THE_IMPOSTER),
                 CHARSELECT_BUTTON, CHARSELECT_PORTRAIT, TheImposter.Enums.THE_IMPOSTER);
+
+        receiveEditPotions();
     }
 
     @Override
@@ -121,6 +131,15 @@ public class ImposterMod implements
                 .cards();
     }
 
+    public void receiveEditPotions() {
+        // Class Specific Potion. If you want your potion to not be class-specific,
+        // just remove the player class at the end.
+        // Remember, you can press ctrl+P inside parentheses like addPotions)
+        BaseMod.addPotion(JugOfFuel.class, Color.GOLDENROD.cpy(), null, null, JugOfFuel.POTION_ID, TheImposter.Enums.THE_IMPOSTER);
+        BaseMod.addPotion(DistilledNightshade.class, Color.PURPLE.cpy(), null, null, DistilledNightshade.POTION_ID, TheImposter.Enums.THE_IMPOSTER);
+        BaseMod.addPotion(EssenceOfInnocence.class, Color.WHITE.cpy(), null, null, EssenceOfInnocence.POTION_ID, TheImposter.Enums.THE_IMPOSTER);
+    }
+
 
     @Override
     public void receiveEditStrings() {
@@ -131,6 +150,8 @@ public class ImposterMod implements
         BaseMod.loadCustomStringsFile(CharacterStrings.class, modID + "Resources/localization/eng/Charstrings.json");
 
         BaseMod.loadCustomStringsFile(PowerStrings.class, modID + "Resources/localization/eng/Powerstrings.json");
+
+        BaseMod.loadCustomStringsFile(PotionStrings.class, modID + "Resources/localization/eng/Potionstrings.json");
     }
 
     @Override
@@ -150,4 +171,8 @@ public class ImposterMod implements
         BaseMod.addAudio(makeID("KILL"), modID + "Resources/audio/Kill.ogg");
         BaseMod.addAudio(makeID("EMERGENCYMEETING"), modID + "Resources/audio/EmergencyMeeting.ogg");
     }
+
+//    public void receivePostInitialize() {
+//        BaseMod.addPotion(JugOfFuel.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), JugOfFuel.POTION_ID, TheImposter.Enums.THE_IMPOSTER);
+//    }
 }

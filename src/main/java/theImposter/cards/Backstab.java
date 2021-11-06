@@ -21,12 +21,13 @@ public class Backstab extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (m.hasPower(SusPower.POWER_ID)) {
-            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage + m.getPower(SusPower.POWER_ID).amount * this.magicNumber, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        }
-        else {
-            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-        }
+//        if (m.hasPower(SusPower.POWER_ID)) {
+//            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage + (m.getPower(SusPower.POWER_ID).amount * this.magicNumber), this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+//        }
+//        else {
+//            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+//        }
+        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 
     public void calculateCardDamage(AbstractMonster mo) {

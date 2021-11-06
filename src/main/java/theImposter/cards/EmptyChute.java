@@ -4,6 +4,8 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theImposter.actions.EmptyChuteAction;
+import theImposter.powers.LoseVoteBuffPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VotePlayerPower;
 
 import static theImposter.ImposterMod.makeID;
@@ -22,6 +24,8 @@ public class EmptyChute extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new EmptyChuteAction(p, this.magicNumber, this.block));
         this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.secondMagic), this.secondMagic));
+        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.secondMagic), this.secondMagic));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.secondMagic), this.secondMagic));
     }
 
     public void upp() {

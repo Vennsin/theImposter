@@ -20,7 +20,6 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 
 import theImposter.cards.*;
 
-import theImposter.relics.DUMStickyNote;
 import theImposter.relics.SecondImposter;
 
 import java.util.ArrayList;
@@ -41,12 +40,13 @@ public class TheImposter extends CustomPlayer {
             modID + "Resources/images/char/mainChar/orb/layer3d.png",
             modID + "Resources/images/char/mainChar/orb/layer4d.png",
             modID + "Resources/images/char/mainChar/orb/layer5d.png",};
-    static final String ID = makeID("TheImposter"); //TODO: Change this
+    static final String ID = makeID("TheImposter");
     static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(ID);
     static final String[] NAMES = characterStrings.NAMES;
     static final String[] TEXT = characterStrings.TEXT;
 
-
+//    basemod.animations.AbstractAnimation ani = new SpriterAnimation(modID + "Resources/images/char/mainChar/static.scml");
+//    String x = "Resources/images/char/mainChar/static" + rand + ".scml";
     public TheImposter(String name, PlayerClass setClass) {
         super(name, setClass, new CustomEnergyOrb(orbTextures, modID + "Resources/images/char/mainChar/orb/vfx.png", null), new SpriterAnimation(
                 modID + "Resources/images/char/mainChar/static.scml"));
@@ -79,20 +79,6 @@ public class TheImposter extends CustomPlayer {
         }
         retVal.add(CleanKill.ID);
         retVal.add(ClearAsteroids.ID);
-
-//        retVal.add(SabotageLights.ID);
-//        retVal.add(Backstab.ID);
-//        retVal.add(CleanVents.ID);
-//        retVal.add(Decontaminate.ID);
-////        retVal.add(Babushka.ID);
-//        retVal.add(KillOnCams.ID);
-//        retVal.add(KillAndVent.ID);
-//        retVal.add(LaserBeam.ID);
-////        retVal.add(Jab.ID);
-//        retVal.add(BuyBeverage.ID);
-//        retVal.add(DoubleKill.ID);
-//        retVal.add(KillInTheDark.ID);
-//        retVal.add(CardSwipe.ID);
 
         return retVal;
     }

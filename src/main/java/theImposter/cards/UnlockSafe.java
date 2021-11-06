@@ -12,14 +12,15 @@ public class UnlockSafe extends AbstractEasyCard {
 
     public UnlockSafe() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        this.magicNumber = this.baseMagicNumber = 2;
         this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new UnlockSafeAction());
+        this.addToBot(new UnlockSafeAction(this.magicNumber));
     }
 
     public void upp() {
-        upgradeBaseCost(0);
+        upgradeMagicNumber(1);
     }
 }

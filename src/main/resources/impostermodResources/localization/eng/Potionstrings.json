@@ -1,0 +1,23 @@
+{
+  "${ModID}:JugOfFuel": {
+    "NAME": "Jug of Fuel",
+    "DESCRIPTIONS": [
+      "Add #b",
+      " #yFuel #yCanisters to your hand."
+    ]
+  },
+  "${ModID}:DistilledNightshade": {
+    "NAME": "Distilled Nightshade",
+    "DESCRIPTIONS": [
+      "Apply #b",
+      " #ySus to an enemy."
+    ]
+  },
+  "${ModID}:EssenceOfInnocence": {
+    "NAME": "Essence of Innocence",
+    "DESCRIPTIONS": [
+      "Remove #b",
+      " % of your #yVotes."
+    ]
+  }
+}

@@ -60,10 +60,15 @@ public class HardAccusationsPower extends AbstractPower {
             this.counter = 0;
 
             this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VotePlayerPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VoteBuffPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+            this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LoseVoteBuffPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+
             Iterator monsterIterator = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
             while(monsterIterator.hasNext()) {
                 AbstractMonster mo = (AbstractMonster)monsterIterator.next();
                 this.addToBot(new ApplyPowerAction(mo, AbstractDungeon.player, new VoteEnemyPower(mo, AbstractDungeon.player, 1), 1));
+                this.addToBot(new ApplyPowerAction(mo, AbstractDungeon.player, new VoteBuffPower(mo, AbstractDungeon.player, 1), 1));
+                this.addToBot(new ApplyPowerAction(mo, AbstractDungeon.player, new LoseVoteBuffPower(mo, AbstractDungeon.player, 1), 1));
             }
         }
     }

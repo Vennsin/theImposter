@@ -15,7 +15,9 @@ import static theImposter.ImposterMod.makeID;
 
 import theImposter.TheImposter;
 import theImposter.actions.VentAction;
+import theImposter.powers.LoseVoteBuffPower;
 import theImposter.powers.SusPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VoteEnemyPower;
 
 public class KillInTheDark extends AbstractEasyCard {
@@ -38,6 +40,8 @@ public class KillInTheDark extends AbstractEasyCard {
             AbstractMonster mo = (AbstractMonster)monsterIterator.next();
             this.addToBot(new ApplyPowerAction(mo, p, new SusPower(mo, p, this.magicNumber), this.magicNumber));
             this.addToBot(new ApplyPowerAction(mo, p, new VoteEnemyPower(mo, p, this.magicNumber), this.magicNumber));
+            this.addToBot(new ApplyPowerAction(mo, p, new VoteBuffPower(mo, p, this.magicNumber), this.magicNumber));
+            this.addToBot(new ApplyPowerAction(mo, p, new LoseVoteBuffPower(mo, p, this.magicNumber), this.magicNumber));
             this.addToBot(new ApplyPowerAction(mo, p, new VulnerablePower(mo, this.magicNumber, false), this.magicNumber));
             this.addToBot(new ApplyPowerAction(mo, p, new WeakPower(mo, this.magicNumber, false), this.magicNumber));
         }

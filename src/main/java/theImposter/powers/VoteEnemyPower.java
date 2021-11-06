@@ -114,28 +114,40 @@ public class VoteEnemyPower extends AbstractPower {
     }
 
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if (GetTotalVotes() >= 10)
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && GetTotalVotes() >= 10)
         {
             this.flashWithoutSound();
             this.addToBot(new TriggerVotesAction());
         }
     }
 
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        return type == DamageInfo.DamageType.NORMAL ? damage + (float)this.amount : damage;
-    }
-
+//    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+//        return type == DamageInfo.DamageType.NORMAL ? damage + (float)this.amount : damage;
+//    }
+//
+////    this is to simulate dex for enemies.  Need to check for Stun (Sus) though
 //    public void atStartOfTurn() {
-//        this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
+////        this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
+////        AbstractMonster mo = (AbstractMonster) this.owner;
+////        mo.intent
+////        ((AbstractMonster)(this.owner)).intent
+//
+//        switch(((AbstractMonster)(this.owner)).intent) {
+//            case ATTACK_DEFEND:
+//            case DEFEND:
+//            case DEFEND_DEBUFF:
+//            case DEFEND_BUFF:
+//                this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
+//        }
 //    }
 
-    public void onGainedBlock(float blockAmount) {
-        if (blockAmount > 0.0F) {
-            this.flash();
-            owner.addBlock(this.amount);
-        }
-
-    }
+//    public void onGainedBlock(float blockAmount) {
+//        if (blockAmount > 0.0F) {
+//            this.flash();
+//            owner.addBlock(this.amount);
+//        }
+//
+//    }
 
 //    public float modifyBlock(float blockAmount) {
 //        return (blockAmount += (float)this.amount) < 0.0F ? 0.0F : blockAmount;

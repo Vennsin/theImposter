@@ -55,7 +55,7 @@
   },
   "${ModID}:Babushka": {
     "NAME": "Babushka",
-    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote."
+    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Votes."
   },
   "${ModID}:KillOnCams": {
     "NAME": "Kill on Cams",
@@ -84,7 +84,7 @@
   },
   "${ModID}:Skewer": {
     "NAME": "Skewer",
-    "DESCRIPTION": "Deal !D! damage for each stack of Weak on the target."
+    "DESCRIPTION": "Apply !M! Weak.  Deal !D! damage for each stack of Weak."
   },
   "${ModID}:LaserBeam": {
     "NAME": "Laser Beam",
@@ -96,7 +96,7 @@
   },
   "${ModID}:DroppedIntoLavaCard": {
     "NAME": "Dropped into Lava",
-    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote and !${ModID}:m2! ${ModID}:Sus.  Gain 4 ${ModID}:Votes"
+    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote and !${ModID}:m2! ${ModID}:Sus."
   },
   "${ModID}:FallFromHQ": {
     "NAME": "Fall from HQ",
@@ -117,7 +117,7 @@
   },
   "${ModID}:StackKill": {
     "NAME": "Stack Kill",
-    "DESCRIPTION": "Deal !D! damage Y times and apply !M! - Y ${ModID}:Sus, where Y is the number of enemies.  Gain !${ModID}:m2! ${ModID}:Votes."
+    "DESCRIPTION": "Choose one: NL Deal !D! damage for each enemy and apply !M! ${ModID}:Sus NL or NL Deal !${ModID}:sd! damage for each enemy and apply !${ModID}:m2! ${ModID}:Sus."
   },
   "${ModID}:KillInSeclusion": {
     "NAME": "Kill in Seclusion",
@@ -134,7 +134,7 @@
   },
   "${ModID}:HuntedDown": {
     "NAME": "Hunted Down",
-    "DESCRIPTION": "Deal !D! damage.  Deal !D! damage again for each stack of ${ModID}:Sus on the target."
+    "DESCRIPTION": "Deal !D! damage.  Deal !D! damage again for each stack of ${ModID}:Sus on the target.  Gain !M! ${ModID}:Votes"
   },
   "${ModID}:KillAndRun": {
     "NAME": "Kill And Run",
@@ -181,8 +181,7 @@
   },
   "${ModID}:ChartCourse": {
     "NAME": "Chart Course",
-    "DESCRIPTION": "Remove all Block from the enemy.  Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "Remove all Block from the enemy.  Gain !B! Block.  Apply !M! ${ModID}:Sus."
+    "DESCRIPTION": "Remove all Block from the enemy.  Gain !B! Block.  Apply !M! ${ModID}:Sus."
   },
   "${ModID}:CheckSecurity": {
     "NAME": "Check Security",
@@ -190,7 +189,7 @@
   },
   "${ModID}:CheckVitals": {
     "NAME": "Check Vitals",
-    "DESCRIPTION": "If you have Vulnerable, apply !M! Vulnerable to ALL enemies.  If you have Weak, apply !M! Weak to ALL enemies."
+    "DESCRIPTION": "If the enemy is above 50% HP, apply !M! Weak.  If the enemy is below 50% HP, apply !M! Vulnerable.  If the enemy is at 50% HP, apply !M! Weak and !M! Vulnerable."
   },
   "${ModID}:ClearAsteroids": {
     "NAME": "Clear Asteroids",
@@ -275,7 +274,7 @@
   "${ModID}:FillCanisters": {
     "NAME": "Fill Canisters",
     "DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister to your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister+ to your hand."
+    "UPGRADE_DESCRIPTION": "Gain !B! Block.  Add 2 *Fuel *Canisters to your hand."
   },
   "${ModID}:FixWiring": {
     "NAME": "Fix Wiring",
@@ -285,7 +284,7 @@
   "${ModID}:FuelEngines": {
     "NAME": "Fuel Engines",
     "DESCRIPTION": "Add 1 *Fuel *Canister to your hand.  Put a *Fuel *Canister into your hand at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Add 1 *Fuel *Canister+ to your hand.  Put a *Fuel *Canister+ into your hand at the start of your next turn."
+    "UPGRADE_DESCRIPTION": "Add 1 *Fuel *Canister to your hand.  Put a *Fuel *Canister into your hand at the start of your next 2 turns."
   },
   "${ModID}:HolsterWeapons": {
     "NAME": "Holster Weapons",
@@ -390,5 +389,43 @@
   "${ModID}:Marination": {
     "NAME": "Marination",
     "DESCRIPTION": "At the end of your turn, apply !M! ${ModID}:Sus to ALL enemies."
+  },
+  "${ModID}:WaterPlants": {
+    "NAME": "Water Plants",
+    "DESCRIPTION": "All Attacks in your hand deal !M! additional damage this combat."
+  },
+  "${ModID}:DressMannequin": {
+    "NAME": "Dress Mannequin",
+    "DESCRIPTION": "Draw 2 cards.  If the enemy intends to attack, apply !M! Sus."
+  },
+  "${ModID}:StartFans": {
+    "NAME": "Start Fans",
+    "DESCRIPTION": "Remove all Artifact from the enemy.  ${ModID}:Vent. NL Exhaust."
+  },
+  "${ModID}:MonitorTree": {
+    "NAME": "Monitor Tree",
+    "DESCRIPTION": "All skills in your hand gain !M! additional Block this combat."
+  },
+  "${ModID}:InsertKeys": {
+    "NAME": "Insert Keys",
+    "DESCRIPTION": "Innate.  Remove !M! of your ${ModID}:Votes.",
+    "UPGRADE_DESCRIPTION": "Innate.  Retain.  Remove !M! of your ${ModID}:Votes."
+  },
+  "${ModID}:DevelopPhotos": {
+    "NAME": "Develop Photos",
+    "DESCRIPTION": "At the end of 2 turns, apply 15 ${ModID}:Sus to ALL enemies."
+  },
+  "${ModID}:StoreArtifacts": {
+    "NAME": "Store Artifacts",
+    "DESCRIPTION": "Rare cards in your hand cost 0 this combat.  At the end of combat, gain 1 common Relic. NL Fleeting.",
+    "UPGRADE_DESCRIPTION": "Rare cards in your hand cost 0 this combat.  At the end of combat, gain 1 common Relic. NL Exhaust."
+  },
+  "${ModID}:FixShower": {
+    "NAME": "Fix Shower",
+    "DESCRIPTION": "Upgrade a random card in your deck. NL Exhaust."
+  },
+  "${ModID}:SabotageDoors": {
+    "NAME": "Sabotage Doors",
+    "DESCRIPTION": "Whenever ${ModID}:Sus or ${ModID}:Vote is applied or gained, gain !M! Block."
   }
 }

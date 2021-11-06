@@ -14,11 +14,13 @@ import java.util.Iterator;
 public class UnlockSafeAction extends AbstractGameAction {
     public static final String[] TEXT;
     private AbstractPlayer player;
+    private int numCards;
 
-    public UnlockSafeAction() {
+    public UnlockSafeAction(int numCards) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         this.player = AbstractDungeon.player;
+        this.numCards = numCards;
     }
 
     public void update() {
@@ -34,7 +36,7 @@ public class UnlockSafeAction extends AbstractGameAction {
                     temp.addToTop(c);
                 }
 
-                int numCards = 3;
+                int numCards = this.numCards;
                 if (numCards > temp.size())
                 {
                     numCards = temp.size();

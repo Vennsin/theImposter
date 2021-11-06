@@ -13,7 +13,7 @@ public class CheckSecurity extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public CheckSecurity() {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         this.baseBlock = 3;
         this.magicNumber = this.baseMagicNumber = 1;
         tags.add(TheImposter.Enums.VENT);
@@ -25,6 +25,6 @@ public class CheckSecurity extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBlock(2);
+        upgradeBaseCost(0);
     }
 }

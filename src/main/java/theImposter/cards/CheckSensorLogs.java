@@ -6,7 +6,9 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.powers.LoseVoteBuffPower;
 import theImposter.powers.SusPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VoteEnemyPower;
 import theImposter.powers.VotePlayerPower;
 
@@ -24,6 +26,8 @@ public class CheckSensorLogs extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new ApplyPowerAction(m, p, new VoteEnemyPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VoteBuffPower(m, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new LoseVoteBuffPower(m, p, this.magicNumber), this.magicNumber));
         this.addToBot(new ApplyPowerAction(m, p, new SusPower(m, p, this.secondMagic), this.secondMagic));
 
         if (p.hasPower(VotePlayerPower.POWER_ID)) {

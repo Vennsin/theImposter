@@ -18,8 +18,8 @@ public class NeckSnap extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public NeckSnap() {
-        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 8;
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 6;
 //        this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -28,10 +28,9 @@ public class NeckSnap extends AbstractEasyCard {
         if (m.hasPower(SusPower.POWER_ID)) {
             this.addToBot(new ApplyPowerAction(m, p, new WeakPower(m, m.getPower(SusPower.POWER_ID).amount, false), m.getPower(SusPower.POWER_ID).amount));
         }
-//        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeDamage(3);
     }
 }

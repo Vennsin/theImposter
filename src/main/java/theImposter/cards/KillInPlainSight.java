@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static theImposter.ImposterMod.makeID;
 
 import theImposter.TheImposter;
+import theImposter.powers.LoseVoteBuffPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VotePlayerPower;
 
 import java.util.Random;
@@ -38,6 +40,8 @@ public class KillInPlainSight extends AbstractEasyCard {
 
         dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
         this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {

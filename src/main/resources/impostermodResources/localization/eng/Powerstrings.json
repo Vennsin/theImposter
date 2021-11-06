@@ -14,13 +14,13 @@
   "${ModID}:VotesPlayer": {
     "NAME": "Vote(s)",
     "DESCRIPTIONS": [
-      "Increases attack damage (and block for the Imposter).  Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
+      "Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
     ]
   },
   "${ModID}:VotesEnemy": {
     "NAME": "Vote(s)",
     "DESCRIPTIONS": [
-      "Increases attack damage (and block for the Imposter).  Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
+      "Votes trigger when there are at least 10 Votes among us: each creature takes damage equal to (10 * their number of Votes), then all Votes are removed."
     ]
   },
   "${ModID}:CleanVents": {
@@ -55,13 +55,13 @@
   "${ModID}:JamCommunications": {
     "NAME": "Jam Communications",
     "DESCRIPTIONS": [
-      "Votes now trigger at 7 stacks among us."
+      "Votes now trigger at #b7 stacks among us."
     ]
   },
   "${ModID}:Marination": {
     "NAME": "Marination",
     "DESCRIPTIONS": [
-      "At the end of your turn, apply ",
+      "At the end of your turn, apply #b",
       " Sus to ALL enemies."
     ]
   },
@@ -83,6 +83,70 @@
     "NAME": "Shields Primed",
     "DESCRIPTIONS": [
       "Skills cost 0 for his turn."
+    ]
+  },
+  "${ModID}:FuelEngines": {
+    "NAME": "Fuel Engines",
+    "DESCRIPTIONS": [
+      "Add 1 ",
+      " card into your hand for the next ",
+      " turn(s)."
+    ]
+  },
+  "${ModID}:DevelopPhotos": {
+    "NAME": "Develop Photos",
+    "DESCRIPTIONS": [
+      "At the end of #b%1$s turns, apply #b15 Sus to ALL enemies.",
+      "At the end of this turn, apply #b15 Sus to ALL enemies."
+    ]
+  },
+  "${ModID}:DoorsSabotaged": {
+    "NAME": "Doors Sabotaged",
+    "DESCRIPTIONS": [
+      "Whenever Sus or Vote is applied or gained, gain #b",
+      " Block."
+    ]
+  },
+  "${ModID}:AnotherImposter": {
+    "NAME": "Another Imposter",
+    "DESCRIPTIONS": [
+      "Negates all incoming buffs, debuffs, and damage.  Removed at the start of your turn or when you play a card."
+    ]
+  },
+  "${ModID}:VoteBuff": {
+    "NAME": "Vote Buff",
+    "DESCRIPTIONS": [
+      "Increases attack damage and block."
+    ]
+  },
+  "${ModID}:LoseVoteBuff": {
+    "NAME": "Lose Vote Buff",
+    "DESCRIPTIONS": [
+      "At the end of this turn, lose #b",
+      " #yVote #yBuff(s)."
+    ]
+  },
+  "${ModID}:Guarded": {
+    "NAME": "Guarded",
+    "DESCRIPTIONS": [
+      "Receive #b",
+      "% less damage from #yAttacks for #b",
+      " turn(s)."
+    ]
+  },
+  "${ModID}:Hardy": {
+    "NAME": "Hardy",
+    "DESCRIPTIONS": [
+      "Gain #b25% more #yBlock from cards for #b",
+      " turn(s)."
+    ]
+  },
+  "${ModID}:Fit": {
+    "NAME": "Fit",
+    "DESCRIPTIONS": [
+      "#yAttacks deal #b",
+      "% more damage for #b",
+      " turn(s)."
     ]
   }
 }

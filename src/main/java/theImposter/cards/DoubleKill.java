@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import static theImposter.ImposterMod.makeID;
 
 import theImposter.TheImposter;
+import theImposter.powers.LoseVoteBuffPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VotePlayerPower;
 
 public class DoubleKill extends AbstractEasyCard {
@@ -19,8 +21,7 @@ public class DoubleKill extends AbstractEasyCard {
     public DoubleKill() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 10;
-        this.baseMagicNumber = 3;
-        this.magicNumber = this.baseMagicNumber;
+        this.magicNumber = this.baseMagicNumber = 3;
         tags.add(TheImposter.Enums.KILL);
     }
 
@@ -31,6 +32,8 @@ public class DoubleKill extends AbstractEasyCard {
             this.addToBot(new AttackDamageRandomEnemyAction(this, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
         this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {

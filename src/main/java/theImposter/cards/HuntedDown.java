@@ -1,9 +1,13 @@
 package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.powers.LoseVoteBuffPower;
 import theImposter.powers.SusPower;
+import theImposter.powers.VoteBuffPower;
+import theImposter.powers.VotePlayerPower;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -14,9 +18,7 @@ public class HuntedDown extends AbstractEasyCard {
     public HuntedDown() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         baseDamage = 5;
-        this.baseMagicNumber = 3;
-        this.magicNumber = this.baseMagicNumber;
-//        try using secondDamage here
+        this.magicNumber = this.baseMagicNumber = 3;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -26,6 +28,9 @@ public class HuntedDown extends AbstractEasyCard {
                 dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
             }
         }
+        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {

@@ -102,20 +102,20 @@ public class VotePlayerPower extends AbstractPower {
     }
 
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if (GetTotalVotes() >= 10)
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && GetTotalVotes() >= 10)
         {
             this.flashWithoutSound();
             this.addToBot(new TriggerVotesAction());
         }
     }
 
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        return type == DamageInfo.DamageType.NORMAL ? damage + (float)this.amount : damage;
-    }
-
-    public float modifyBlock(float blockAmount) {
-        return (blockAmount += (float)this.amount) < 0.0F ? 0.0F : blockAmount;
-    }
+//    public float atDamageGive(float damage, DamageInfo.DamageType type) {
+//        return type == DamageInfo.DamageType.NORMAL ? damage + (float)this.amount : damage;
+//    }
+//
+//    public float modifyBlock(float blockAmount) {
+//        return (blockAmount += (float)this.amount) < 0.0F ? 0.0F : blockAmount;
+//    }
 
     public void stackPower(int stackAmount) {
         this.fontScale = 8.0F;

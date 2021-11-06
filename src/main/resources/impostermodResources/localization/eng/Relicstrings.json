@@ -4,7 +4,7 @@
     "FLAVOR": "Two can be as bad as one.",
 
     "DESCRIPTIONS": [
-      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Lose 50% max HP.  Works once.",
+      "When you would die, restore to 100% HP, remove all buffs and debuffs, and prevent all incoming buffs, debuffs, and damage until the start of your next turn or until you play a card.  Lose 50% max HP.  Works once.",
       "This relic has been used up."
     ]
   },
@@ -61,8 +61,8 @@
     "NAME": "Third Imposter",
     "FLAVOR": "Two can be as bad as one.",
     "DESCRIPTIONS": [
-      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Works #b2 times.",
-      "When you would die, restore to 100% HP and remove all buffs and debuffs.  Works #b2 time.",
+      "When you would die, restore to 100% HP, remove all buffs and debuffs, and prevent all incoming buffs, debuffs, and damage until the start of your next turn or until you play a card.  Works #b2 times.",
+      "When you would die, restore to 100% HP, remove all buffs and debuffs, and prevent all incoming buffs, debuffs, and damage until the start of your next turn or until you play a card.  Works #b2 time.",
       "This relic has been used up."
     ]
   },

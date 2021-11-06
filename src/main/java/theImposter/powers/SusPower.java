@@ -1,5 +1,6 @@
 package theImposter.powers;
 
+import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -35,6 +36,8 @@ public class SusPower extends AbstractPower {
         this.source = source;
         this.amount = amount;
         this.type = AbstractPower.PowerType.DEBUFF;
+//        priority is mainly for Sus to apply Stun before VoteBuffPower applies block (to make the VoteBuffPower check easier)
+        this.priority = 1;
 
         Texture normalTexture = TexLoader.getTexture(ImposterMod.modID + "Resources/images/powers/" + name.replaceAll("([ ])", "") + "32.png");
         Texture hiDefImage = TexLoader.getTexture(ImposterMod.modID + "Resources/images/powers/" + name.replaceAll("([ ])", "") + "84.png");
@@ -67,19 +70,41 @@ public class SusPower extends AbstractPower {
 //    }
 
     public void atStartOfTurn() {
+        boolean isMultiDmg = (boolean) ReflectionHacks.getPrivate(this.owner, AbstractMonster.class, "isMultiDmg");
+        int intentMultiAmt = intentMultiAmt = ReflectionHacks.getPrivate(this.owner, AbstractMonster.class, "intentMultiAmt");;
+//        int totalIntentDmg =  intentMultiAmt * ((AbstractMonster) this.owner).getIntentDmg();
+        int totalIntentDmg = 0;
+        if (isMultiDmg) {
+            totalIntentDmg = intentMultiAmt * ((AbstractMonster) this.owner).getIntentDmg();
+        }
+        else
+        {
+            totalIntentDmg = ((AbstractMonster) this.owner).getIntentDmg();
+        }
+
         if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
-            if ((((AbstractMonster) this.owner).getIntentDmg() > 0 && this.amount >= ((AbstractMonster) this.owner).getIntentDmg()) ||
-                    (((AbstractMonster) this.owner).getIntentDmg() == 0 && this.amount >= 20)) {
+            if ((((AbstractMonster) this.owner).getIntentBaseDmg() > 0 && this.amount >= totalIntentDmg) ||
+                    (((AbstractMonster) this.owner).getIntentBaseDmg() <= 0 && this.amount >= 20)) {
                 this.flash();
-//            this.amount -=  ((AbstractMonster)this.owner).getIntentDmg();
-//
-//            if (this.amount <= 0) {
-//                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
-//            }
+
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
                 this.addToBot(new StunMonsterAction((AbstractMonster) this.owner, this.owner, 1));
             }
         }
+
+//        if (AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT && !AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
+//            if ((((AbstractMonster) this.owner).getIntentDmg() > 0 && this.amount >= ((AbstractMonster) this.owner).getIntentDmg()) ||
+//                    (((AbstractMonster) this.owner).getIntentDmg() == 0 && this.amount >= 20)) {
+//                this.flash();
+////            this.amount -=  ((AbstractMonster)this.owner).getIntentDmg();
+////
+////            if (this.amount <= 0) {
+////                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+////            }
+//                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+//                this.addToBot(new StunMonsterAction((AbstractMonster) this.owner, this.owner, 1));
+//            }
+//        }
     }
 
 //    @Override

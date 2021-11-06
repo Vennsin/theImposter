@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.orbs.Frost;
 import theImposter.TheImposter;
 import theImposter.actions.KillAtO2Action;
+import theImposter.powers.LoseVoteBuffPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VotePlayerPower;
 
 import java.util.Iterator;
@@ -56,6 +58,8 @@ public class KillAtO2 extends AbstractEasyCard {
         }
 //        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage + (powersPlayed * this.secondMagic), this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
