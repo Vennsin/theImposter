@@ -1,10 +1,13 @@
 package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.DexterityPower;
+import theImposter.actions.PrimeShieldsAction;
 import theImposter.powers.LoseVoteBuffPower;
 import theImposter.powers.ShieldsPrimedPower;
 import theImposter.powers.VoteBuffPower;
@@ -31,20 +34,22 @@ public class PrimeShields extends AbstractEasyCard {
         this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.secondMagic), this.secondMagic));
         this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.secondMagic), this.secondMagic));
 
-        boolean powerExists = false;
-        Iterator var4 = p.powers.iterator();
+        this.addToBot(new PrimeShieldsAction());
 
-        while(var4.hasNext()) {
-            AbstractPower pow = (AbstractPower)var4.next();
-            if (pow.ID.equals(ShieldsPrimedPower.POWER_ID)) {
-                powerExists = true;
-                break;
-            }
-        }
-
-        if (!powerExists) {
-            this.addToBot(new ApplyPowerAction(p, p, new ShieldsPrimedPower(p)));
-        }
+//        boolean powerExists = false;
+//        Iterator var4 = p.powers.iterator();
+//
+//        while(var4.hasNext()) {
+//            AbstractPower pow = (AbstractPower)var4.next();
+//            if (pow.ID.equals(ShieldsPrimedPower.POWER_ID)) {
+//                powerExists = true;
+//                break;
+//            }
+//        }
+//
+//        if (!powerExists) {
+//            this.addToBot(new ApplyPowerAction(p, p, new ShieldsPrimedPower(p)));
+//        }
     }
 
     public void upp() {

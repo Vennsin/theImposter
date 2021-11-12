@@ -38,6 +38,7 @@ public class MonitorTreeAction extends AbstractGameAction {
                     c.superFlash();
 
                     this.addToBot(new ModifyBlockAction(c.uuid, blkIncrease));
+                    c.isBlockModified = true;
                     c.applyPowers();
                 }
 

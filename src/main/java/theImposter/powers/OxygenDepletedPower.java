@@ -56,7 +56,7 @@ public class OxygenDepletedPower extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         if (info.type != DamageType.THORNS && info.type != DamageType.HP_LOSS && info.owner != null && info.owner != this.owner) {
             this.flash();
-            this.addToBot(new LoseHPAction(info.owner, (AbstractCreature)null, this.amount));
+            this.addToTop(new LoseHPAction(info.owner, (AbstractCreature)null, this.amount));
         }
         return damageAmount;
     }
@@ -64,9 +64,4 @@ public class OxygenDepletedPower extends AbstractPower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
-
-//    @Override
-//    public void updateDescription() {
-//        description = DESCRIPTIONS[0];
-//    }
 }

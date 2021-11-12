@@ -19,14 +19,9 @@ public class FillCanisters extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         blck();
         this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
-        if (upgraded)
-        {
-            this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));
-        }
     }
 
     public void upp() {
-        upgradeBlock(2);
-        uDesc();
+        upgradeBlock(4);
     }
 }

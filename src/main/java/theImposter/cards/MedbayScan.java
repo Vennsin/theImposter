@@ -18,7 +18,7 @@ public class MedbayScan extends AbstractEasyCard {
 
     public MedbayScan() {
         super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = 4;
+        this.magicNumber = this.baseMagicNumber = 2;
         this.secondMagic = this.baseSecondMagic = 1;
         this.exhaust = true;
         this.tags.add(CardTags.HEALING);
@@ -29,14 +29,10 @@ public class MedbayScan extends AbstractEasyCard {
         this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.secondMagic), this.secondMagic));
         this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.secondMagic), this.secondMagic));
         this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.secondMagic), this.secondMagic));
-        if (upgraded)
-        {
-            this.addToBot(new VentAction());
-        }
+        this.addToBot(new VentAction());
     }
 
     public void upp() {
-        uDesc();
-        tags.add(TheImposter.Enums.VENT);
+        upgradeMagicNumber(2);
     }
 }

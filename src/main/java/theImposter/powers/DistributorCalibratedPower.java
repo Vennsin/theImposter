@@ -69,16 +69,18 @@ public class DistributorCalibratedPower extends AbstractPower {
 
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
-        if (this.owner.hasPower(VotePlayerPower.POWER_ID)) {
-            if (this.owner.getPower(VotePlayerPower.POWER_ID).amount < this.amount)
-            {
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID)));
-            }
-            else {
-//                this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VotePlayerPower(this.owner, this.owner, -this.amount), -this.amount));
-                this.addToBot(new ReducePowerAction(this.owner, this.owner, VotePlayerPower.POWER_ID, this.amount));
-            }
-        }
+//        if (this.owner.hasPower(VotePlayerPower.POWER_ID)) {
+//            if (this.owner.getPower(VotePlayerPower.POWER_ID).amount < this.amount)
+//            {
+//                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID)));
+//            }
+//            else {
+////                this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VotePlayerPower(this.owner, this.owner, -this.amount), -this.amount));
+//                this.addToBot(new ReducePowerAction(this.owner, this.owner, VotePlayerPower.POWER_ID, this.amount));
+//            }
+//        }
+
+        this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VoteBuffPower(this.owner, this.owner, this.amount), this.amount));
 
         Iterator var3 = AbstractDungeon.getCurrRoom().monsters.monsters.iterator();
 

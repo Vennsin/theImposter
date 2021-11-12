@@ -1,8 +1,6 @@
 package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theImposter.powers.SusPower;
@@ -14,20 +12,13 @@ public class Backstab extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public Backstab() {
-        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 8;
-        this.baseMagicNumber = 4;
-        this.magicNumber = this.baseMagicNumber;
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        baseDamage = 5;
+        this.baseSecondDamage = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-//        if (m.hasPower(SusPower.POWER_ID)) {
-//            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage + (m.getPower(SusPower.POWER_ID).amount * this.magicNumber), this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-//        }
-//        else {
-//            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
-//        }
-        this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+        this.dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
     }
 
     public void calculateCardDamage(AbstractMonster mo) {
@@ -37,13 +28,13 @@ public class Backstab extends AbstractEasyCard {
         {
             susStacks = mo.getPower(SusPower.POWER_ID).amount;
         }
-        this.baseDamage += this.magicNumber * susStacks;
+        this.baseDamage += this.baseSecondDamage * susStacks;
         super.calculateCardDamage(mo);
         this.baseDamage = realBaseDamage;
         this.isDamageModified = this.damage != this.baseDamage;
     }
 
     public void upp() {
-        upgradeBaseCost(1);
+        upgradeDamage(3);
     }
 }

@@ -11,7 +11,7 @@ public class EmergencyMeeting extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public EmergencyMeeting() {
-        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF_AND_ENEMY);
+        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         this.exhaust = true;
     }
 
@@ -21,6 +21,5 @@ public class EmergencyMeeting extends AbstractEasyCard {
 
     public void upp() {
         upgradeBaseCost(2);
-        uDesc();
     }
 }

@@ -31,7 +31,7 @@ public class DistilledNightshade extends CustomPotion {
         this.description = DESCRIPTIONS[0] + this.potency + DESCRIPTIONS[1];
 
         // Do you throw this potion at an enemy or do you just consume it.
-        isThrown = false;
+        isThrown = true;
 
         // Initialize the on-hover name + description
         tips.add(new PowerTip(name, description));

@@ -2,7 +2,7 @@ package theImposter.cards;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import theImposter.actions.WaterPlantsAction;
+import theImposter.actions.MonitorTreeAction;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -16,7 +16,7 @@ public class MonitorTree extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new WaterPlantsAction(this.magicNumber));
+        this.addToBot(new MonitorTreeAction(this.magicNumber));
     }
 
     public void upp() {

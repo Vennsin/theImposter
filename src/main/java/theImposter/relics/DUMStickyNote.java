@@ -29,8 +29,8 @@ public class DUMStickyNote extends AbstractEasyRelic {
             if (card.cost >= 0) {
                 int newCost = AbstractDungeon.cardRandomRng.random(2);
                 if (card.cost != newCost) {
-                    card.cost = newCost;
-                    card.costForTurn = card.cost;
+//                    card.cost = newCost;
+                    card.costForTurn = newCost;
                     card.isCostModified = true;
                 }
 

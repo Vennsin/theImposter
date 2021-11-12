@@ -22,9 +22,9 @@ public class Gunshot extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+        dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         if (m.hasPower(VulnerablePower.POWER_ID)) {
-            dmg(m, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+            dmg(m, AbstractGameAction.AttackEffect.BLUNT_LIGHT);
         }
 //        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, this.magicNumber), this.magicNumber));
     }

@@ -16,7 +16,7 @@ public class EmptyGarbage extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public EmptyGarbage() {
-        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseBlock = 12;
         this.magicNumber = this.baseMagicNumber = 1;
         this.secondMagic = this.baseSecondMagic = 1;

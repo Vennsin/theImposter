@@ -37,6 +37,7 @@ public class WaterPlantsAction extends AbstractGameAction {
                     c.superFlash();
 
                     this.addToBot(new ModifyDamageAction(c.uuid, dmgIncrease));
+                    c.isDamageModified = true;
                     c.applyPowers();
                 }
 

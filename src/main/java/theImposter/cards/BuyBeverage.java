@@ -32,8 +32,6 @@ public class BuyBeverage extends AbstractEasyCard {
         AbstractPotion pot2 = AbstractDungeon.returnRandomPotion(true);
         AbstractPotion pot3 = AbstractDungeon.returnRandomPotion(true);
 
-        this.addToBot(new ObtainPotionAction(AbstractDungeon.returnRandomPotion(true)));
-
         ArrayList<AbstractCard> potionList = new ArrayList<>();
         potionList.add(new EasyModalChoiceCard("pot1", "Obtain  " + pot1.name + ".", () -> atb(new ObtainPotionAction(pot1))));
         potionList.add(new EasyModalChoiceCard("pot2", "Obtain " + pot2.name + ".", () -> atb(new ObtainPotionAction(pot2))));

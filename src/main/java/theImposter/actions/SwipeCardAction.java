@@ -7,13 +7,13 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-public class CardSwipeAction extends AbstractGameAction {
+public class SwipeCardAction extends AbstractGameAction {
     private static final com.megacrit.cardcrawl.localization.UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("DiscardAction");
     public static final String[] TEXT = uiStrings.TEXT;
     private float startingDuration;
     private AbstractPlayer p;
 
-    public CardSwipeAction(AbstractPlayer p, int numCards) {
+    public SwipeCardAction(AbstractPlayer p, int numCards) {
         this.amount = numCards;
         this.p = p;
         this.actionType = com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType.EXHAUST;

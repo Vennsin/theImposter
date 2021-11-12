@@ -14,7 +14,7 @@ public class InsertKeys extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public InsertKeys() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
         this.isInnate = true;
         this.magicNumber = this.baseMagicNumber = 2;
     }

@@ -24,9 +24,9 @@ public class StackKill extends AbstractEasyCard {
     public StackKill() {
         super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
         baseDamage = 11;
-        this.magicNumber = this.baseMagicNumber = 2;
+        this.magicNumber = this.baseMagicNumber = 1;
 
-        baseSecondDamage = 2;
+        baseSecondDamage = 1;
         this.secondMagic = this.baseSecondMagic = 11;
         tags.add(TheImposter.Enums.KILL);
     }
@@ -45,10 +45,10 @@ public class StackKill extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(1);
-        upgradeMagicNumber(1);
+        upgradeDamage(2);
+        upgradeMagicNumber(2);
 
-        upgradeSecondDamage(1);
-        upgradeSecondMagic(1);
+        upgradeSecondDamage(2);
+        upgradeSecondMagic(2);
     }
 }

@@ -47,7 +47,7 @@
   },
   "${ModID}:Backstab": {
     "NAME": "Backstab",
-    "DESCRIPTION": "Deal !D! damage. NL Deals !M! additional damage for each stack of ${ModID}:Sus on the target."
+    "DESCRIPTION": "Deal !D! damage. NL Deals !${ModID}:sd! additional damage for each stack of ${ModID}:Sus on the target."
   },
   "${ModID}:CleanKill": {
     "NAME": "Clean Kill",
@@ -80,7 +80,7 @@
   },
   "${ModID}:Gunshot": {
     "NAME": "Gunshot",
-    "DESCRIPTION": "Deal !D! damage (double damage if target is Vulnerable)."
+    "DESCRIPTION": "Deal !D! damage.  If the enemy has Vulnerable, deal !D! damage again."
   },
   "${ModID}:Skewer": {
     "NAME": "Skewer",
@@ -134,7 +134,7 @@
   },
   "${ModID}:HuntedDown": {
     "NAME": "Hunted Down",
-    "DESCRIPTION": "Deal !D! damage.  Deal !D! damage again for each stack of ${ModID}:Sus on the target.  Gain !M! ${ModID}:Votes"
+    "DESCRIPTION": "Deal !D! damage.  Deal !D! damage again for each stack of ${ModID}:Sus on the target.  Gain !M! ${ModID}:Votes."
   },
   "${ModID}:KillAndRun": {
     "NAME": "Kill And Run",
@@ -163,7 +163,7 @@
   },
   "${ModID}:KillAtReactor": {
     "NAME": "Kill at Reactor",
-    "DESCRIPTION": "Deal !D! damage.  Draw X cards.  Gain [R] for each Power and Status card in your hand.",
+    "DESCRIPTION": "Deal !D! damage.  Draw cards until you have !M! in your hand..  Gain [R] for each Power and Status card in your hand.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage.  Draw X+1 cards.  Gain [R] for each Power and Status card in your hand."
   },
   "${ModID}:KillDuringChaos": {
@@ -174,14 +174,14 @@
     "NAME": "Kill in the Dark",
     "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Sus, !M! ${ModID}:Vote, !M! Vulnerable, and !M! Weak to ALL enemies."
   },
-  "${ModID}:CardSwipe": {
-    "NAME": "Card Swipe",
+  "${ModID}:SwipeCard": {
+    "NAME": "Swipe Card",
     "DESCRIPTION": "Ethereal.  Discard up to !M! card.  Gain 20 Gold for each card discarded.",
     "UPGRADE_DESCRIPTION": "Ethereal.  Discard up to !M! cards.  Gain 20 Gold for each card discarded."
   },
   "${ModID}:ChartCourse": {
     "NAME": "Chart Course",
-    "DESCRIPTION": "Remove all Block from the enemy.  Gain !B! Block.  Apply !M! ${ModID}:Sus."
+    "DESCRIPTION": "Remove all Block from the enemy.  Apply !M! ${ModID}:Sus."
   },
   "${ModID}:CheckSecurity": {
     "NAME": "Check Security",
@@ -189,7 +189,7 @@
   },
   "${ModID}:CheckVitals": {
     "NAME": "Check Vitals",
-    "DESCRIPTION": "If the enemy is above 50% HP, apply !M! Weak.  If the enemy is below 50% HP, apply !M! Vulnerable.  If the enemy is at 50% HP, apply !M! Weak and !M! Vulnerable."
+    "DESCRIPTION": "If the enemy is at or above 50% HP, apply !M! Weak.  If the enemy is at or below 50% HP, apply !M! Vulnerable."
   },
   "${ModID}:ClearAsteroids": {
     "NAME": "Clear Asteroids",
@@ -246,21 +246,21 @@
   },
   "${ModID}:CheckAdmin": {
     "NAME": "Check Admin",
-    "DESCRIPTION": "Apply !M! ${ModID}:Sus to ALL enemies.  If this triggers ${ModID}:Sus, apply !M! ${ModID}:Sus to ALL enemies again.  Repeat if applicable."
+    "DESCRIPTION": "Apply !M! Vulnerable and Weak to yourself and ALL enemies."
   },
   "${ModID}:CleanO2Filter": {
     "NAME": "Clean O2 Filter",
-    "DESCRIPTION": "Ethereal. NL Gain !B! Block 6 times. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block 6 times. NL Exhaust."
+    "DESCRIPTION": "Gain !B! Block 6 times. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain !B! Block 6 times. NL Exhaust."
   },
   "${ModID}:CleanVents": {
     "NAME": "Clean Vents",
     "DESCRIPTION": "Whenever you play a Skill this turn, apply 1 Vulnerable to a random enemy.  ${ModID}:Vent.",
-    "UPGRADE_DESCRIPTION": "Whenever you play a Skill this turn, apply 1 Vulnerable to a random enemy, then ${ModID}:Vent.  ${ModID}:Vent."
+    "UPGRADE_DESCRIPTION": "Whenever you play a Skill this turn, apply 1 Vulnerable to a random enemy.  ${ModID}:Vent twice."
   },
   "${ModID}:Decontaminate": {
     "NAME": "Decontaminate",
-    "DESCRIPTION": "Remove 1 of your ${ModID}:Votes.  ${ModID}:Vent."
+    "DESCRIPTION": "Remove !M! of your ${ModID}:Votes.  ${ModID}:Vent."
   },
   "${ModID}:DivertPower": {
     "NAME": "Divert Power",
@@ -273,8 +273,7 @@
   },
   "${ModID}:FillCanisters": {
     "NAME": "Fill Canisters",
-    "DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister to your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block.  Add 2 *Fuel *Canisters to your hand."
+    "DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister to your hand."
   },
   "${ModID}:FixWiring": {
     "NAME": "Fix Wiring",
@@ -283,8 +282,8 @@
   },
   "${ModID}:FuelEngines": {
     "NAME": "Fuel Engines",
-    "DESCRIPTION": "Add 1 *Fuel *Canister to your hand.  Put a *Fuel *Canister into your hand at the start of your next turn.",
-    "UPGRADE_DESCRIPTION": "Add 1 *Fuel *Canister to your hand.  Put a *Fuel *Canister into your hand at the start of your next 2 turns."
+    "DESCRIPTION": "Add 1 *Fuel *Canister to your hand.  Put a *Fuel *Canister into your hand at the start of your next turn. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Add 1 *Fuel *Canister to your hand.  Put a *Fuel *Canister into your hand at the start of your next 2 turns. NL Exhaust"
   },
   "${ModID}:HolsterWeapons": {
     "NAME": "Holster Weapons",
@@ -292,12 +291,11 @@
   },
   "${ModID}:MedbayScan": {
     "NAME": "Medbay Scan",
-    "DESCRIPTION": "Heal !M! HP.  Gain !${ModID}:m2! ${ModID}:Vote. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Heal !M! HP.  Gain !${ModID}:m2! ${ModID}:Vote.  ${ModID}:Vent. NL Exhaust."
+    "DESCRIPTION": "Heal !M! HP.  Gain !${ModID}:m2! ${ModID}:Vote.  ${ModID}:Vent. NL Exhaust."
   },
   "${ModID}:PrimeShields": {
     "NAME": "Prime Shields",
-    "DESCRIPTION": "Gain !M! Dexterity.  All skills cost 0 until end of turn.  Gain !${ModID}:m2! ${ModID}:Vote. NL Exhaust."
+    "DESCRIPTION": "Gain !M! Dexterity.  All skills in your hand cost 0 until end of turn.  Gain !${ModID}:m2! ${ModID}:Vote. NL Exhaust."
   },
   "${ModID}:ProcessData": {
     "NAME": "Process Data",
@@ -315,8 +313,8 @@
   },
   "${ModID}:StartReactor": {
     "NAME": "Start Reactor",
-    "DESCRIPTION": "Draw !M! card and discard !M! card.  A random card in your hand costs 0 this turn.  Gain !B! Block.  ${ModID}:Vent. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Draw !M! card and discard !M! card.  A random card in your hand costs 0 this turn.  Gain !B! Block.  ${ModID}:Vent."
+    "DESCRIPTION": "Draw !M! cards and discard a card.  1 random card in your hand costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards and discard a card.  2 random cards in your hand cost 0 this turn."
   },
   "${ModID}:AssembleArtifact": {
     "NAME": "Assemble Artifact",

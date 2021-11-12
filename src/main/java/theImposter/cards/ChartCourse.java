@@ -14,17 +14,15 @@ public class ChartCourse extends AbstractEasyCard {
 
     public ChartCourse() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
-        this.baseBlock = 2;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.magicNumber = this.baseMagicNumber = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new RemoveAllBlockAction(m, p));
-        blck();
         this.addToBot(new ApplyPowerAction(m, p, new SusPower(m, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
-        upgradeBlock(2);
+        upgradeMagicNumber(2);
     }
 }

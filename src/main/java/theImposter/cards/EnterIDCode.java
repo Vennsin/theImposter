@@ -16,17 +16,19 @@ public class EnterIDCode extends AbstractEasyCard {
 
     public EnterIDCode() {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        this.baseBlock = 0;
         this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         Random rand = new Random();
 
-        int randomBlock;
-        randomBlock = rand.nextInt(10);
+        int randomBlock = 0;
+//        randomBlock = rand.nextInt(10);
 
         for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
             if(!mo.isDeadOrEscaped()) {
+                randomBlock = rand.nextInt(10) + this.block;
                 this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, randomBlock));
             }
         }

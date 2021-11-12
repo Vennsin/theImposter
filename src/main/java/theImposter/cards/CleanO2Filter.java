@@ -13,7 +13,6 @@ public class CleanO2Filter extends AbstractEasyCard {
     public CleanO2Filter() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
         this.baseBlock = 1;
-        this.isEthereal = true;
         this.exhaust = true;
         tags.add(TheImposter.Enums.VENT);
     }
@@ -28,7 +27,7 @@ public class CleanO2Filter extends AbstractEasyCard {
     }
 
     public void upp() {
-        this.isEthereal = false;
+        this.selfRetain = true;
         uDesc();
     }
 }

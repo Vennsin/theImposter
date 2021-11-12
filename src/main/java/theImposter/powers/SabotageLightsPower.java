@@ -56,9 +56,9 @@ public class SabotageLightsPower extends AbstractPower implements BetterOnApplyP
     {
 //        each stack of SabotageLights will increase Sus applied by 50%
         if (power.ID.equals(SusPower.POWER_ID)) {
-            power.amount += (int) (stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
+            power.amount += (int) Math.ceil(stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
 //        power.amount++;
-            stackAmount += (int) (stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
+            stackAmount += (int) Math.ceil(stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
         }
 //        stackAmount = stackAmount + (int)(stackAmount * AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);
 //        stackAmount += (AbstractDungeon.player.getPower(SabotageLightsPower.POWER_ID).amount * 0.5);

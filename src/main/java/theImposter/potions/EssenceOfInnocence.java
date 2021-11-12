@@ -1,6 +1,5 @@
 package theImposter.potions;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 
 import basemod.abstracts.CustomPotion;
 import theImposter.ImposterMod;
-import theImposter.powers.SusPower;
 import theImposter.powers.VotePlayerPower;
 
 public class EssenceOfInnocence extends CustomPotion {
@@ -42,10 +40,9 @@ public class EssenceOfInnocence extends CustomPotion {
 
     @Override
     public void use(AbstractCreature target) {
-//        this.addToBot(new ApplyPowerAction(target, AbstractDungeon.player, new SusPower(target, AbstractDungeon.player, this.potency), this.potency));
         int numVotesRemoved = 0;
         if (AbstractDungeon.player.hasPower(VotePlayerPower.POWER_ID)) {
-            numVotesRemoved = AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID).amount * this.potency / 200;
+            numVotesRemoved = (int)Math.ceil(AbstractDungeon.player.getPower(VotePlayerPower.POWER_ID).amount * this.potency / 100.0);
             this.addToBot(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, VotePlayerPower.POWER_ID, numVotesRemoved));
         }
     }

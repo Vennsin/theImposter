@@ -12,49 +12,49 @@
     "NAME": "Brain Slug",
     "FLAVOR": "It's starving.",
     "DESCRIPTIONS": [
-      "Whenever an enemy dies, transfer its Votes to a random enemy."
+      "Whenever an enemy dies, transfer its #yVotes to a random enemy."
     ]
   },
   "${ModID}:ClaustrophilicHamster": {
     "NAME": "Claustrophilic Hamster",
     "FLAVOR": "It loves to be held.",
     "DESCRIPTIONS": [
-      "The first time you Vent each turn, gain 1 Energy."
+      "The first time you #yVent each turn, gain [E]."
     ]
   },
   "${ModID}:DevilHorns": {
     "NAME": "Devil Horns",
-    "FLAVOR": "Whenever an enemy dies, transfer its Sus to a random enemy.",
+    "FLAVOR": "The envy of the gremlins.",
     "DESCRIPTIONS": [
-      "The envy of the gremlins."
+      "Whenever an enemy dies, transfer its #ySus to a random enemy."
     ]
   },
   "${ModID}:DUMStickyNote": {
     "NAME": "DUM Sticky Note",
     "FLAVOR": "DUM",
     "DESCRIPTIONS": [
-      "Randomize the cost of the cards in your starting hand from 0-2."
+      "Randomize the cost of the cards in your starting hand from #b0-2."
     ]
   },
   "${ModID}:LongTongue": {
     "NAME": "Long Tongue",
     "FLAVOR": "Unusually sharp.",
     "DESCRIPTIONS": [
-      "Attacks that have Kill in the name deal 4 additional damage."
+      "Attacks containing \"Kill\" in deal #b4 additional damage."
     ]
   },
   "${ModID}:PlagueDoctorMask": {
     "NAME": "Plague Doctor Mask",
     "FLAVOR": "Bring out your dead!",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain 1 Vote.  At the start of your 2nd turn, Vent."
+      "At the start of each combat, gain 1 #yVote.  At the start of your 2nd turn, #yVent."
     ]
   },
   "${ModID}:SheriffHat": {
     "NAME": "Sheriff Hat",
     "FLAVOR": "The long arm of the law extends out to space.",
     "DESCRIPTIONS": [
-      "At the start of each turn, all enemies with Sus gain 1 additional Sus."
+      "At the start of each turn, all enemies with #ySus gain 1 additional #ySus."
     ]
   },
   "${ModID}:ThirdImposter": {
@@ -70,14 +70,14 @@
     "NAME": "Top Hat",
     "FLAVOR": "Just doing my civic duty, sir.",
     "DESCRIPTIONS": [
-      "At the start of each combat, apply 2 Vote to a random enemy.  That enemy loses 2 Strength."
+      "At the start of each combat, apply 2 #yVote to a random enemy.  That enemy loses 2 #yStrength."
     ]
   },
   "${ModID}:ToyUFO": {
     "NAME": "Toy UFO",
     "FLAVOR": "No one is innocent.",
     "DESCRIPTIONS": [
-      "At the start of each combat, apply 3 Sus to ALL enemies."
+      "At the start of each combat, apply 3 #ySus to ALL enemies."
     ]
   }
 }

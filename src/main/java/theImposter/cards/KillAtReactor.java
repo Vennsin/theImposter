@@ -14,18 +14,18 @@ public class KillAtReactor extends AbstractEasyCard {
 
     public KillAtReactor() {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
-        baseDamage = 8;
-        this.magicNumber = this.baseMagicNumber = 8;
+        baseDamage = 10;
+        this.magicNumber = this.baseMagicNumber = 6;
         tags.add(TheImposter.Enums.KILL);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
+
         this.addToBot(new KillAtReactorAction(p, m, this.magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(2);
         upgradeMagicNumber(2);
     }
 }

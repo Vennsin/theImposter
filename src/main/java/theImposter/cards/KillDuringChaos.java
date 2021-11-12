@@ -19,8 +19,7 @@ public class KillDuringChaos extends AbstractEasyCard {
     public KillDuringChaos() {
         super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
         baseDamage = 10;
-        this.baseMagicNumber = 1;
-        this.magicNumber = this.baseMagicNumber;
+        this.magicNumber = this.baseMagicNumber = 1;
         tags.add(TheImposter.Enums.KILL);
     }
 
@@ -42,6 +41,6 @@ public class KillDuringChaos extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(4);
+        upgradeMagicNumber(1);
     }
 }

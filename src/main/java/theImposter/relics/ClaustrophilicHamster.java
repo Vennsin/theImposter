@@ -1,6 +1,7 @@
 package theImposter.relics;
 
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import theImposter.TheImposter;
 
@@ -17,8 +18,9 @@ public class ClaustrophilicHamster extends AbstractEasyRelic {
         this.grayscale = false;
     }
 
-    public void onCardDraw(AbstractCard drawnCard) {
-        if (drawnCard.hasTag(TheImposter.Enums.VENT)) {
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+//        consider just hardcoding this into VentAction
+        if (card.hasTag(TheImposter.Enums.VENT)) {
             this.flash();
             if (!this.grayscale) {
                 this.grayscale = true;
