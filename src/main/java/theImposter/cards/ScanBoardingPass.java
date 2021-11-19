@@ -25,14 +25,14 @@ public class ScanBoardingPass extends AbstractEasyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if(p.powers.size() > 0) {
             ArrayList<AbstractPower> debuffs = new ArrayList<>();
-            for (AbstractPower pow : m.powers) {
+            for (AbstractPower pow : p.powers) {
                 if (pow.type == AbstractPower.PowerType.BUFF) {
                     debuffs.add(pow);
                 }
             }
 
             if (debuffs.size() > 0) {
-                addToBot(new RemoveSpecificPowerAction(m, p, debuffs.get(AbstractDungeon.cardRandomRng.random.nextInt(debuffs.size()))));
+                addToBot(new RemoveSpecificPowerAction(p, p, debuffs.get(AbstractDungeon.cardRandomRng.random.nextInt(debuffs.size()))));
             }
         }
         this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), 1));

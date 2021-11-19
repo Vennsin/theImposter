@@ -79,6 +79,7 @@ public class TheImposter extends CustomPlayer {
         }
         retVal.add(CleanKill.ID);
         retVal.add(ClearAsteroids.ID);
+        retVal.add(VentHopping.ID);
 
         return retVal;
     }

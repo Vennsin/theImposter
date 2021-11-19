@@ -19,7 +19,7 @@
     "NAME": "Claustrophilic Hamster",
     "FLAVOR": "It loves to be held.",
     "DESCRIPTIONS": [
-      "The first time you #yVent each turn, gain [E]."
+      "The first time you #yVent each turn, gain [R]."
     ]
   },
   "${ModID}:DevilHorns": {
@@ -59,7 +59,7 @@
   },
   "${ModID}:ThirdImposter": {
     "NAME": "Third Imposter",
-    "FLAVOR": "Two can be as bad as one.",
+    "FLAVOR": "The throws....",
     "DESCRIPTIONS": [
       "When you would die, restore to 100% HP, remove all buffs and debuffs, and prevent all incoming buffs, debuffs, and damage until the start of your next turn or until you play a card.  Works #b2 times.",
       "When you would die, restore to 100% HP, remove all buffs and debuffs, and prevent all incoming buffs, debuffs, and damage until the start of your next turn or until you play a card.  Works #b2 time.",

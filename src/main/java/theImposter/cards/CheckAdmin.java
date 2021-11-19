@@ -21,8 +21,8 @@ public class CheckAdmin extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(p, this.magicNumber, false), this.magicNumber));
-        this.addToBot(new ApplyPowerAction(m, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new VulnerablePower(p, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new WeakPower(p, this.magicNumber, false), this.magicNumber));
 
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             Iterator var1 = AbstractDungeon.getMonsters().monsters.iterator();

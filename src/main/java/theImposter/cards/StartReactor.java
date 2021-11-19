@@ -1,21 +1,11 @@
 package theImposter.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DiscardAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import theImposter.TheImposter;
 import theImposter.actions.StartReactorAction;
-import theImposter.actions.VentAction;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -30,7 +20,7 @@ public class StartReactor extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DrawCardAction(this.magicNumber));
-        this.addToBot(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, this.magicNumber, false));
+        this.addToBot(new DiscardAction(AbstractDungeon.player, AbstractDungeon.player, 1, false));
 
         this.addToBot(new StartReactorAction());
         if (this.upgraded)

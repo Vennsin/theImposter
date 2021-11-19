@@ -21,5 +21,6 @@ public class EmergencyMeeting extends AbstractEasyCard {
 
     public void upp() {
         upgradeBaseCost(2);
+        uDesc();
     }
 }

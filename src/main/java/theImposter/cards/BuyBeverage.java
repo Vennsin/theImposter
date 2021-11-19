@@ -19,13 +19,14 @@ public class BuyBeverage extends AbstractEasyCard {
 
     public BuyBeverage() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        this.magicNumber = this.baseMagicNumber = 20;
         this.exhaust = true;
         this.tags.add(CardTags.HEALING);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!upgraded) {
-            AbstractDungeon.player.loseGold(this.magicNumber);
+            p.loseGold(this.magicNumber);
         }
 
         AbstractPotion pot1 = AbstractDungeon.returnRandomPotion(true);
@@ -33,9 +34,9 @@ public class BuyBeverage extends AbstractEasyCard {
         AbstractPotion pot3 = AbstractDungeon.returnRandomPotion(true);
 
         ArrayList<AbstractCard> potionList = new ArrayList<>();
-        potionList.add(new EasyModalChoiceCard("pot1", "Obtain  " + pot1.name + ".", () -> atb(new ObtainPotionAction(pot1))));
-        potionList.add(new EasyModalChoiceCard("pot2", "Obtain " + pot2.name + ".", () -> atb(new ObtainPotionAction(pot2))));
-        potionList.add(new EasyModalChoiceCard("pot3", "Obtain  " + pot3.name + ".", () -> atb(new ObtainPotionAction(pot3))));
+        potionList.add(new EasyModalChoiceCard("", "Obtain  " + pot1.name + ".", () -> atb(new ObtainPotionAction(pot1))));
+        potionList.add(new EasyModalChoiceCard("", "Obtain " + pot2.name + ".", () -> atb(new ObtainPotionAction(pot2))));
+        potionList.add(new EasyModalChoiceCard("", "Obtain  " + pot3.name + ".", () -> atb(new ObtainPotionAction(pot3))));
         atb(new EasyModalChoiceAction(potionList));
     }
 

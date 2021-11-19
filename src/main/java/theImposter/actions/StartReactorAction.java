@@ -45,14 +45,14 @@ public class StartReactorAction extends AbstractGameAction {
         if (better) {
             if (c.costForTurn > 0) {
                 c.costForTurn = 0;
-                c.isCostModified = true;
+                c.isCostModifiedForTurn = true;
                 c.superFlash(Color.GOLD.cpy());
             } else {
                 this.findAndModifyCard(better);
             }
         } else if (c.cost > 0) {
             c.costForTurn = 0;
-            c.isCostModified = true;
+            c.isCostModifiedForTurn = true;
             c.superFlash(Color.GOLD.cpy());
         } else {
             this.findAndModifyCard(better);

@@ -51,11 +51,11 @@
   },
   "${ModID}:CleanKill": {
     "NAME": "Clean Kill",
-    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Sus."
+    "DESCRIPTION": "Choose one: Deal !D! damage and apply 2 ${ModID}:Sus, or deal !D! damage and remove 1 of your ${ModID}:Votes."
   },
   "${ModID}:Babushka": {
     "NAME": "Babushka",
-    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Votes."
+    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote."
   },
   "${ModID}:KillOnCams": {
     "NAME": "Kill on Cams",
@@ -163,8 +163,8 @@
   },
   "${ModID}:KillAtReactor": {
     "NAME": "Kill at Reactor",
-    "DESCRIPTION": "Deal !D! damage.  Draw cards until you have !M! in your hand..  Gain [R] for each Power and Status card in your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage.  Draw X+1 cards.  Gain [R] for each Power and Status card in your hand."
+    "DESCRIPTION": "Deal !D! damage.  Draw cards until you have !M! in your hand.  Gain [R] for each Power, Status, or Curse card in your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.  Draw X+1 cards.  Gain [R] for each Power, Status, or Curse card in your hand."
   },
   "${ModID}:KillDuringChaos": {
     "NAME": "Kill During Chaos",
@@ -176,8 +176,8 @@
   },
   "${ModID}:SwipeCard": {
     "NAME": "Swipe Card",
-    "DESCRIPTION": "Ethereal.  Discard up to !M! card.  Gain 20 Gold for each card discarded.",
-    "UPGRADE_DESCRIPTION": "Ethereal.  Discard up to !M! cards.  Gain 20 Gold for each card discarded."
+    "DESCRIPTION": "Retain. NL Remove !M! ${ModID}:Vote from everyone.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Remove !M! ${ModID}:Votes from everyone."
   },
   "${ModID}:ChartCourse": {
     "NAME": "Chart Course",
@@ -338,7 +338,7 @@
   },
   "${ModID}:UnlockSafe": {
     "NAME": "Unlock Safe",
-    "DESCRIPTION": "Play 1 of 3 random cards from your draw pile. NL Exhaust."
+    "DESCRIPTION": "Play 1 of !M! random cards from your draw pile. NL Exhaust."
   },
   "${ModID}:CalibrateAgain": {
     "NAME": "Calibrate Again",
@@ -347,12 +347,12 @@
   },
   "${ModID}:FuelCanister": {
     "NAME": "Fuel Canister",
-    "DESCRIPTION": "Retain.  Gain [R]. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Retain.  Gain [R] [R]. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain [R]. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Retain. NL Gain [R] [R]. NL Exhaust."
   },
   "${ModID}:UploadData": {
     "NAME": "Upload Data",
-    "DESCRIPTION": "Retain.  Gain !B! Block.  Discard 1 card.  Draw 2 cards. NL Exhaust."
+    "DESCRIPTION": "Retain. NL Gain !B! Block.  Discard 1 card.  Draw 2 cards. NL Exhaust."
   },
   "${ModID}:HardAccusations": {
     "NAME": "Hard Accusations",
@@ -394,7 +394,7 @@
   },
   "${ModID}:DressMannequin": {
     "NAME": "Dress Mannequin",
-    "DESCRIPTION": "Draw 2 cards.  If the enemy intends to attack, apply !M! Sus."
+    "DESCRIPTION": "Draw 2 cards.  If the enemy intends to attack, apply !M! ${ModID}:Sus."
   },
   "${ModID}:StartFans": {
     "NAME": "Start Fans",
@@ -407,7 +407,7 @@
   "${ModID}:InsertKeys": {
     "NAME": "Insert Keys",
     "DESCRIPTION": "Innate.  Remove !M! of your ${ModID}:Votes.",
-    "UPGRADE_DESCRIPTION": "Innate.  Retain.  Remove !M! of your ${ModID}:Votes."
+    "UPGRADE_DESCRIPTION": "Innate.  Retain. NL Remove !M! of your ${ModID}:Votes."
   },
   "${ModID}:DevelopPhotos": {
     "NAME": "Develop Photos",
@@ -425,5 +425,18 @@
   "${ModID}:SabotageDoors": {
     "NAME": "Sabotage Doors",
     "DESCRIPTION": "Whenever ${ModID}:Sus or ${ModID}:Vote is applied or gained, gain !M! Block."
+  },
+  "${ModID}:ScanBoardingPass": {
+    "NAME": "Scan Boarding Pass",
+    "DESCRIPTION": "Innate. NL Remove a random debuff from yourself.  Add 1 *Swipe *Card to your hand. NL Exhaust."
+  },
+  "${ModID}:PolishRuby": {
+    "NAME": "Polish Ruby",
+    "DESCRIPTION": "Gain 1 Artifact.  Gain !M! gold.  Exhaust."
+  },
+  "${ModID}:VentHopping": {
+    "NAME": "Vent Hopping",
+    "DESCRIPTION": "Apply 1 of Vulnerable, Frail, or Weak to yourself randomly.  ${ModID}:Vent.  Increase the cost of this card by 1 this combat.",
+    "UPGRADE_DESCRIPTION": "Apply 2 of Vulnerable, Frail, or Weak to yourself randomly.  ${ModID}:Vent.  Increase the cost of this card by 1 this combat."
   }
 }

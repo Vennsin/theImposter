@@ -33,7 +33,7 @@ public class WaterPlantsAction extends AbstractGameAction {
         while(var2.hasNext()) {
             AbstractCard c = (AbstractCard)var2.next();
             if (c.type == AbstractCard.CardType.ATTACK) {
-                if (cardGroup.type == CardGroupType.HAND) {
+                if (cardGroup.type == CardGroupType.HAND && c.baseDamage >= 0) {
                     c.superFlash();
 
                     this.addToBot(new ModifyDamageAction(c.uuid, dmgIncrease));

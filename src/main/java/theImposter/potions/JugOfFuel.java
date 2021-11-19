@@ -40,6 +40,13 @@ public class JugOfFuel extends CustomPotion {
 
     }
 
+    public void initializeData() {
+        this.potency = this.getPotency();
+        this.description = potionStrings.DESCRIPTIONS[0] + this.potency + potionStrings.DESCRIPTIONS[1];
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
+    }
+
     @Override
     public void use(AbstractCreature target) {
         AbstractCard fuelCanister = new FuelCanister();

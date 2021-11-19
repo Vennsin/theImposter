@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,7 +39,19 @@ public class KillAtO2 extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        see Blizzard about displaying Power count
-        this.addToBot(new KillAtO2Action());
+        int numPowersInDrawPile = 0;
+        Iterator var6 = p.drawPile.group.iterator();
+
+        while(var6.hasNext()) {
+            AbstractCard c = (AbstractCard)var6.next();
+            if (c.type == AbstractCard.CardType.POWER) {
+                numPowersInDrawPile++;
+            }
+        }
+        if (numPowersInDrawPile > 0)
+        {
+            this.addToBot(new KillAtO2Action());
+        }
 
         int powersPlayed = 0;
         Iterator var4 = AbstractDungeon.actionManager.cardsPlayedThisCombat.iterator();

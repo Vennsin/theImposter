@@ -34,7 +34,7 @@ public class MonitorTreeAction extends AbstractGameAction {
         while(var2.hasNext()) {
             AbstractCard c = (AbstractCard)var2.next();
             if (c.type == AbstractCard.CardType.SKILL) {
-                if (cardGroup.type == CardGroupType.HAND) {
+                if (cardGroup.type == CardGroupType.HAND && c.block >= 0) {
                     c.superFlash();
 
                     this.addToBot(new ModifyBlockAction(c.uuid, blkIncrease));

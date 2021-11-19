@@ -18,7 +18,7 @@ public class DUMStickyNote extends AbstractEasyRelic {
         if (!this.grayscale) {
             ++this.counter;
         }
-        if (this.counter == TURN_ACTIVATION) {
+        if (this.counter >= TURN_ACTIVATION) {
             this.counter = -1;
             this.grayscale = true;
         }
@@ -29,7 +29,6 @@ public class DUMStickyNote extends AbstractEasyRelic {
             if (card.cost >= 0) {
                 int newCost = AbstractDungeon.cardRandomRng.random(2);
                 if (card.cost != newCost) {
-//                    card.cost = newCost;
                     card.costForTurn = newCost;
                     card.isCostModified = true;
                 }

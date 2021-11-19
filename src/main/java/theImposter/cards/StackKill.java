@@ -35,13 +35,9 @@ public class StackKill extends AbstractEasyCard {
         int numMonsters = AbstractDungeon.getCurrRoom().monsters.monsters.size();
 
         ArrayList<AbstractCard> easyCardList = new ArrayList<>();
-        easyCardList.add(new EasyModalChoiceCard("option1", "Deal " + damage + " damage per enemy and apply " + magicNumber + " Sus.", () -> atb(new StackKillAction(m, this.damage, this.magicNumber, this.damageTypeForTurn))));
-        easyCardList.add(new EasyModalChoiceCard("option2", "Deal " + secondDamage + " damage per enemy and apply " + secondMagic + " Sus.", () -> atb(new StackKillAction(m, this.secondDamage, this.secondMagic, this.damageTypeForTurn))));
+        easyCardList.add(new EasyModalChoiceCard("", "Deal " + damage + " damage per enemy and apply " + magicNumber + " Sus.", () -> atb(new StackKillAction(m, this.damage, this.magicNumber, this.damageTypeForTurn))));
+        easyCardList.add(new EasyModalChoiceCard("", "Deal " + secondDamage + " damage per enemy and apply " + secondMagic + " Sus.", () -> atb(new StackKillAction(m, this.secondDamage, this.secondMagic, this.damageTypeForTurn))));
         atb(new EasyModalChoiceAction(easyCardList));
-
-        this.addToBot(new ApplyPowerAction(p, p, new VotePlayerPower(p, p, 3), 3));
-        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, 3), 3));
-        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, 3), 3));
     }
 
     public void upp() {
