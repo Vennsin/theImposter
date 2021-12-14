@@ -19,7 +19,7 @@
     "NAME": "Claustrophilic Hamster",
     "FLAVOR": "It loves to be held.",
     "DESCRIPTIONS": [
-      "The first time you #yVent each turn, gain [R]."
+      "The first time you #yVent each turn, gain [E]."
     ]
   },
   "${ModID}:DevilHorns": {

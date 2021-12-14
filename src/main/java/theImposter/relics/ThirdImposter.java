@@ -59,6 +59,10 @@ public class ThirdImposter extends AbstractEasyRelic implements BetterOnLoseHpRe
             this.counter = -2;
             this.description = this.DESCRIPTIONS[2];
         }
+        else
+        {
+            this.description = this.DESCRIPTIONS[1];
+        }
     }
 
 //    public boolean onPlayerDeath(AbstractPlayer abstractPlayer, DamageInfo damageInfo) {

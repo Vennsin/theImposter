@@ -55,7 +55,7 @@
   },
   "${ModID}:Babushka": {
     "NAME": "Babushka",
-    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote."
+    "DESCRIPTION": "Deal !D! damage to a random enemy.  Gain !M! ${ModID}:Vote."
   },
   "${ModID}:KillOnCams": {
     "NAME": "Kill on Cams",
@@ -212,7 +212,8 @@
   },
   "${ModID}:InspectSamples": {
     "NAME": "Inspect Samples",
-    "DESCRIPTION": "Gain !B! Block.  Gain !M! Vigor."
+    "DESCRIPTION": "Apply !M! Poison to ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! Poison to ALL enemies."
   },
   "${ModID}:MakeBurger": {
     "NAME": "Make Burger",
@@ -323,7 +324,7 @@
   },
   "${ModID}:BuyBeverage": {
     "NAME": "Buy Beverage",
-    "DESCRIPTION": "Lose 20 Gold and obtain 1 of 3 random potions. NL Exhaust.",
+    "DESCRIPTION": "Lose !M! Gold.  Obtain 1 of 3 random potions. NL Exhaust.",
     "UPGRADE_DESCRIPTION": "Obtain 1 of 3 random potions. NL Exhaust."
   },
   "${ModID}:CalibrateDistributor": {
@@ -360,7 +361,7 @@
   },
   "${ModID}:JamCommunications": {
     "NAME": "Jam Comms",
-    "DESCRIPTION": "${ModID}:Votes now trigger at 7 stacks among us."
+    "DESCRIPTION": "Choose: ${ModID}:Votes now trigger at 7 stacks among us, or ${ModID}:Votes now trigger at 13 stacks among us."
   },
   "${ModID}:SabotageLights": {
     "NAME": "Sabotage Lights",
@@ -432,11 +433,52 @@
   },
   "${ModID}:PolishRuby": {
     "NAME": "Polish Ruby",
-    "DESCRIPTION": "Gain 1 Artifact.  Gain !M! gold.  Exhaust."
+    "DESCRIPTION": "Gain 1 Artifact.  Gain !M! gold. NL Exhaust."
   },
   "${ModID}:VentHopping": {
     "NAME": "Vent Hopping",
     "DESCRIPTION": "Apply 1 of Vulnerable, Frail, or Weak to yourself randomly.  ${ModID}:Vent.  Increase the cost of this card by 1 this combat.",
     "UPGRADE_DESCRIPTION": "Apply 2 of Vulnerable, Frail, or Weak to yourself randomly.  ${ModID}:Vent.  Increase the cost of this card by 1 this combat."
+  },
+  "${ModID}:FixWeatherNode": {
+    "NAME": "Fix Weather Node",
+    "DESCRIPTION": "Discard your draw pile.  Gain !B! Block for each card discarded."
+  },
+  "${ModID}:ImposterVision": {
+    "NAME": "ImposterVision",
+    "DESCRIPTION": "Reduce ${ModID}:Sus by only half when triggered."
+  },
+  "${ModID}:MeasureWeather": {
+    "NAME": "Measure Weather",
+    "DESCRIPTION": "Gain !M! Dexterity and Strength until end of turn.  Gain 1 more for each Act you have overcome."
+  },
+  "${ModID}:RecordTemperature": {
+    "NAME": "Record Temperature",
+    "DESCRIPTION": "Ethereal. NL Choose: Each enemy loses HP equal to their Sus, or gain Block equal to the total Sus of ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Choose: Each enemy loses HP equal to their Sus, OR gain Block equal to the total Sus of ALL enemies."
+  },
+  "${ModID}:SortSamples": {
+    "NAME": "Sort Samples",
+    "DESCRIPTION": "Deal !D! damage for each Attack in your hand, gain !B! Block for each Skill in your hand, and draw !M! card for each Power in your hand."
+  },
+  "${ModID}:CrashCourse": {
+    "NAME": "Crash Course",
+    "DESCRIPTION": "When ${ModID}:Sus or ${ModID}:Vote triggers, deal !M! damage to ALL enemies."
+  },
+  "${ModID}:OpenWaterways": {
+    "NAME": "Open Waterways",
+    "DESCRIPTION": "Increase ${ModID}:Sus applications by !M! for this turn."
+  },
+  "${ModID}:SortRecords": {
+    "NAME": "Sort Records",
+    "DESCRIPTION": "Ethereal. NL Add 1 of 3 random cards to your hand.  It costs 0 this combat. NL Exhaust."
+  },
+  "${ModID}:ReactorMeltdown": {
+    "NAME": "Reactor Meltdown",
+    "DESCRIPTION": "All effects from ${ModID}:Vote are doubled."
+  },
+  "${ModID}:GasLighting": {
+    "NAME": "GasLighting",
+    "DESCRIPTION": "Your ${ModID}:Vote counter does not increment for the first ${ModID}:Vote gained each turn."
   }
 }

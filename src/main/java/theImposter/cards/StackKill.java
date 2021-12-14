@@ -32,8 +32,6 @@ public class StackKill extends AbstractEasyCard {
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int numMonsters = AbstractDungeon.getCurrRoom().monsters.monsters.size();
-
         ArrayList<AbstractCard> easyCardList = new ArrayList<>();
         easyCardList.add(new EasyModalChoiceCard("", "Deal " + damage + " damage per enemy and apply " + magicNumber + " Sus.", () -> atb(new StackKillAction(m, this.damage, this.magicNumber, this.damageTypeForTurn))));
         easyCardList.add(new EasyModalChoiceCard("", "Deal " + secondDamage + " damage per enemy and apply " + secondMagic + " Sus.", () -> atb(new StackKillAction(m, this.secondDamage, this.secondMagic, this.damageTypeForTurn))));

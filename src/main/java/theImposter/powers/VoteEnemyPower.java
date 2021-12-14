@@ -2,14 +2,9 @@ package theImposter.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -22,7 +17,7 @@ import theImposter.util.TexLoader;
 
 import java.util.Iterator;
 
-import static theImposter.ImposterMod.makeID;
+//import static theImposter.ImposterMod.makeID;
 
 public class VoteEnemyPower extends AbstractPower {
     public static final String POWER_NAME = "Vote(s)";
@@ -52,6 +47,20 @@ public class VoteEnemyPower extends AbstractPower {
         }
 
         this.updateDescription();
+    }
+
+    public int GetVoteTriggerAmount()
+    {
+        if (AbstractDungeon.player.hasPower(JamCommunications7Power.POWER_ID))
+        {
+            return 7;
+        }
+        else if (AbstractDungeon.player.hasPower(JamCommunications13Power.POWER_ID))
+        {
+            return 13;
+        }
+
+        return 10;
     }
 
     public int GetTotalVotes() {
@@ -114,7 +123,7 @@ public class VoteEnemyPower extends AbstractPower {
     }
 
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && GetTotalVotes() >= 10)
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && GetTotalVotes() >= GetVoteTriggerAmount())
         {
             this.flashWithoutSound();
             this.addToBot(new TriggerVotesAction());

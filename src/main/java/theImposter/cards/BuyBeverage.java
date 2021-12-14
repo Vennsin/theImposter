@@ -19,7 +19,7 @@ public class BuyBeverage extends AbstractEasyCard {
 
     public BuyBeverage() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
-        this.magicNumber = this.baseMagicNumber = 20;
+        this.magicNumber = this.baseMagicNumber = 10;
         this.exhaust = true;
         this.tags.add(CardTags.HEALING);
     }

@@ -18,14 +18,14 @@ public class ClaustrophilicHamster extends AbstractEasyRelic {
         this.grayscale = false;
     }
 
-    public void onUseCard(AbstractCard card, UseCardAction action) {
+//    public void onUseCard(AbstractCard card, UseCardAction action) {
 //        consider just hardcoding this into VentAction
-        if (card.hasTag(TheImposter.Enums.VENT)) {
-            this.flash();
-            if (!this.grayscale) {
-                this.grayscale = true;
-                this.addToBot(new GainEnergyAction(1));
-            }
-        }
-    }
+//        if (card.hasTag(TheImposter.Enums.VENT)) {
+//            this.flash();
+//            if (!this.grayscale) {
+//                this.grayscale = true;
+//                this.addToBot(new GainEnergyAction(1));
+//            }
+//        }
+//    }
 }

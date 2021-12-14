@@ -5,6 +5,8 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import theImposter.TheImposter;
 import theImposter.actions.VentAction;
+import theImposter.powers.LoseVoteBuffPower;
+import theImposter.powers.VoteBuffPower;
 import theImposter.powers.VotePlayerPower;
 
 import static theImposter.ImposterMod.makeID;
@@ -21,6 +23,8 @@ public class PlagueDoctorMask extends AbstractEasyRelic {
         this.counter = 0;
 
         this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VotePlayerPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VoteBuffPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
+        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LoseVoteBuffPower(AbstractDungeon.player, AbstractDungeon.player, 1), 1));
     }
 
     public void atTurnStart() {

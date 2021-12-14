@@ -26,15 +26,20 @@ public class VentHopping extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<String> possibleDebuffs = new ArrayList();
-        possibleDebuffs.add(VulnerablePower.POWER_ID);
-        possibleDebuffs.add(WeakPower.POWER_ID);
-        possibleDebuffs.add(FrailPower.POWER_ID);
+        if (!p.hasPower(VulnerablePower.POWER_ID)) {
+            possibleDebuffs.add(VulnerablePower.POWER_ID);
+        }
+        if (!p.hasPower(WeakPower.POWER_ID)) {
+            possibleDebuffs.add(WeakPower.POWER_ID);
+        }
+        if (!p.hasPower(FrailPower.POWER_ID)) {
+            possibleDebuffs.add(FrailPower.POWER_ID);
+        }
 
         Random rand = new Random();
         String randomPower = "";
 
-        for (int i = 0; i < this.magicNumber; i++)
-        {
+        for (int i = 0; i < this.magicNumber && possibleDebuffs.size() > 0; i++) {
             randomPower = possibleDebuffs.get(rand.nextInt(possibleDebuffs.size()));
             possibleDebuffs.remove(randomPower);
 
@@ -49,7 +54,6 @@ public class VentHopping extends AbstractEasyCard {
                     this.addToBot(new ApplyPowerAction(p, p, new FrailPower(p, 1, false), 1));
                     break;
             }
-
         }
         this.addToBot(new VentAction());
         modifyCostForCombat(1);

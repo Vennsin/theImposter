@@ -3,9 +3,14 @@ package theImposter.powers;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -87,8 +92,19 @@ public class SusPower extends AbstractPower {
                     (((AbstractMonster) this.owner).getIntentBaseDmg() <= 0 && this.amount >= 20)) {
                 this.flash();
 
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+                if (AbstractDungeon.player.hasPower(ImposterVisionPower.POWER_ID)) {
+                    AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(this.owner, this.owner, this, this.amount / 2));
+                }
+                else
+                {
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+                }
                 this.addToBot(new StunMonsterAction((AbstractMonster) this.owner, this.owner, 1));
+
+                if (AbstractDungeon.player.hasPower(CrashCoursePower.POWER_ID)) {
+                    AbstractDungeon.player.getPower(CrashCoursePower.POWER_ID).flash();
+                    this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, DamageInfo.createDamageMatrix(AbstractDungeon.player.getPower(CrashCoursePower.POWER_ID).amount, true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.BLUNT_HEAVY));
+                }
             }
         }
 

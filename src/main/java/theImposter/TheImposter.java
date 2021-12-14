@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
@@ -23,6 +24,7 @@ import theImposter.cards.*;
 import theImposter.relics.SecondImposter;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static theImposter.TheImposter.Enums.IMPOSTER_COLOR;
 import static theImposter.ImposterMod.*;
@@ -161,6 +163,15 @@ public class TheImposter extends CustomPlayer {
                 AbstractGameAction.AttackEffect.FIRE,
                 AbstractGameAction.AttackEffect.BLUNT_HEAVY,
                 AbstractGameAction.AttackEffect.FIRE};
+    }
+
+    public List<CutscenePanel> getCutscenePanels() {
+        List<CutscenePanel> panels = new ArrayList();
+        panels.add(new CutscenePanel(modID + "Resources/images/scenes/imposter1.png"));
+        panels.add(new CutscenePanel(modID + "Resources/images/scenes/imposter2.png"));
+        panels.add(new CutscenePanel(modID + "Resources/images/scenes/imposter3.png"));
+        return panels;
+//        look at Spire w/ Friends/chrono/images/cutscenes/AllTogether.png
     }
 
     @Override

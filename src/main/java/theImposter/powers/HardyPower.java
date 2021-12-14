@@ -45,6 +45,10 @@ public class HardyPower extends AbstractPower {
         this.updateDescription();
     }
 
+    public void atStartOfTurn() {
+        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+    }
+
     public void atEndOfRound() {
         if (this.justApplied) {
             this.justApplied = false;

@@ -34,7 +34,7 @@ public class EssenceOfInnocence extends CustomPotion {
         isThrown = false;
 
         // Initialize the on-hover name + description
-        tips.add(new PowerTip(name, description));
+//        tips.add(new PowerTip(name, description));
 
     }
 

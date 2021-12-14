@@ -2,9 +2,8 @@ package theImposter.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import com.megacrit.cardcrawl.powers.PoisonPower;
 
 import static theImposter.ImposterMod.makeID;
 
@@ -13,18 +12,17 @@ public class InspectSamples extends AbstractEasyCard {
     // intellij stuff skill, self, basic, , ,  5, 3, ,
 
     public InspectSamples() {
-        super(ID, 2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        this.baseBlock = 10;
-        this.magicNumber = this.baseMagicNumber = 5;
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        this.magicNumber = this.baseMagicNumber = 3;
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        blck();
-        this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new VigorPower(AbstractDungeon.player, this.magicNumber), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(p, p, new PoisonPower(m, p, this.magicNumber), this.magicNumber));
     }
 
     public void upp() {
-        upgradeBlock(2);
-        upgradeMagicNumber(2);
+        this.exhaust = false;
+        uDesc();
     }
 }

@@ -35,7 +35,7 @@ public class DistilledNightshade extends CustomPotion {
         this.targetRequired = true;
 
         // Initialize the on-hover name + description
-        tips.add(new PowerTip(name, description));
+//        tips.add(new PowerTip(name, description));
 
     }
 

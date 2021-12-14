@@ -52,10 +52,16 @@
       " Vote(s) to ALL enemies."
     ]
   },
-  "${ModID}:JamCommunications": {
-    "NAME": "Jam Communications",
+  "${ModID}:JamCommunications(7)": {
+    "NAME": "Jam Communications (7)",
     "DESCRIPTIONS": [
       "Votes now trigger at #b7 stacks among us."
+    ]
+  },
+  "${ModID}:JamCommunications(13)": {
+    "NAME": "Jam Communications (13)",
+    "DESCRIPTIONS": [
+      "Votes now trigger at #b13 stacks among us."
     ]
   },
   "${ModID}:Marination": {
@@ -147,6 +153,47 @@
       "#yAttacks deal #b",
       "% more damage for #b",
       " turn(s)."
+    ]
+  },
+  "${ModID}:CrashCourse": {
+    "NAME": "Crash Course",
+    "DESCRIPTIONS": [
+      "When #ySus or #yVote trigger, deal #b",
+      " damage to ALL enemies ."
+    ]
+  },
+  "${ModID}:ImposterVision": {
+    "NAME": "ImposterVision",
+    "DESCRIPTIONS": [
+      "Reduce #ySus by only half when triggered."
+    ]
+  },
+  "${ModID}:WaterwaysOpen": {
+    "NAME": "Waterways Open",
+    "DESCRIPTIONS": [
+      "Increase Sus applications by #b",
+      " for this turn."
+    ]
+  },
+  "${ModID}:SeismicInstability": {
+    "NAME": "Seismic Instability",
+    "DESCRIPTIONS": [
+      "When an enemy attacks, apply #b",
+      " Vulnerable.  When an enemy gains Block, apply #b",
+      " Weak."
+    ]
+  },
+  "${ModID}:ReactorMeltingDown": {
+    "NAME": "Reactor Melting Down",
+    "DESCRIPTIONS": [
+      "All effects from Vote are doubled."
+    ]
+  },
+  "${ModID}:GasLighting": {
+    "NAME": "GasLighting",
+    "DESCRIPTIONS": [
+      "Your Vote counter does not increment for the first #b",
+      " Vote gain(s) each turn."
     ]
   }
 }
