@@ -12,7 +12,7 @@ public class CrashCourse extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public CrashCourse() {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 0, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
         this.magicNumber = this.baseMagicNumber = 5;
     }
 

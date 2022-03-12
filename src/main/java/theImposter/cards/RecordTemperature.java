@@ -20,7 +20,7 @@ public class RecordTemperature extends AbstractEasyCard {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
         this.baseBlock = 0;
         this.magicNumber = this.baseMagicNumber = 1;
-        this.isEthereal = true;
+        this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -31,7 +31,7 @@ public class RecordTemperature extends AbstractEasyCard {
     }
 
     public void upp() {
-        this.isEthereal = false;
+        this.exhaust = false;
         uDesc();
     }
 }

@@ -22,12 +22,12 @@ public class StackKill extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public StackKill() {
-        super(ID, 3, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
-        baseDamage = 11;
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        baseDamage = 8;
         this.magicNumber = this.baseMagicNumber = 1;
 
         baseSecondDamage = 1;
-        this.secondMagic = this.baseSecondMagic = 11;
+        this.secondMagic = this.baseSecondMagic = 8;
         tags.add(TheImposter.Enums.KILL);
     }
 
@@ -39,10 +39,10 @@ public class StackKill extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(2);
+        upgradeDamage(3);
+        upgradeMagicNumber(3);
 
-        upgradeSecondDamage(2);
-        upgradeSecondMagic(2);
+        upgradeSecondDamage(3);
+        upgradeSecondMagic(3);
     }
 }

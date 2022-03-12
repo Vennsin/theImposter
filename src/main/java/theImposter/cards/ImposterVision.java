@@ -13,7 +13,7 @@ public class ImposterVision extends AbstractEasyCard {
     // intellij stuff attack, enemy, basic, 6, 3,  , , ,
 
     public ImposterVision() {
-        super(ID, 3, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 2, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -23,6 +23,6 @@ public class ImposterVision extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeBaseCost(2);
+        upgradeBaseCost(1);
     }
 }

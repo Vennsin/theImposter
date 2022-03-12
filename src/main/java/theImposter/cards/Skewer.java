@@ -18,7 +18,7 @@ public class Skewer extends AbstractEasyCard {
 
     public Skewer() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 4;
+        baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -28,6 +28,7 @@ public class Skewer extends AbstractEasyCard {
     }
 
     public void upp() {
+        upgradeDamage(1);
         upgradeMagicNumber(1);
     }
 }

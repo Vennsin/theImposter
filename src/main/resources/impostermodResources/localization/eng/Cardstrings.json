@@ -163,12 +163,12 @@
   },
   "${ModID}:KillAtReactor": {
     "NAME": "Kill at Reactor",
-    "DESCRIPTION": "Deal !D! damage.  Draw cards until you have !M! in your hand.  Gain [R] for each Power, Status, or Curse card in your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage.  Draw X+1 cards.  Gain [R] for each Power, Status, or Curse card in your hand."
+    "DESCRIPTION": "Deal !D! damage.  Draw cards until you have !M! in your hand.  Gain [R] for each Power, Status, or Curse card in your hand."
   },
   "${ModID}:KillDuringChaos": {
     "NAME": "Kill During Chaos",
-    "DESCRIPTION": "Deal !D! damage.  Gain !M! ${ModID}:Vote.  If the target has any ${ModID}:Votes, gain [R].  If the target has any ${ModID}:Sus, draw !M! card."
+    "DESCRIPTION": "Deal !D! damage.  If the target has any ${ModID}:Votes, gain [R].  If the target has any ${ModID}:Sus, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.  If the target has any ${ModID}:Votes, gain [R] [R].  If the target has any ${ModID}:Sus, draw !M! card."
   },
   "${ModID}:KillInTheDark": {
     "NAME": "Kill in the Dark",
@@ -207,8 +207,8 @@
   },
   "${ModID}:EnterIDCode": {
     "NAME": "Enter ID Code",
-    "DESCRIPTION": "Gain a random amount of Block from 0 to 9 each enemy. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain a random amount of Block from 0 to 9 each enemy. NL Exhaust."
+    "DESCRIPTION": "Gain a random amount of Block from 0 to 9 for each enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain a random amount of Block from 0 to 9 for each enemy. NL Exhaust."
   },
   "${ModID}:InspectSamples": {
     "NAME": "Inspect Samples",
@@ -274,7 +274,7 @@
   },
   "${ModID}:FillCanisters": {
     "NAME": "Fill Canisters",
-    "DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister to your hand."
+    "DESCRIPTION": "Gain !B! Block.  Add 1 *Fuel *Canister to your hand at the start of your next turn."
   },
   "${ModID}:FixWiring": {
     "NAME": "Fix Wiring",
@@ -357,7 +357,7 @@
   },
   "${ModID}:HardAccusations": {
     "NAME": "Hard Accusations",
-    "DESCRIPTION": "Every time you play 4 cards in a single turn, gain !M! ${ModID}:Vote and apply !M! ${ModID}:Vote to ALL enemies."
+    "DESCRIPTION": "Every time you play 4 cards in a single turn, gain !M! ${ModID}:Vote and apply 2 ${ModID}:Votes to ALL enemies."
   },
   "${ModID}:JamCommunications": {
     "NAME": "Jam Comms",
@@ -391,7 +391,7 @@
   },
   "${ModID}:WaterPlants": {
     "NAME": "Water Plants",
-    "DESCRIPTION": "All Attacks in your hand deal !M! additional damage this combat."
+    "DESCRIPTION": "All Attacks in your hand deal !M! additional damage this combat.  If you have played *Monitor *Tree this turn, double the increase."
   },
   "${ModID}:DressMannequin": {
     "NAME": "Dress Mannequin",
@@ -403,7 +403,7 @@
   },
   "${ModID}:MonitorTree": {
     "NAME": "Monitor Tree",
-    "DESCRIPTION": "All skills in your hand gain !M! additional Block this combat."
+    "DESCRIPTION": "All skills in your hand gain !M! additional Block this combat.  If you have played *Water *Plants this turn, double the increase."
   },
   "${ModID}:InsertKeys": {
     "NAME": "Insert Keys",
@@ -412,7 +412,7 @@
   },
   "${ModID}:DevelopPhotos": {
     "NAME": "Develop Photos",
-    "DESCRIPTION": "At the end of 2 turns, apply 15 ${ModID}:Sus to ALL enemies."
+    "DESCRIPTION": "Apply 15 ${ModID}:Sus to ALL enemies. End your turn."
   },
   "${ModID}:StoreArtifacts": {
     "NAME": "Store Artifacts",
@@ -454,8 +454,8 @@
   },
   "${ModID}:RecordTemperature": {
     "NAME": "Record Temperature",
-    "DESCRIPTION": "Ethereal. NL Choose: Each enemy loses HP equal to their Sus, or gain Block equal to the total Sus of ALL enemies.",
-    "UPGRADE_DESCRIPTION": "Choose: Each enemy loses HP equal to their Sus, OR gain Block equal to the total Sus of ALL enemies."
+    "DESCRIPTION": "Choose: Each enemy loses HP equal to their Sus, or gain Block equal to the total Sus of ALL enemies. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Choose: Each enemy loses HP equal to their Sus, or gain Block equal to the total Sus of ALL enemies."
   },
   "${ModID}:SortSamples": {
     "NAME": "Sort Samples",

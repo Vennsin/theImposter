@@ -59,16 +59,16 @@ public class SeismicInstabilityPower extends AbstractPower {
                         case DEFEND:
                         case DEFEND_DEBUFF:
                         case DEFEND_BUFF:
-                            this.addToBot(new ApplyPowerAction(m, this.owner, new WeakPower(m, this.amount, false), this.amount));
+                            this.addToBot(new ApplyPowerAction(m, this.owner, new WeakPower(m, this.amount, false), this.amount + 1));
                             break;
                         case ATTACK:
                         case ATTACK_BUFF:
                         case ATTACK_DEBUFF:
-                            this.addToBot(new ApplyPowerAction(m, this.owner, new VulnerablePower(m, this.amount, false), this.amount));
+                            this.addToBot(new ApplyPowerAction(m, this.owner, new VulnerablePower(m, this.amount, false), this.amount + 1));
                             break;
                         case ATTACK_DEFEND:
-                            this.addToBot(new ApplyPowerAction(m, this.owner, new WeakPower(m, this.amount, false), this.amount));
-                            this.addToBot(new ApplyPowerAction(m, this.owner, new VulnerablePower(m, this.amount, false), this.amount));
+                            this.addToBot(new ApplyPowerAction(m, this.owner, new WeakPower(m, this.amount, false), this.amount + 1));
+                            this.addToBot(new ApplyPowerAction(m, this.owner, new VulnerablePower(m, this.amount, false), this.amount + 1));
                             break;
                     }
                 }

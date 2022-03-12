@@ -73,15 +73,17 @@ public class TheImposter extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            retVal.add(Strike.ID);
-        }
-        for (int i = 0; i < 4; i++) {
-            retVal.add(Defend.ID);
-        }
+//        for (int i = 0; i < 4; i++) {
+//            retVal.add(Strike.ID);
+//        }
+//        for (int i = 0; i < 4; i++) {
+//            retVal.add(Defend.ID);
+//        }
         retVal.add(CleanKill.ID);
         retVal.add(ClearAsteroids.ID);
         retVal.add(VentHopping.ID);
+        retVal.add(ScanBoardingPass.ID);
+        retVal.add(CheckAdmin.ID);
 
         return retVal;
     }

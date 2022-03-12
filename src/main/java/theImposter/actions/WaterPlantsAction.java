@@ -8,6 +8,9 @@ import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theImposter.cards.CalibrateAgain;
+import theImposter.cards.MonitorTree;
+
 import java.util.Iterator;
 
 public class WaterPlantsAction extends AbstractGameAction {
@@ -28,6 +31,11 @@ public class WaterPlantsAction extends AbstractGameAction {
     }
 
     private void increaseAttackDamageInGroup(CardGroup cardGroup, int dmgIncrease) {
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.stream().anyMatch(c -> c.cardID.equals(MonitorTree.ID)))
+        {
+            dmgIncrease *= 2;
+        }
+
         Iterator var2 = cardGroup.group.iterator();
 
         while(var2.hasNext()) {

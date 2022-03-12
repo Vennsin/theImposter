@@ -16,9 +16,9 @@ public class KillAndRun extends AbstractEasyCard {
 
     public KillAndRun() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 7;
+        baseDamage = 8;
 //        this.magicNumber = this.baseMagicNumber = 1;
-        baseBlock = 2;
+        baseBlock = 4;
         tags.add(TheImposter.Enums.KILL);
     }
 
@@ -30,7 +30,7 @@ public class KillAndRun extends AbstractEasyCard {
     }
 
     public void upp() {
-        upgradeDamage(3);
-        upgradeBlock(2);
+        upgradeDamage(2);
+        upgradeBlock(1);
     }
 }

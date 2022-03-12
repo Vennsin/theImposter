@@ -26,7 +26,7 @@ public class ScanBoardingPass extends AbstractEasyCard {
         if(p.powers.size() > 0) {
             ArrayList<AbstractPower> debuffs = new ArrayList<>();
             for (AbstractPower pow : p.powers) {
-                if (pow.type == AbstractPower.PowerType.BUFF) {
+                if (pow.type == AbstractPower.PowerType.DEBUFF) {
                     debuffs.add(pow);
                 }
             }

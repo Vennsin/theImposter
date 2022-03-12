@@ -1,13 +1,10 @@
 package theImposter.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import theImposter.powers.VoteEnemyPower;
 import theImposter.powers.VotePlayerPower;
 
@@ -45,11 +42,11 @@ public class SwipeCard extends AbstractEasyCard {
                 if (!mo.isDead && !mo.isDying) {
                     if (mo.hasPower(VoteEnemyPower.POWER_ID)) {
                         if (this.magicNumber >= mo.getPower(VoteEnemyPower.POWER_ID).amount) {
-                            this.addToBot(new RemoveSpecificPowerAction(m, p, m.getPower(VoteEnemyPower.POWER_ID)));
+                            this.addToBot(new RemoveSpecificPowerAction(mo, p, mo.getPower(VoteEnemyPower.POWER_ID)));
                         }
                         else
                         {
-                            this.addToBot(new ReducePowerAction(m, p, VoteEnemyPower.POWER_ID, this.magicNumber));
+                            this.addToBot(new ReducePowerAction(mo, p, VoteEnemyPower.POWER_ID, this.magicNumber));
                         }
                     }
                 }

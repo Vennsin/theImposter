@@ -9,6 +9,9 @@ import com.megacrit.cardcrawl.cards.CardGroup.CardGroupType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import theImposter.cards.MonitorTree;
+import theImposter.cards.WaterPlants;
+
 import java.util.Iterator;
 
 public class MonitorTreeAction extends AbstractGameAction {
@@ -29,6 +32,11 @@ public class MonitorTreeAction extends AbstractGameAction {
     }
 
     private void increaseBlockInGroup(CardGroup cardGroup, int blkIncrease) {
+        if (AbstractDungeon.actionManager.cardsPlayedThisTurn.stream().anyMatch(c -> c.cardID.equals(WaterPlants.ID)))
+        {
+            blkIncrease *= 2;
+        }
+
         Iterator var2 = cardGroup.group.iterator();
 
         while(var2.hasNext()) {
