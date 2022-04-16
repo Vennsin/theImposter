@@ -19,7 +19,7 @@ public class NeckSnap extends AbstractEasyCard {
 
     public NeckSnap() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 9;
 //        this.magicNumber = this.baseMagicNumber = 2;
     }
 

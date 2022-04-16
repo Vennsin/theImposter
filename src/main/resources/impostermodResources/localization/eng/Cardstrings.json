@@ -96,7 +96,8 @@
   },
   "${ModID}:DroppedIntoLavaCard": {
     "NAME": "Dropped into Lava",
-    "DESCRIPTION": "Deal !D! damage.  Apply !M! ${ModID}:Vote and !${ModID}:m2! ${ModID}:Sus."
+    "DESCRIPTION": "Deal !D! damage.  Apply a random amount of ${ModID}:Votes and Weak from 0 to 2.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.  Apply a random amount of ${ModID}:Votes and Weak from 1 to 2."
   },
   "${ModID}:FallFromHQ": {
     "NAME": "Fall from HQ",
@@ -117,7 +118,7 @@
   },
   "${ModID}:StackKill": {
     "NAME": "Stack Kill",
-    "DESCRIPTION": "Choose one: NL Deal !D! damage for each enemy and apply !M! ${ModID}:Sus NL or NL Deal !${ModID}:sd! damage for each enemy and apply !${ModID}:m2! ${ModID}:Sus."
+    "DESCRIPTION": "Choose one: NL For each enemy, deal !D! damage and apply !M! ${ModID}:Sus NL or NL For each enemy, deal !${ModID}:sd! damage and apply !${ModID}:m2! ${ModID}:Sus."
   },
   "${ModID}:KillInSeclusion": {
     "NAME": "Kill in Seclusion",
@@ -155,7 +156,7 @@
   },
   "${ModID}:KillAtO2": {
     "NAME": "Kill at O2",
-    "DESCRIPTION": "Play 1 Power from your draw pile.  Deal !D! damage for each Power played this combat.  Gain !M! ${ModID}:Votes. NL Exhaust.",
+    "DESCRIPTION": "Play 1 Power from your Master Deck.  Deal !D! damage for each Power played this combat.  Gain !M! ${ModID}:Votes. NL Exhaust.",
     "EXTENDED_DESCRIPTION": [
       " NL (TODO: print number of powers.)",
       ""
@@ -163,12 +164,12 @@
   },
   "${ModID}:KillAtReactor": {
     "NAME": "Kill at Reactor",
-    "DESCRIPTION": "Deal !D! damage.  Draw cards until you have !M! in your hand.  Gain [R] for each Power, Status, or Curse card in your hand."
+    "DESCRIPTION": "Deal !D! damage.  Draw cards until you have !M! in your hand.  Gain [R] for each Rare, Status, or Curse card in your hand."
   },
   "${ModID}:KillDuringChaos": {
     "NAME": "Kill During Chaos",
-    "DESCRIPTION": "Deal !D! damage.  If the target has any ${ModID}:Votes, gain [R].  If the target has any ${ModID}:Sus, draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage.  If the target has any ${ModID}:Votes, gain [R] [R].  If the target has any ${ModID}:Sus, draw !M! card."
+    "DESCRIPTION": "Deal !D! damage.  If any enemies have any ${ModID}:Votes, gain [R].  If any enemies have any ${ModID}:Sus, draw !M! card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.  If any enemies have any ${ModID}:Votes, gain [R] [R].  If any enemies have any ${ModID}:Sus, draw !M! card."
   },
   "${ModID}:KillInTheDark": {
     "NAME": "Kill in the Dark",
@@ -181,7 +182,8 @@
   },
   "${ModID}:ChartCourse": {
     "NAME": "Chart Course",
-    "DESCRIPTION": "Remove all Block from the enemy.  Apply !M! ${ModID}:Sus."
+    "DESCRIPTION": "Remove all Block from the enemy.  Apply !M! ${ModID}:Sus.  Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Remove all Block from the enemy.  Apply !M! ${ModID}:Sus.  Gain Block equal to the Block removed."
   },
   "${ModID}:CheckSecurity": {
     "NAME": "Check Security",
@@ -207,8 +209,8 @@
   },
   "${ModID}:EnterIDCode": {
     "NAME": "Enter ID Code",
-    "DESCRIPTION": "Gain a random amount of Block from 0 to 9 for each enemy. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Innate. NL Gain a random amount of Block from 0 to 9 for each enemy. NL Exhaust."
+    "DESCRIPTION": "Gain a random amount of Block from !B! to 9 for each enemy. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Gain a random amount of Block from !B! to 9 for each enemy. NL Exhaust."
   },
   "${ModID}:InspectSamples": {
     "NAME": "Inspect Samples",
@@ -225,7 +227,7 @@
   },
   "${ModID}:RewindTapes": {
     "NAME": "Rewind Tapes",
-    "DESCRIPTION": "Put !M! cards from your discard pile into your hand.",
+    "DESCRIPTION": "Put !M! cards from your discard pile into your hand.  Gain !B! Block.",
     "UPGRADE_DESCRIPTION": "Put !M! cards from your discard pile into your hand.  Gain Block equal to the number of cards in your discard pile."
   },
   "${ModID}:StabilizeSteering": {
@@ -238,12 +240,13 @@
   },
   "${ModID}:AlignEngineOutput": {
     "NAME": "Align Engine Output",
-    "DESCRIPTION": "If you discarded a card this turn, gain [R] [R]."
+    "DESCRIPTION": "If you discarded a card this turn, gain [R] [R].  Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "If you discarded a card this turn, gain [R] [R].  Gain Block equal to the number of cards in your hand."
   },
   "${ModID}:CheckSensorLogs": {
     "NAME": "Check Sensor Logs",
-    "DESCRIPTION": "Apply !M! ${ModID}:Votes and !${ModID}:m2! Sus.  Remove 1 of your ${ModID}:Votes.",
-    "UPGRADE_DESCRIPTION": "Apply !M! ${ModID}:Votes and !${ModID}:m2! Sus.  Remove 2 of your ${ModID}:Votes."
+    "DESCRIPTION": "Apply !M! ${ModID}:Votes.  Heal equal to the total ${ModID}:Votes on the target. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Apply !M! ${ModID}:Votes.  Heal equal to the total ${ModID}:Votes among us. NL Exhaust."
   },
   "${ModID}:CheckAdmin": {
     "NAME": "Check Admin",
@@ -357,7 +360,7 @@
   },
   "${ModID}:HardAccusations": {
     "NAME": "Hard Accusations",
-    "DESCRIPTION": "Every time you play 4 cards in a single turn, gain !M! ${ModID}:Vote and apply 2 ${ModID}:Votes to ALL enemies."
+    "DESCRIPTION": "Choose: every time you play 4 cards in a single turn, gain !M! ${ModID}:Votes NL OR NL apply !M! ${ModID}:Votes to ALL enemies."
   },
   "${ModID}:JamCommunications": {
     "NAME": "Jam Comms",
@@ -370,7 +373,7 @@
   },
   "${ModID}:SeismicInstability": {
     "NAME": "Seismic Instability",
-    "DESCRIPTION": "When an enemy attacks, apply 1 Vulnerable.  When an enemy gains Block, apply 1 Weak."
+    "DESCRIPTION": "When an enemy attacks, apply 1 Vulnerable.  When an enemy gains Block, apply 1 Weak.  At the end of your turn, ${ModID}:Vent."
   },
   "${ModID}:TriggerReactorMeltdown": {
     "NAME": "Trigger Reactor Meltdown",
@@ -378,7 +381,7 @@
   },
   "${ModID}:DistributorCalibrated": {
     "NAME": "Distributor Calibrated",
-    "DESCRIPTION": "At the end of your turn, remove 1 of your ${ModID}:Votes, apply 10 ${ModID}:Sus and 3 ${ModID}:Votes to ALL enemies, then ${ModID}:Vent."
+    "DESCRIPTION": "At the end of your turn, gain 1 ${ModID}:VoteBuff, apply 10 ${ModID}:Sus and 3 ${ModID}:Vote counters to ALL enemies, then ${ModID}:Vent."
   },
   "${ModID}:DepleteOxygen": {
     "NAME": "Deplete Oxygen",
@@ -399,7 +402,7 @@
   },
   "${ModID}:StartFans": {
     "NAME": "Start Fans",
-    "DESCRIPTION": "Remove all Artifact from the enemy.  ${ModID}:Vent. NL Exhaust."
+    "DESCRIPTION": "Remove all Artifact from the enemy.  ${ModID}:Vent. Gain Block equal to the Artifact removed. NL Exhaust."
   },
   "${ModID}:MonitorTree": {
     "NAME": "Monitor Tree",
@@ -407,7 +410,7 @@
   },
   "${ModID}:InsertKeys": {
     "NAME": "Insert Keys",
-    "DESCRIPTION": "Innate.  Remove !M! of your ${ModID}:Votes.",
+    "DESCRIPTION": "Innate. NL Remove !M! of your ${ModID}:Votes.",
     "UPGRADE_DESCRIPTION": "Innate.  Retain. NL Remove !M! of your ${ModID}:Votes."
   },
   "${ModID}:DevelopPhotos": {
@@ -429,11 +432,11 @@
   },
   "${ModID}:ScanBoardingPass": {
     "NAME": "Scan Boarding Pass",
-    "DESCRIPTION": "Innate. NL Remove a random debuff from yourself.  Add 1 *Swipe *Card to your hand. NL Exhaust."
+    "DESCRIPTION": "Innate. NL Gain !B! Block.  Remove a random debuff from yourself.  Add 1 *Swipe *Card to your hand. NL Exhaust."
   },
   "${ModID}:PolishRuby": {
     "NAME": "Polish Ruby",
-    "DESCRIPTION": "Gain 1 Artifact.  Gain !M! gold. NL Exhaust."
+    "DESCRIPTION": "Gain 1 Artifact.  Gain !M! gold.  Gain !${ModID}:m2! Plated Armor. NL Exhaust."
   },
   "${ModID}:VentHopping": {
     "NAME": "Vent Hopping",
@@ -442,7 +445,8 @@
   },
   "${ModID}:FixWeatherNode": {
     "NAME": "Fix Weather Node",
-    "DESCRIPTION": "Discard your draw pile.  Gain !B! Block for each card discarded."
+    "DESCRIPTION": "Discard your draw pile.  Gain Block equal to the number of cards discarded.",
+    "UPGRADE_DESCRIPTION": "Discard your draw pile.  Gain Block equal to twice the number of cards discarded."
   },
   "${ModID}:ImposterVision": {
     "NAME": "ImposterVision",
@@ -459,7 +463,7 @@
   },
   "${ModID}:SortSamples": {
     "NAME": "Sort Samples",
-    "DESCRIPTION": "Deal !D! damage for each Attack in your hand, gain !B! Block for each Skill in your hand, and draw !M! card for each Power in your hand."
+    "DESCRIPTION": "Deal !M! damage for each Skill in your hand, gain !${ModID}:m2! Block for each Attack in your hand, and draw 1 card for each Power in your hand."
   },
   "${ModID}:CrashCourse": {
     "NAME": "Crash Course",
@@ -475,7 +479,8 @@
   },
   "${ModID}:ReactorMeltdown": {
     "NAME": "Reactor Meltdown",
-    "DESCRIPTION": "All effects from ${ModID}:Vote are doubled."
+    "DESCRIPTION": "Choose: attack damage and Block increases from Votes are increased by 50% NL OR NL damage from triggering Votes is increased by 50%.",
+    "UPGRADE_DESCRIPTION": "Choose: attack damage and Block increases from Votes are increased by 100% NL OR NL damage from triggering Votes is increased by 100%."
   },
   "${ModID}:GasLighting": {
     "NAME": "GasLighting",

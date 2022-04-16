@@ -20,9 +20,11 @@ public class ScanBoardingPass extends AbstractEasyCard {
         this.isInnate = true;
         this.exhaust = true;
         this.cardsToPreview = new SwipeCard();
+        this.baseBlock = 4;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
+        blck();
         if(p.powers.size() > 0) {
             ArrayList<AbstractPower> debuffs = new ArrayList<>();
             for (AbstractPower pow : p.powers) {

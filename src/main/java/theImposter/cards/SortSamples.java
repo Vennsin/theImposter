@@ -12,17 +12,19 @@ public class SortSamples extends AbstractEasyCard {
 
     public SortSamples() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF_AND_ENEMY);
-        baseDamage = 3;
-        this.baseBlock = 2;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.baseDamage = 0;
+        this.baseBlock = 0;
+        this.magicNumber = this.baseMagicNumber = 3;
+        this.secondMagic = this.baseSecondMagic = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new SortSamplesAction(p, m, this.damage, this.block, this.magicNumber));
+        blck();
+        this.addToBot(new SortSamplesAction(p, m, this.magicNumber, this.secondMagic, 1, this.damage));
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeBlock(1);
+        upgradeMagicNumber(2);
+        upgradeSecondMagic(1);
     }
 }

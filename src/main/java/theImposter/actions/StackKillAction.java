@@ -31,9 +31,10 @@ public class StackKillAction extends AbstractGameAction {
             AbstractMonster m2 = (AbstractMonster)var4.next();
             if (!m2.isDeadOrEscaped()) {
                 this.addToBot(new DamageAction(m, new DamageInfo(AbstractDungeon.player, damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
+                this.addToBot(new ApplyPowerAction(this.m, AbstractDungeon.player, new SusPower(this.m, AbstractDungeon.player, this.magicNumber), this.magicNumber));
             }
         }
-        this.addToBot(new ApplyPowerAction(this.m, AbstractDungeon.player, new SusPower(this.m, AbstractDungeon.player, this.magicNumber), this.magicNumber));
+//        this.addToBot(new ApplyPowerAction(this.m, AbstractDungeon.player, new SusPower(this.m, AbstractDungeon.player, this.magicNumber), this.magicNumber));
 
         isDone = true;
     }

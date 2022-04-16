@@ -172,7 +172,4 @@ public class ImposterMod implements
         BaseMod.addAudio(makeID("EMERGENCYMEETING"), modID + "Resources/audio/EmergencyMeeting.ogg");
     }
 
-//    public void receivePostInitialize() {
-//        BaseMod.addPotion(JugOfFuel.class, Color.ROYAL.cpy(), Color.ROYAL.cpy(), Color.ROYAL.cpy(), JugOfFuel.POTION_ID, TheImposter.Enums.THE_IMPOSTER);
-//    }
 }

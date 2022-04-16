@@ -23,6 +23,8 @@ public class JamCommunicationsAction extends AbstractGameAction {
 
             if (!AbstractDungeon.player.hasPower(JamCommunications7Power.POWER_ID)) {
                 this.addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new JamCommunications7Power(AbstractDungeon.player)));
+
+//                this.addToBot(new CheckVotesAction());
             }
         } else {
             if (AbstractDungeon.player.hasPower(JamCommunications7Power.POWER_ID)) {

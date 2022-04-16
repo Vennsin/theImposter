@@ -2,8 +2,9 @@ package theImposter.powers;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.BetterOnApplyPowerPower;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -13,22 +14,19 @@ import theImposter.util.TexLoader;
 
 import static theImposter.ImposterMod.makeID;
 
-public class DoorsSabotagedPower extends AbstractPower implements BetterOnApplyPowerPower {
-    private AbstractCreature source;
-    public static final String POWER_NAME = "Doors Sabotaged";
+public class HardAccusationsPlayerPower extends AbstractPower {
+    public static final String POWER_NAME = "Hard Accusations (Player)";
     public static final String POWER_ID = makeID(POWER_NAME.replaceAll("([ ])", ""));
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public DoorsSabotagedPower(AbstractCreature owner, int amount) {
+    public HardAccusationsPlayerPower(AbstractCreature owner, int amt) {
         this.name = POWER_NAME;
         this.ID = POWER_ID;
 
         this.owner = owner;
-        this.amount = amount;
         this.type = AbstractPower.PowerType.BUFF;
-//        this is mainly so that Block is still gained even when Votes are negated by Gastlighting
-        this.priority = 1;
+        this.amount = amt;
 
         Texture normalTexture = TexLoader.getTexture(ImposterMod.modID + "Resources/images/powers/" + name.replaceAll("([ ])", "") + "32.png");
         Texture hiDefImage = TexLoader.getTexture(ImposterMod.modID + "Resources/images/powers/" + name.replaceAll("([ ])", "") + "84.png");
@@ -44,28 +42,33 @@ public class DoorsSabotagedPower extends AbstractPower implements BetterOnApplyP
         this.updateDescription();
     }
 
-    @Override
-    public boolean betterOnApplyPower(AbstractPower power, AbstractCreature owner, AbstractCreature source) {
-        if (power.ID == VotePlayerPower.POWER_ID || power.ID == VoteEnemyPower.POWER_ID || power.ID == SusPower.POWER_ID)
-        {
-            this.flash();
-            this.addToBot(new GainBlockAction(this.owner, this.amount));
-        }
+//    public void atTurnStart() {
+//        this.counter = 0;
+//    }
 
-        return true;
+    public void atEndOfRound() {
+        this.amount = 0;
+        this.updateDescription();
+    }
+
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        ++this.amount;
+        if (this.amount % 4 == 0) {
+            this.flash();
+            this.amount = 0;
+
+            this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VotePlayerPower(this.owner, this.owner, 2), 2));
+            this.addToBot(new ApplyPowerAction(this.owner, this.owner, new VoteBuffPower(this.owner, this.owner, 2), 2));
+            this.addToBot(new ApplyPowerAction(this.owner, this.owner, new LoseVoteBuffPower(this.owner, this.owner, 2), 2));
+        }
     }
 
 //    @Override
-//    public int betterOnApplyPowerStacks(AbstractPower power, AbstractCreature target, AbstractCreature source, int stackAmount)
-//    {
-//        return stackAmount;
+//    public void updateDescription() {
+//        description = "Every time you play 4 cards in a single turn, gain 1 Vote and apply 1 Vote to ALL enemies.";
 //    }
 
-    public void stackPower(int stackAmount) {
-        this.fontScale = 8.0F;
-        this.amount += stackAmount;
-    }
-
+    @Override
     public void updateDescription() {
         this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }

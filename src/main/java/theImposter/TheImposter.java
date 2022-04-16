@@ -66,7 +66,7 @@ public class TheImposter extends CustomPlayer {
     @Override
     public CharSelectInfo getLoadout() {
         return new CharSelectInfo(NAMES[0], TEXT[0],
-                65, 65, 0, 99, 5, this, getStartingRelics(),
+                65, 65, 0, 99, 10, this, getStartingRelics(),
                 getStartingDeck(), false);
     }
 
@@ -79,11 +79,19 @@ public class TheImposter extends CustomPlayer {
 //        for (int i = 0; i < 4; i++) {
 //            retVal.add(Defend.ID);
 //        }
-        retVal.add(CleanKill.ID);
-        retVal.add(ClearAsteroids.ID);
-        retVal.add(VentHopping.ID);
-        retVal.add(ScanBoardingPass.ID);
-        retVal.add(CheckAdmin.ID);
+//        retVal.add(CleanKill.ID);
+//        retVal.add(ClearAsteroids.ID);
+//        retVal.add(VentHopping.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(WalkThePlank.ID);
+        retVal.add(KillAndVent.ID);
 
         return retVal;
     }
@@ -110,7 +118,7 @@ public class TheImposter extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 8;
+        return 6;
     }
 
     @Override

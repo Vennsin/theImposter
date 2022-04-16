@@ -12,15 +12,17 @@ public class FixWeatherNode extends AbstractEasyCard {
 
     public FixWeatherNode() {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
-        this.baseBlock = 1;
+        this.baseBlock = 0;
+        this.magicNumber = baseMagicNumber = 1;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new FixWeatherNodeAction(this.block));
-
+        this.addToBot(new FixWeatherNodeAction(this.magicNumber));
+        blck();
     }
 
     public void upp() {
-        upgradeBlock(1);
+        upgradeMagicNumber(1);
+        uDesc();
     }
 }

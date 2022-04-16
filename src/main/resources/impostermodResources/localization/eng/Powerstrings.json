@@ -47,11 +47,25 @@
   "${ModID}:HardAccusations": {
     "NAME": "Hard Accusations",
     "DESCRIPTIONS": [
-      "Every time you play 4 cards in a single turn, gain #b",
-      " Vote(s) and apply #b",
+      "Every time you play 4 cards in a single turn, choose to gain #b",
+      " Vote(s) or apply #b",
       " Vote(s) to ALL enemies."
     ]
   },
+  "${ModID}:HardAccusations(Player)": {
+    "NAME": "Hard Accusations (Player)",
+    "DESCRIPTIONS": [
+      "Every time you play 4 cards in a single turn, gain #b",
+      " Votes."
+    ]
+  },
+  "${ModID}:HardAccusations(Enemy)": {
+  "NAME": "Hard Accusations (Enemy)",
+  "DESCRIPTIONS": [
+    "Every time you play 4 cards in a single turn, apply #b",
+    " Vote(s) to ALL enemies."
+  ]
+},
   "${ModID}:JamCommunications(7)": {
     "NAME": "Jam Communications (7)",
     "DESCRIPTIONS": [
@@ -180,7 +194,7 @@
     "DESCRIPTIONS": [
       "When an enemy attacks, apply #b",
       " Vulnerable.  When an enemy gains Block, apply #b",
-      " Weak."
+      " Weak.  At the end of your turn, #yVent"
     ]
   },
   "${ModID}:ReactorMeltingDown": {
@@ -194,6 +208,20 @@
     "DESCRIPTIONS": [
       "Your Vote counter does not increment for the first #b",
       " Vote gain(s) each turn."
+    ]
+  },
+  "${ModID}:ReactorMeltdown(str/dex)": {
+    "NAME": "Reactor Melt Down (str/dex)",
+    "DESCRIPTIONS": [
+      "Attack damage and block from Votes increased by #b",
+      "%."
+    ]
+  },
+  "${ModID}:ReactorMeltdown(VoteDmg)": {
+    "NAME": "Reactor Melt Down (Vote Dmg)",
+    "DESCRIPTIONS": [
+      "Damage to enemies from triggering Votes increased by #b",
+      "%."
     ]
   }
 }

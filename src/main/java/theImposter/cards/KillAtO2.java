@@ -39,16 +39,16 @@ public class KillAtO2 extends AbstractEasyCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
 //        see Blizzard about displaying Power count
-        int numPowersInDrawPile = 0;
-        Iterator var6 = p.drawPile.group.iterator();
+        int numPowersInMasterDeck = 0;
+        Iterator var6 = AbstractDungeon.player.masterDeck.group.iterator();
 
         while(var6.hasNext()) {
             AbstractCard c = (AbstractCard)var6.next();
             if (c.type == AbstractCard.CardType.POWER) {
-                numPowersInDrawPile++;
+                numPowersInMasterDeck++;
             }
         }
-        if (numPowersInDrawPile > 0)
+        if (numPowersInMasterDeck > 0)
         {
             this.addToBot(new KillAtO2Action());
         }
@@ -61,6 +61,12 @@ public class KillAtO2 extends AbstractEasyCard {
             if (o.type == CardType.POWER) {
                 ++powersPlayed;
             }
+        }
+
+        if (numPowersInMasterDeck > 0)
+        {
+            // to account for the Power just played
+            powersPlayed++;
         }
 
         for (int i = 0 ; i < powersPlayed ; i++)

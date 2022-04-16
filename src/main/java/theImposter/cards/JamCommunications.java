@@ -3,6 +3,7 @@ package theImposter.cards;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import theImposter.actions.CheckVotesAction;
 import theImposter.actions.EasyModalChoiceAction;
 import theImposter.actions.JamCommunicationsAction;
 
@@ -24,6 +25,8 @@ public class JamCommunications extends AbstractEasyCard {
         easyCardList.add(new EasyModalChoiceCard("", "Votes now trigger at 7 stacks among us.", () -> atb(new JamCommunicationsAction(7))));
         easyCardList.add(new EasyModalChoiceCard("", "Votes now trigger at 13 stacks among us.", () -> atb(new JamCommunicationsAction(13))));
         atb(new EasyModalChoiceAction(easyCardList));
+
+        this.addToBot(new CheckVotesAction());
     }
 
     public void upp() {

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import static theImposter.ImposterMod.makeID;
@@ -29,18 +30,32 @@ public class KillDuringChaos extends AbstractEasyCard {
 //        this.addToBot(new ApplyPowerAction(p, p, new VoteBuffPower(p, p, this.magicNumber), this.magicNumber));
 //        this.addToBot(new ApplyPowerAction(p, p, new LoseVoteBuffPower(p, p, this.magicNumber), this.magicNumber));
 
-        if (m.hasPower(VoteEnemyPower.POWER_ID))
+        boolean energyGained = false;
+        boolean cardsDrawn = false;
+        for(AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (mo.hasPower(VoteEnemyPower.POWER_ID))
+            {
+                energyGained = true;
+            }
+            if (mo.hasPower(SusPower.POWER_ID))
+            {
+                cardsDrawn = true;
+            }
+        }
+        if (energyGained)
         {
             this.addToBot(new GainEnergyAction(this.magicNumber));
         }
 
-        if (m.hasPower(SusPower.POWER_ID))
+        if (cardsDrawn)
         {
             this.addToBot(new DrawCardAction(p, this.magicNumber));
         }
     }
 
     public void upp() {
+        upgradeDamage(5);
         upgradeMagicNumber(1);
+        uDesc();
     }
 }

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import theImposter.ImposterMod;
+import theImposter.actions.VentAction;
 import theImposter.util.TexLoader;
 
 import java.util.Iterator;
@@ -74,6 +75,7 @@ public class SeismicInstabilityPower extends AbstractPower {
                 }
             }
         }
+        this.addToBot(new VentAction());
     }
 
     public void stackPower(int stackAmount) {

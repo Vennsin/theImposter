@@ -30,5 +30,13 @@
       "vents"
     ],
     "DESCRIPTION": "Transform your stacks of Frail, Vulnerable, and Weak into 1-turn buffs.  For each unique buff and debuff among us, deal 1 damage to ALL enemies.  Remove your Lose Vote debuffs, negative Strength, and negative Dexterity."
+  },
+  {
+    "PROPER_NAME": "Vote Buff",
+    "NAMES": [
+      "votebuff",
+      "votebuffs"
+    ],
+    "DESCRIPTION": "Increases attack damage and block."
   }
 ]

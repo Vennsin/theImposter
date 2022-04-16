@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import theImposter.ImposterMod;
 import theImposter.powers.CrashCoursePower;
-import theImposter.powers.ReactorMeltingDownPower;
+import theImposter.powers.ReactorMeltdownDamagePower;
 import theImposter.powers.VoteEnemyPower;
 import theImposter.powers.VotePlayerPower;
 
@@ -26,9 +26,9 @@ public class TriggerVotesAction extends AbstractGameAction {
 
     public int GetVoteTriggerBaseDamage()
     {
-        if (AbstractDungeon.player.hasPower(ReactorMeltingDownPower.POWER_ID))
+        if (AbstractDungeon.player.hasPower(ReactorMeltdownDamagePower.POWER_ID))
         {
-            return 20;
+            return (int)(10 + (10 * ((float)(AbstractDungeon.player.getPower(ReactorMeltdownDamagePower.POWER_ID).amount * 0.5))));
         }
         return 10;
     }

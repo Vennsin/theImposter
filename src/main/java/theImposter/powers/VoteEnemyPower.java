@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theImposter.ImposterMod;
+import theImposter.actions.TriggerIndividualVotesAction;
 import theImposter.actions.TriggerVotesAction;
 import theImposter.util.TexLoader;
 
@@ -123,10 +124,12 @@ public class VoteEnemyPower extends AbstractPower {
     }
 
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+//        this.addToBot(new CheckVotesAction());
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && GetTotalVotes() >= GetVoteTriggerAmount())
         {
             this.flashWithoutSound();
-            this.addToBot(new TriggerVotesAction());
+            this.addToBot(new TriggerIndividualVotesAction(this.owner, false));
+//            this.addToBot(new TriggerVotesAction());
         }
     }
 

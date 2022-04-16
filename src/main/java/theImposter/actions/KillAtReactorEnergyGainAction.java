@@ -20,7 +20,7 @@ public class KillAtReactorEnergyGainAction extends AbstractGameAction {
 
         while(var3.hasNext()) {
             AbstractCard c = (AbstractCard)var3.next();
-            if (c.type == AbstractCard.CardType.POWER || c.type == AbstractCard.CardType.STATUS || c.type == AbstractCard.CardType.CURSE) {
+            if (c.rarity == AbstractCard.CardRarity.RARE || c.type == AbstractCard.CardType.STATUS || c.type == AbstractCard.CardType.CURSE) {
                 energyGain++;
             }
         }

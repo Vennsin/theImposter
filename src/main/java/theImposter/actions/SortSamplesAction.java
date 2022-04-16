@@ -21,13 +21,15 @@ public class SortSamplesAction extends AbstractGameAction {
     private int dmgPerCard;
     private int blckPerCard;
     private int cardsDrawnPerCard;
+    private int dmgBonuses;
 
-    public SortSamplesAction(AbstractPlayer p, AbstractMonster m, int dmgPerCard, int blckPerCard, int cardsDrawnPerCard) {
+    public SortSamplesAction(AbstractPlayer p, AbstractMonster m, int dmgPerCard, int blckPerCard, int cardsDrawnPerCard, int dmgBonuses) {
         this.p = p;
         this.m = m;
         this.dmgPerCard = dmgPerCard;
         this.blckPerCard = blckPerCard;
         this.cardsDrawnPerCard = cardsDrawnPerCard;
+        this.dmgBonuses = dmgBonuses;
     }
 
     public void update() {
@@ -38,17 +40,18 @@ public class SortSamplesAction extends AbstractGameAction {
 
         while(var3.hasNext()) {
             AbstractCard c = (AbstractCard)var3.next();
-            if (c.type == AbstractCard.CardType.ATTACK) {
+            if (c.type == AbstractCard.CardType.SKILL) {
                 totalDmg += dmgPerCard;
-            } else if (c.type == AbstractCard.CardType.SKILL) {
+            } else if (c.type == AbstractCard.CardType.ATTACK) {
                 totalBlck += blckPerCard;
             } else if (c.type == AbstractCard.CardType.POWER) {
                 totalDraws += cardsDrawnPerCard;
             }
         }
+        totalDmg += dmgBonuses;
 
-        this.addToBot(new DamageAction(m, new DamageInfo(p, totalDmg), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         atb(new GainBlockAction(p, AbstractDungeon.player, totalBlck));
+        this.addToBot(new DamageAction(m, new DamageInfo(p, totalDmg), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
         this.addToBot(new DrawCardAction(p, totalDraws));
 
         this.isDone = true;

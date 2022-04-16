@@ -14,15 +14,19 @@ public class RewindTapes extends AbstractEasyCard {
 
     public RewindTapes() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        this.baseBlock = 0;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new BetterDiscardPileToHandAction(this.magicNumber));
+
         if (this.upgraded)
         {
             this.addToBot(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.discardPile.size()));
+
         }
+        blck();
     }
 
     public void upp() {

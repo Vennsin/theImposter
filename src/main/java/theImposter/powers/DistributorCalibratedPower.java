@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import theImposter.ImposterMod;
+import theImposter.actions.CheckVotesAction;
 import theImposter.actions.TriggerVotesAction;
 import theImposter.actions.VentAction;
 import theImposter.util.TexLoader;
@@ -67,6 +68,14 @@ public class DistributorCalibratedPower extends AbstractPower {
         return totalVotes;
     }
 
+//    public void atEndOfRound() {
+//        if (GetTotalVotes() >= GetVoteTriggerAmount())
+//        {
+//            this.flashWithoutSound();
+//            this.addToBot(new TriggerVotesAction());
+//        }
+//    }
+
     public void atEndOfTurn(boolean isPlayer) {
         this.flash();
 //        if (this.owner.hasPower(VotePlayerPower.POWER_ID)) {
@@ -88,17 +97,32 @@ public class DistributorCalibratedPower extends AbstractPower {
             AbstractMonster mo = (AbstractMonster)var3.next();
             this.addToBot(new ApplyPowerAction(mo, this.owner, new SusPower(mo, this.owner, this.amount * 10), this.amount * 10));
             this.addToBot(new ApplyPowerAction(mo, this.owner, new VoteEnemyPower(mo, this.owner, this.amount * 3), this.amount * 3));
-            this.addToBot(new ApplyPowerAction(mo, this.owner, new VoteBuffPower(mo, this.owner, this.amount * 3), this.amount * 3));
-            this.addToBot(new ApplyPowerAction(mo, this.owner, new LoseVoteBuffPower(mo, this.owner, this.amount * 3), this.amount * 3));
+//            this.addToBot(new ApplyPowerAction(mo, this.owner, new VoteBuffPower(mo, this.owner, this.amount * 3), this.amount * 3));
+//            this.addToBot(new ApplyPowerAction(mo, this.owner, new LoseVoteBuffPower(mo, this.owner, this.amount * 3), this.amount * 3));
         }
 
-        if (GetTotalVotes() >= 10)
-        {
-            this.flashWithoutSound();
-            this.addToBot(new TriggerVotesAction());
-        }
+//        if (GetTotalVotes() >= GetVoteTriggerAmount())
+//        {
+//            this.flashWithoutSound();
+//            this.addToBot(new TriggerVotesAction());
+//        }
+        this.addToBot(new CheckVotesAction());
 
         this.addToBot(new VentAction());
+    }
+
+    public int GetVoteTriggerAmount()
+    {
+        if (AbstractDungeon.player.hasPower(JamCommunications7Power.POWER_ID))
+        {
+            return 7;
+        }
+        else if (AbstractDungeon.player.hasPower(JamCommunications13Power.POWER_ID))
+        {
+            return 13;
+        }
+
+        return 10;
     }
 
 //    @Override
